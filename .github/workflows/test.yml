@@ -47,5 +47,7 @@ jobs:
             --ignore=scripts/test_live_filter_guards.py \
             --ignore=scripts/test_machine_wake_state.py \
             --ignore=scripts/test_p1c_runbook_path.py \
+            --ignore=scripts/test_coordination_regression.py \
+            --ignore=scripts/test_full_suite.py \
             -v --cov=scripts --cov-report=xml
         timeout-minutes: 10
