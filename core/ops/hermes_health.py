@@ -19,7 +19,9 @@ if __name__ == "__main__":
     # 2026-09-27 修: 旧路径 hermes-agent-cn-desktop.exe 因应用更新失败已消失,
     # 新入口为 apps/desktop/release/win-unpacked/Hermes.exe (取自桌面快捷方式解析, 09-23 构建)
     DESKTOP_EXE = 'D:/Hermes agent/Hermes Agent CN Desktop/apps/desktop/release/win-unpacked/Hermes.exe'
-    PROJECT = 'D:/open code/zhuanqian'
+    # S6 基地化：原根目录 hardcoded 路径，现改为基于模块位置的相对路径
+_PROJECT_FILE = Path(__file__).resolve()
+PROJECT = str(_PROJECT_FILE.parents[2])  # core/ops/ -> core/ -> project root
     
     print("=" * 60)
     print("  Hermes CN Desktop 完全重启")

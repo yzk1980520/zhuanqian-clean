@@ -30,7 +30,9 @@ from pathlib import Path
 from datetime import datetime
 
 # 项目根目录（使用绝对路径）
-PROJECT_ROOT = Path("D:/open code/zhuanqian")
+# S6 基地化：原根目录 hardcoded 路径，现改为基于模块位置的相对路径
+_PROJECT_FILE = Path(__file__).resolve()
+_PROJECT_ROOT = _PROJECT_FILE.parents[2]  # core/pipeline/ -> core/ -> project root
 
 def select_picks(top_n=10):
     """选股入口 — 委托 auto_live_pipeline.run_stock_selection (唯一实盘路径, 已接主板白名单剔除)。

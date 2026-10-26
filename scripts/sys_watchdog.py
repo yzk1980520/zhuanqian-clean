@@ -301,7 +301,7 @@ def check_github_ci():
             c["evidence"] = "CI #%s %s/%s @%s" % (run["run_number"], run["status"], run["conclusion"], run["updated_at"])
             c["status"] = "fail" if (run["conclusion"] == "failure") else "ok"
             if c["status"] == "fail":
-                c["fix_hint"] = "CI 红: 看 actions 日志定位(常见=新代码依赖未入库); PAT 可查 https://github.com/yzk1980520/zhuanqian/actions"
+                c["fix_hint"] = "CI 红: 看 actions 日志定位(常见=新代码依赖未入库); PAT 可查 https://github.com/yzk1980520/zhuanqian-clean/actions"
     except Exception as e:
         c.update(status="warn", evidence="CI 查询异常(PAT 失效或网络): %s" % e)
     return c
