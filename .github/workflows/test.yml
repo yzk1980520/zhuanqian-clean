@@ -35,19 +35,6 @@ jobs:
       - name: Run tests (exclude environment-dependent)
         run: |
           python -m pytest scripts/test_*.py \
-            --ignore=scripts/test_dispatch_audit_check.py \
-            --ignore=scripts/test_ic_monitor_coverage.py \
-            --ignore=scripts/test_p0_boundaries.py \
-            --ignore=scripts/test_p0_boundaries_v2.py \
-            --ignore=scripts/test_self_heal_p04_threshold.py \
-            --ignore=scripts/test_self_heal_p10_p11.py \
-            --ignore=scripts/test_self_heal_p12.py \
-            --ignore=scripts/test_self_heal_recheck.py \
-            --ignore=scripts/test_self_heal_wake_matrix.py \
-            --ignore=scripts/test_live_filter_guards.py \
-            --ignore=scripts/test_machine_wake_state.py \
-            --ignore=scripts/test_p1c_runbook_path.py \
-            --ignore=scripts/test_coordination_regression.py \
-            --ignore=scripts/test_full_suite.py \
+            -k "not (dispatch_audit or ic_monitor or p0_boundaries or self_heal_p04 or self_heal_p10 or self_heal_p12 or self_heal_recheck or self_heal_wake or live_filter or machine_wake or p1c_runbook or coordination_regression or full_suite)" \
             -v --cov=scripts --cov-report=xml
         timeout-minutes: 10
