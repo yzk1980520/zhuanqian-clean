@@ -1,0 +1,44 @@
+# -*- coding: utf-8 -*-
+"""L4 证据脚本: 负 IC 因子符号处理前后行为对比 (TURN5 真实场景, 2026-10-19)
+
+跑法: ./.venv/Scripts/python.exe deliverables/_l4_evidence/demo_sign_behavior.py
+不写任何生产文件 (临时 PROJECT_ROOT 全隔离)。
+"""
+import sys, json, tempfile
+from pathlib import Path
+
+BASE = Path(r"D:/open code/zhuanqian")
+sys.path.insert(0, str(BASE))
+sys.path.insert(0, str(BASE / "scripts"))
+
+tmp = Path(tempfile.mkdtemp(prefix="l4_demo_"))
+(tmp / "data" / "history_daily").mkdir(parents=True)
+(tmp / "data" / "factor_ic").mkdir(parents=True)
+(tmp / "config.json").write_text(json.dumps({"strategy": "test", "factor_weights": {}}), encoding="utf-8")
+# 权威源: TURN5 ic=-0.0658 (与 data/factor_ic/factor_ic_latest.json 实测一致)
+(tmp / "data" / "factor_ic" / "factor_ic_latest.json").write_text(json.dumps(
+    {"factors": [{"name": "TURN5", "ic": -0.0658, "status": "dead"}]}), encoding="utf-8")
+
+
+def bars(n=120, close=10.0):
+    return [{"date": f"2026-{(i // 31) % 12 + 1:02d}-{i % 28 + 1:02d}", "open": close,
+             "close": close, "high": close + 1, "low": close - 1,
+             "volume": 1_000_000, "amount": 10_000_000} for i in range(n)]
+
+
+(tmp / "data" / "history_daily" / "sh600001.json").write_text(json.dumps(bars(close=10.0)), encoding="utf-8")
+(tmp / "data" / "history_daily" / "sh600002.json").write_text(json.dumps(bars(close=20.0)), encoding="utf-8")
+
+import auto_live_pipeline as ALP
+import config_loader, tdx_core, tdx_score
+
+ALP.PROJECT_ROOT = tmp
+config_loader.load_config = lambda: {"factor_layer_enabled": True, "factor_weights": {"TURN5": 0.15}}
+tdx_core.compute_indicators = lambda data: {"TURN5": 100.0 if data[-1]["close"] == 10.0 else 10.0, "close": data[-1]["close"]}
+tdx_score.score_stock = lambda inds, strategy=None: (99.0, ["mock"])
+
+picks, _ = ALP.run_stock_selection(top_n=10, scan_range=10)
+print("=== 修复后行为 (TURN5 IC=-0.0658 负, 权重 +0.15) ===")
+for p in picks:
+    print(f"  {p['code']}: score={p['score']:.2f} tech={p['tech_score']} factor={p['factor_score']}")
+print("期望: TURN5 因子值最高的 sh600001 factor_score 为负 (高值降分), 排名降到 sh600002 之后")

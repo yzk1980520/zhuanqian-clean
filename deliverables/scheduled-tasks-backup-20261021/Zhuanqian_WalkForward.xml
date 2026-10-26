@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-16"?>
+<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Date>2026-10-17T06:36:43</Date>
+    <Author>DESKTOP-THU5BUJ\WIN10</Author>
+    <Description>G5 anti-overfit mandatory cadence: scripts/Zhuanqian_WalkForward.bat runs scripts/walk_forward_backtest.py (train 252 / test 63 / step 63) then scripts/walk_forward_report.py, which echoes the IS/OOS Sharpe decay into logs/scheduler.log. walk_forward_backtest.py still exits 0 when decay &gt; 0.1, so the report line is the only visible overfit signal; promoting the decay into a blocking gate is a boss policy call. Ledger: cron_config.json events.walk_forward_quarterly.</Description>
+    <URI>\Zhuanqian_WalkForward</URI>
+  </RegistrationInfo>
+  <Principals>
+    <Principal id="Author">
+      <UserId>S-1-5-21-1594319831-3187001615-754757647-1001</UserId>
+      <LogonType>InteractiveToken</LogonType>
+    </Principal>
+  </Principals>
+  <Settings>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
+    <ExecutionTimeLimit>PT2H</ExecutionTimeLimit>
+    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+    <StartWhenAvailable>true</StartWhenAvailable>
+    <WakeToRun>true</WakeToRun>
+    <IdleSettings>
+      <Duration>PT10M</Duration>
+      <WaitTimeout>PT1H</WaitTimeout>
+      <StopOnIdleEnd>false</StopOnIdleEnd>
+      <RestartOnIdle>false</RestartOnIdle>
+    </IdleSettings>
+  </Settings>
+  <Triggers>
+    <CalendarTrigger>
+      <StartBoundary>2026-11-01T06:30:00</StartBoundary>
+      <ScheduleByMonth>
+        <Months>
+          <January />
+          <April />
+          <July />
+          <October />
+        </Months>
+        <DaysOfMonth>
+          <Day>1</Day>
+        </DaysOfMonth>
+      </ScheduleByMonth>
+    </CalendarTrigger>
+  </Triggers>
+  <Actions Context="Author">
+    <Exec>
+      <Command>D:\open code\zhuanqian\scripts\Zhuanqian_WalkForward.bat</Command>
+      <WorkingDirectory>D:\open code\zhuanqian</WorkingDirectory>
+    </Exec>
+  </Actions>
+</Task>

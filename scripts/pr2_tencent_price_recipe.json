@@ -1,0 +1,25 @@
+{
+  "recipe_id": "P-R2",
+  "name": "tencent_price_refresh",
+  "owner_slice": "风控合规(@atomcode)",
+  "claimed_at": "2026-10-23",
+  "purpose": "holdings.json 价格陈价兜底: refresh_holdings cron 失败/断写时, 用腾讯收盘报价幂等补价 (本会话 06:45 手工 + 16:13 系统两次实证)",
+  "idempotent": true,
+  "auto_executable": true,
+  "dry_run_first": true,
+  "source": "https://qt.gtimg.cn/q={code} (GBK 解码, 时间戳字段=数据归属日)",
+  "preconditions": [
+    "holdings.json 可读",
+    "报价时间戳归属日 >= holdings.price_asof, 否则 0 写入 (幂等短路)"
+  ],
+  "steps": [
+    "1. 读 holdings.json, 取 active 持仓 code 列表",
+    "2. 逐只取腾讯报价, 解析 最新价/前收/时间戳",
+    "3. 时间戳归属日 <= price_asof → 跳过 (0 写入)",
+    "4. 原子写: current_price/last_price/market_price/market_value/pnl/pnl_pct/position_value/market_date/price_asof + last_source 注记 + audit_YYYYMMDD 留痕 (追加不覆盖历史 audit)",
+    "5. 回读校验: 逐字段相等 + JSON valid + 交叉核算 (total_assets = cash+mv, position_ratio)"
+  ],
+  "witness": "独立进程 read-back (见证人≠修复人总则): 回读字段与写入值逐项相等, 失败=配方未核销",
+  "escalate_when": "腾讯通道不可达 → 回落 TDX history_daily 末值并标 source_gap; 连续 2 日补价失败 → P1 台账",
+  "register_into": "P-B4 幂等配方注册表 (10/26 批次, @Opencode)"
+}

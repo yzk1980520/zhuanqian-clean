@@ -1,0 +1,3925 @@
+{
+  "meta": {
+    "window": [
+      "2021-01-04",
+      "2026-09-30"
+    ],
+    "trading_days": 1393,
+    "scan_days": 279,
+    "universe": 3147,
+    "inds_universe": 3147,
+    "init_capital": 25000.0,
+    "scan_step": 5,
+    "contract": {
+      "stop_pct": 0.1,
+      "trailing_ladder": [
+        [
+          6,
+          0.15
+        ],
+        [
+          10,
+          0.05
+        ],
+        [
+          15,
+          0.07
+        ],
+        [
+          25,
+          0.09
+        ],
+        [
+          999,
+          0.12
+        ]
+      ],
+      "max_hold_days": 120,
+      "chase_ban_pct": 4.0,
+      "slippage_rate": 0.001
+    }
+  },
+  "runs": {
+    "TURN5": {
+      "config": "TURN5-成交量升序",
+      "trades": 44,
+      "win_rate": 45.5,
+      "avg_win_pct": 14.63,
+      "avg_loss_pct": -14.47,
+      "profit_factor": 0.64,
+      "total_return_pct": -88.72,
+      "annual_pct": -33.56,
+      "max_drawdown_pct": 97.74,
+      "avg_hold_days": 28.8,
+      "reasons": {
+        "止损": 21,
+        "移动止盈": 20,
+        "时间止损": 2,
+        "期末平仓": 1
+      },
+      "final_equity": 2821.01,
+      "elapsed_s": 0.1,
+      "_trades": [
+        {
+          "code": "sz002986",
+          "name": "宇新股份",
+          "buy_date": "2021-01-04",
+          "sell_date": null,
+          "entry": 36.42,
+          "exit_price": null,
+          "pnl": -2219.7,
+          "pnl_pct": -10.0,
+          "hold_days": 3,
+          "reason": "止损",
+          "score": -12.41969501389408
+        },
+        {
+          "code": "sz000803",
+          "name": "山高环能",
+          "buy_date": "2021-01-11",
+          "sell_date": null,
+          "entry": 14.26,
+          "exit_price": null,
+          "pnl": -2172.88,
+          "pnl_pct": -10.0,
+          "hold_days": 21,
+          "reason": "止损",
+          "score": -12.20757152165391
+        },
+        {
+          "code": "sh600539",
+          "name": "狮头股份",
+          "buy_date": "2021-02-22",
+          "sell_date": null,
+          "entry": 6.2,
+          "exit_price": null,
+          "pnl": 2962.57,
+          "pnl_pct": 14.68,
+          "hold_days": 62,
+          "reason": "移动止盈(回撤12%)",
+          "score": -11.963363938721123
+        },
+        {
+          "code": "sh605288",
+          "name": "凯迪股份",
+          "buy_date": "2021-05-28",
+          "sell_date": null,
+          "entry": 111.03,
+          "exit_price": null,
+          "pnl": -7930.6,
+          "pnl_pct": -35.59,
+          "hold_days": 32,
+          "reason": "止损(跳空)",
+          "score": -12.024802535771997
+        },
+        {
+          "code": "sh603755",
+          "name": "日辰股份",
+          "buy_date": "2021-07-19",
+          "sell_date": null,
+          "entry": 59.5,
+          "exit_price": null,
+          "pnl": -1211.17,
+          "pnl_pct": -10.0,
+          "hold_days": 6,
+          "reason": "止损",
+          "score": -11.446785662465684
+        },
+        {
+          "code": "sz002729",
+          "name": "好利科技",
+          "buy_date": "2021-08-02",
+          "sell_date": null,
+          "entry": 46.92,
+          "exit_price": null,
+          "pnl": -1431.6,
+          "pnl_pct": -10.0,
+          "hold_days": 12,
+          "reason": "止损",
+          "score": -12.16774233585004
+        },
+        {
+          "code": "sh603031",
+          "name": "安孚科技",
+          "buy_date": "2021-08-23",
+          "sell_date": null,
+          "entry": 26.55,
+          "exit_price": null,
+          "pnl": 3493.65,
+          "pnl_pct": 33.15,
+          "hold_days": 30,
+          "reason": "移动止盈(回撤12%)",
+          "score": -11.915854025426396
+        },
+        {
+          "code": "sh603860",
+          "name": "中公高科",
+          "buy_date": "2021-10-20",
+          "sell_date": null,
+          "entry": 19.9,
+          "exit_price": null,
+          "pnl": 386.33,
+          "pnl_pct": 2.61,
+          "hold_days": 47,
+          "reason": "移动止盈(回撤5%)",
+          "score": -11.803353763090035
+        },
+        {
+          "code": "sh605288",
+          "name": "凯迪股份",
+          "buy_date": "2021-12-29",
+          "sell_date": null,
+          "entry": 62.0,
+          "exit_price": null,
+          "pnl": -425.12,
+          "pnl_pct": -3.24,
+          "hold_days": 15,
+          "reason": "移动止盈(回撤5%)",
+          "score": -12.010422658524886
+        },
+        {
+          "code": "sh605288",
+          "name": "凯迪股份",
+          "buy_date": "2022-01-27",
+          "sell_date": null,
+          "entry": 54.3,
+          "exit_price": null,
+          "pnl": -1105.76,
+          "pnl_pct": -10.0,
+          "hold_days": 23,
+          "reason": "止损",
+          "score": -12.150877010062224
+        },
+        {
+          "code": "sh600615",
+          "name": "鑫源智造",
+          "buy_date": "2022-03-10",
+          "sell_date": null,
+          "entry": 7.88,
+          "exit_price": null,
+          "pnl": 1205.53,
+          "pnl_pct": 8.25,
+          "hold_days": 30,
+          "reason": "移动止盈(回撤9%)",
+          "score": -12.00762780434872
+        },
+        {
+          "code": "sh603039",
+          "name": "泛微网络",
+          "buy_date": "2022-05-05",
+          "sell_date": null,
+          "entry": 37.75,
+          "exit_price": null,
+          "pnl": -2176.55,
+          "pnl_pct": -14.25,
+          "hold_days": 4,
+          "reason": "止损(跳空)",
+          "score": -10.210972252284089
+        },
+        {
+          "code": "sz002751",
+          "name": "易尚退",
+          "buy_date": "2022-05-12",
+          "sell_date": null,
+          "entry": 9.08,
+          "exit_price": null,
+          "pnl": -1957.53,
+          "pnl_pct": -14.21,
+          "hold_days": 4,
+          "reason": "止损(跳空)",
+          "score": -10.335269968961667
+        },
+        {
+          "code": "sh600209",
+          "name": "退市罗顿",
+          "buy_date": "2022-05-19",
+          "sell_date": null,
+          "entry": 0.73,
+          "exit_price": null,
+          "pnl": 308.2,
+          "pnl_pct": 2.74,
+          "hold_days": 5,
+          "reason": "移动止盈(回撤7%)",
+          "score": -10.961277846683982
+        },
+        {
+          "code": "sh600385",
+          "name": "退市金泰",
+          "buy_date": "2022-06-02",
+          "sell_date": null,
+          "entry": 0.97,
+          "exit_price": null,
+          "pnl": 1126.51,
+          "pnl_pct": 9.28,
+          "hold_days": 16,
+          "reason": "移动止盈(回撤12%)",
+          "score": -11.546360241056465
+        },
+        {
+          "code": "sz002219",
+          "name": "新里程",
+          "buy_date": "2022-07-01",
+          "sell_date": null,
+          "entry": 3.66,
+          "exit_price": null,
+          "pnl": 2117.47,
+          "pnl_pct": 15.85,
+          "hold_days": 13,
+          "reason": "移动止盈(回撤12%)",
+          "score": -11.404783306350526
+        },
+        {
+          "code": "sh605369",
+          "name": "拱东医疗",
+          "buy_date": "2022-07-22",
+          "sell_date": null,
+          "entry": 126.99,
+          "exit_price": null,
+          "pnl": -1292.16,
+          "pnl_pct": -10.0,
+          "hold_days": 40,
+          "reason": "止损",
+          "score": -11.766481822692633
+        },
+        {
+          "code": "sh603171",
+          "name": "税友股份",
+          "buy_date": "2022-09-26",
+          "sell_date": null,
+          "entry": 24.36,
+          "exit_price": null,
+          "pnl": 10335.94,
+          "pnl_pct": 85.18,
+          "hold_days": 120,
+          "reason": "时间止损(120d)",
+          "score": -12.594340728809817
+        },
+        {
+          "code": "sh603991",
+          "name": "领先股份",
+          "buy_date": "2023-04-04",
+          "sell_date": null,
+          "entry": 37.76,
+          "exit_price": null,
+          "pnl": -2301.39,
+          "pnl_pct": -10.0,
+          "hold_days": 94,
+          "reason": "止损",
+          "score": -12.099044072771651
+        },
+        {
+          "code": "sh603031",
+          "name": "安孚科技",
+          "buy_date": "2023-08-23",
+          "sell_date": null,
+          "entry": 46.99,
+          "exit_price": null,
+          "pnl": -1910.14,
+          "pnl_pct": -10.0,
+          "hold_days": 107,
+          "reason": "止损",
+          "score": -11.643953727376633
+        },
+        {
+          "code": "sh603880",
+          "name": "南卫股份",
+          "buy_date": "2024-02-02",
+          "sell_date": null,
+          "entry": 3.83,
+          "exit_price": null,
+          "pnl": -2893.33,
+          "pnl_pct": -14.1,
+          "hold_days": 4,
+          "reason": "止损(跳空)",
+          "score": -11.362102575235644
+        },
+        {
+          "code": "sh603031",
+          "name": "安孚科技",
+          "buy_date": "2024-02-19",
+          "sell_date": null,
+          "entry": 41.34,
+          "exit_price": null,
+          "pnl": 2829.71,
+          "pnl_pct": 17.32,
+          "hold_days": 29,
+          "reason": "移动止盈(回撤12%)",
+          "score": -13.06875160795568
+        },
+        {
+          "code": "sz002490",
+          "name": "山东墨龙",
+          "buy_date": "2024-04-01",
+          "sell_date": null,
+          "entry": 3.06,
+          "exit_price": null,
+          "pnl": -2934.94,
+          "pnl_pct": -14.38,
+          "hold_days": 4,
+          "reason": "止损(跳空)",
+          "score": -11.686038082678873
+        },
+        {
+          "code": "sh603351",
+          "name": "威尔药业",
+          "buy_date": "2024-04-10",
+          "sell_date": null,
+          "entry": 22.07,
+          "exit_price": null,
+          "pnl": 971.16,
+          "pnl_pct": 6.48,
+          "hold_days": 32,
+          "reason": "移动止盈(回撤9%)",
+          "score": -12.273170389062669
+        },
+        {
+          "code": "sh600671",
+          "name": "天目药业",
+          "buy_date": "2024-06-03",
+          "sell_date": null,
+          "entry": 8.22,
+          "exit_price": null,
+          "pnl": -1837.98,
+          "pnl_pct": -10.0,
+          "hold_days": 4,
+          "reason": "止损",
+          "score": -12.480669478433299
+        },
+        {
+          "code": "sh600671",
+          "name": "天目药业",
+          "buy_date": "2024-06-11",
+          "sell_date": null,
+          "entry": 7.85,
+          "exit_price": null,
+          "pnl": -1596.34,
+          "pnl_pct": -10.0,
+          "hold_days": 26,
+          "reason": "止损",
+          "score": -11.782211869893585
+        },
+        {
+          "code": "sz001225",
+          "name": "和泰机电",
+          "buy_date": "2024-07-23",
+          "sell_date": null,
+          "entry": 26.58,
+          "exit_price": null,
+          "pnl": 3969.06,
+          "pnl_pct": 30.1,
+          "hold_days": 120,
+          "reason": "时间止损(120d)",
+          "score": -11.964637824243713
+        },
+        {
+          "code": "sh603325",
+          "name": "博隆技术",
+          "buy_date": "2025-01-24",
+          "sell_date": null,
+          "entry": 77.38,
+          "exit_price": null,
+          "pnl": 1792.88,
+          "pnl_pct": 11.79,
+          "hold_days": 44,
+          "reason": "移动止盈(回撤9%)",
+          "score": -12.81056892399524
+        },
+        {
+          "code": "sh600387",
+          "name": "退市海越",
+          "buy_date": "2025-04-08",
+          "sell_date": null,
+          "entry": 2.34,
+          "exit_price": null,
+          "pnl": -2207.46,
+          "pnl_pct": -10.68,
+          "hold_days": 6,
+          "reason": "止损(跳空)",
+          "score": -12.168370778346162
+        },
+        {
+          "code": "sz001223",
+          "name": "欧克科技",
+          "buy_date": "2025-04-22",
+          "sell_date": null,
+          "entry": 46.08,
+          "exit_price": null,
+          "pnl": 264.83,
+          "pnl_pct": 2.11,
+          "hold_days": 4,
+          "reason": "移动止盈(回撤5%)",
+          "score": -12.70076888736628
+        },
+        {
+          "code": "sz002336",
+          "name": "人乐退",
+          "buy_date": "2025-04-29",
+          "sell_date": null,
+          "entry": 0.61,
+          "exit_price": null,
+          "pnl": -3058.18,
+          "pnl_pct": -16.39,
+          "hold_days": 30,
+          "reason": "止损(跳空)",
+          "score": -10.576432025778553
+        },
+        {
+          "code": "sh603325",
+          "name": "博隆技术",
+          "buy_date": "2025-06-23",
+          "sell_date": null,
+          "entry": 89.9,
+          "exit_price": null,
+          "pnl": -476.88,
+          "pnl_pct": -5.11,
+          "hold_days": 23,
+          "reason": "移动止盈(回撤9%)",
+          "score": -12.55346715918224
+        },
+        {
+          "code": "sh603091",
+          "name": "众鑫股份",
+          "buy_date": "2025-07-28",
+          "sell_date": null,
+          "entry": 65.8,
+          "exit_price": null,
+          "pnl": -1338.88,
+          "pnl_pct": -10.0,
+          "hold_days": 23,
+          "reason": "止损",
+          "score": -13.377594569585602
+        },
+        {
+          "code": "sh603307",
+          "name": "扬州金泉",
+          "buy_date": "2025-09-01",
+          "sell_date": null,
+          "entry": 39.18,
+          "exit_price": null,
+          "pnl": 1181.43,
+          "pnl_pct": 10.26,
+          "hold_days": 47,
+          "reason": "移动止盈(回撤9%)",
+          "score": -13.483667589726723
+        },
+        {
+          "code": "sh603091",
+          "name": "众鑫股份",
+          "buy_date": "2025-11-18",
+          "sell_date": null,
+          "entry": 73.0,
+          "exit_price": null,
+          "pnl": 891.56,
+          "pnl_pct": 6.3,
+          "hold_days": 34,
+          "reason": "移动止盈(回撤9%)",
+          "score": -12.7863310440115
+        },
+        {
+          "code": "sz001238",
+          "name": "浙江正特",
+          "buy_date": "2026-01-08",
+          "sell_date": null,
+          "entry": 51.42,
+          "exit_price": null,
+          "pnl": 106.66,
+          "pnl_pct": 0.88,
+          "hold_days": 3,
+          "reason": "移动止盈(回撤5%)",
+          "score": -13.083601758850993
+        },
+        {
+          "code": "sz001270",
+          "name": "铖昌科技",
+          "buy_date": "2026-01-15",
+          "sell_date": null,
+          "entry": 116.7,
+          "exit_price": null,
+          "pnl": 1870.65,
+          "pnl_pct": 16.25,
+          "hold_days": 16,
+          "reason": "移动止盈(回撤12%)",
+          "score": -12.484098243948642
+        },
+        {
+          "code": "sh603813",
+          "name": "原尚股份",
+          "buy_date": "2026-02-12",
+          "sell_date": null,
+          "entry": 30.86,
+          "exit_price": null,
+          "pnl": 1424.5,
+          "pnl_pct": 9.43,
+          "hold_days": 15,
+          "reason": "移动止盈(回撤9%)",
+          "score": -12.732279371334467
+        },
+        {
+          "code": "sz001238",
+          "name": "浙江正特",
+          "buy_date": "2026-03-20",
+          "sell_date": null,
+          "entry": 48.27,
+          "exit_price": null,
+          "pnl": -1472.65,
+          "pnl_pct": -10.0,
+          "hold_days": 43,
+          "reason": "止损",
+          "score": -12.568630252627061
+        },
+        {
+          "code": "sh600421",
+          "name": "退市华嵘",
+          "buy_date": "2026-05-28",
+          "sell_date": null,
+          "entry": 2.04,
+          "exit_price": null,
+          "pnl": -14459.36,
+          "pnl_pct": -83.33,
+          "hold_days": 4,
+          "reason": "止损(跳空)",
+          "score": -10.623763400484325
+        },
+        {
+          "code": "sz002898",
+          "name": "赛隆退",
+          "buy_date": "2026-06-04",
+          "sell_date": null,
+          "entry": 0.33,
+          "exit_price": null,
+          "pnl": -100.37,
+          "pnl_pct": -3.03,
+          "hold_days": 16,
+          "reason": "移动止盈(回撤5%)",
+          "score": -10.893028746149875
+        },
+        {
+          "code": "sh603001",
+          "name": "奥康国际",
+          "buy_date": "2026-07-03",
+          "sell_date": null,
+          "entry": 10.31,
+          "exit_price": null,
+          "pnl": -273.71,
+          "pnl_pct": -12.9,
+          "hold_days": 3,
+          "reason": "止损(跳空)",
+          "score": -11.952469886731256
+        },
+        {
+          "code": "sh603235",
+          "name": "天新药业",
+          "buy_date": "2026-07-10",
+          "sell_date": null,
+          "entry": 23.15,
+          "exit_price": null,
+          "pnl": 49.42,
+          "pnl_pct": 2.51,
+          "hold_days": 10,
+          "reason": "移动止盈(回撤5%)",
+          "score": -12.602833313008192
+        },
+        {
+          "code": "sh603235",
+          "name": "天新药业",
+          "buy_date": "2026-07-31",
+          "sell_date": null,
+          "entry": 24.15,
+          "exit_price": null,
+          "pnl": 172.08,
+          "pnl_pct": 7.49,
+          "hold_days": 42,
+          "reason": "期末平仓",
+          "score": -12.82348822887799
+        }
+      ]
+    },
+    "TURN5_v2": {
+      "config": "TURN5-含v2叠加",
+      "trades": 36,
+      "win_rate": 66.7,
+      "avg_win_pct": 9.54,
+      "avg_loss_pct": -10.02,
+      "profit_factor": 1.47,
+      "total_return_pct": 95.48,
+      "annual_pct": 12.85,
+      "max_drawdown_pct": 45.09,
+      "avg_hold_days": 36.1,
+      "reasons": {
+        "移动止盈": 24,
+        "止损": 10,
+        "时间止损": 1,
+        "期末平仓": 1
+      },
+      "final_equity": 48870.28,
+      "elapsed_s": 71.4,
+      "_trades": [
+        {
+          "code": "sz000953",
+          "name": "中哲精化",
+          "buy_date": "2021-01-04",
+          "sell_date": null,
+          "entry": 4.16,
+          "exit_price": null,
+          "pnl": 376.93,
+          "pnl_pct": 1.68,
+          "hold_days": 24,
+          "reason": "移动止盈(回撤7%)",
+          "score": -3.5559282217848533
+        },
+        {
+          "code": "sz002735",
+          "name": "王子新材",
+          "buy_date": "2021-02-08",
+          "sell_date": null,
+          "entry": 23.22,
+          "exit_price": null,
+          "pnl": 1108.44,
+          "pnl_pct": 4.95,
+          "hold_days": 16,
+          "reason": "移动止盈(回撤7%)",
+          "score": -2.561610759954151
+        },
+        {
+          "code": "sh603039",
+          "name": "泛微网络",
+          "buy_date": "2021-03-15",
+          "sell_date": null,
+          "entry": 80.76,
+          "exit_price": null,
+          "pnl": 955.91,
+          "pnl_pct": 4.12,
+          "hold_days": 33,
+          "reason": "移动止盈(回撤9%)",
+          "score": -5.163930298861562
+        },
+        {
+          "code": "sh605288",
+          "name": "凯迪股份",
+          "buy_date": "2021-05-07",
+          "sell_date": null,
+          "entry": 104.55,
+          "exit_price": null,
+          "pnl": 606.45,
+          "pnl_pct": 3.08,
+          "hold_days": 26,
+          "reason": "移动止盈(回撤5%)",
+          "score": -1.55752057818367
+        },
+        {
+          "code": "sh603968",
+          "name": "醋化股份",
+          "buy_date": "2021-06-21",
+          "sell_date": null,
+          "entry": 14.78,
+          "exit_price": null,
+          "pnl": -2701.55,
+          "pnl_pct": -10.0,
+          "hold_days": 26,
+          "reason": "止损",
+          "score": -4.5787242292334
+        },
+        {
+          "code": "sz002972",
+          "name": "科安达",
+          "buy_date": "2021-08-02",
+          "sell_date": null,
+          "entry": 16.16,
+          "exit_price": null,
+          "pnl": 2639.61,
+          "pnl_pct": 11.08,
+          "hold_days": 31,
+          "reason": "移动止盈(回撤9%)",
+          "score": -2.603381052487876
+        },
+        {
+          "code": "sh603322",
+          "name": "超讯科技",
+          "buy_date": "2021-09-22",
+          "sell_date": null,
+          "entry": 12.47,
+          "exit_price": null,
+          "pnl": 480.78,
+          "pnl_pct": 1.92,
+          "hold_days": 80,
+          "reason": "移动止盈(回撤5%)",
+          "score": -3.2090613839265263
+        },
+        {
+          "code": "sh603029",
+          "name": "天鹅股份",
+          "buy_date": "2022-01-27",
+          "sell_date": null,
+          "entry": 12.92,
+          "exit_price": null,
+          "pnl": 14652.8,
+          "pnl_pct": 54.26,
+          "hold_days": 18,
+          "reason": "移动止盈(回撤12%)",
+          "score": -5.168605416014451
+        },
+        {
+          "code": "sh605266",
+          "name": "健之佳",
+          "buy_date": "2022-03-03",
+          "sell_date": null,
+          "entry": 71.99,
+          "exit_price": null,
+          "pnl": -3653.42,
+          "pnl_pct": -10.0,
+          "hold_days": 4,
+          "reason": "止损",
+          "score": -3.382675645577466
+        },
+        {
+          "code": "sh605058",
+          "name": "澳弘电子",
+          "buy_date": "2022-03-10",
+          "sell_date": null,
+          "entry": 20.55,
+          "exit_price": null,
+          "pnl": -3962.56,
+          "pnl_pct": -10.0,
+          "hold_days": 29,
+          "reason": "止损",
+          "score": -3.5690273798075722
+        },
+        {
+          "code": "sh603848",
+          "name": "好太太",
+          "buy_date": "2022-04-25",
+          "sell_date": null,
+          "entry": 11.1,
+          "exit_price": null,
+          "pnl": 11581.14,
+          "pnl_pct": 33.87,
+          "hold_days": 48,
+          "reason": "移动止盈(回撤12%)",
+          "score": -2.387816440725997
+        },
+        {
+          "code": "sh603979",
+          "name": "金诚信",
+          "buy_date": "2022-07-08",
+          "sell_date": null,
+          "entry": 19.19,
+          "exit_price": null,
+          "pnl": 1195.09,
+          "pnl_pct": 2.76,
+          "hold_days": 33,
+          "reason": "移动止盈(回撤7%)",
+          "score": -4.863745826470643
+        },
+        {
+          "code": "sh605500",
+          "name": "森林包装",
+          "buy_date": "2022-08-26",
+          "sell_date": null,
+          "entry": 10.26,
+          "exit_price": null,
+          "pnl": -5863.51,
+          "pnl_pct": -12.28,
+          "hold_days": 21,
+          "reason": "止损(跳空)",
+          "score": -4.157322093586329
+        },
+        {
+          "code": "sh603685",
+          "name": "晨丰科技",
+          "buy_date": "2022-10-10",
+          "sell_date": null,
+          "entry": 9.66,
+          "exit_price": null,
+          "pnl": 361.63,
+          "pnl_pct": 1.04,
+          "hold_days": 53,
+          "reason": "移动止盈(回撤5%)",
+          "score": -3.46852254599084
+        },
+        {
+          "code": "sh603048",
+          "name": "浙江黎明",
+          "buy_date": "2022-12-26",
+          "sell_date": null,
+          "entry": 14.93,
+          "exit_price": null,
+          "pnl": 3650.02,
+          "pnl_pct": 8.91,
+          "hold_days": 54,
+          "reason": "移动止盈(回撤9%)",
+          "score": -4.835097260193402
+        },
+        {
+          "code": "sh600721",
+          "name": "百花医药",
+          "buy_date": "2023-03-21",
+          "sell_date": null,
+          "entry": 6.22,
+          "exit_price": null,
+          "pnl": 5465.2,
+          "pnl_pct": 12.22,
+          "hold_days": 103,
+          "reason": "移动止盈(回撤9%)",
+          "score": -4.519838167790301
+        },
+        {
+          "code": "sz001216",
+          "name": "华瓷股份",
+          "buy_date": "2023-08-23",
+          "sell_date": null,
+          "entry": 12.4,
+          "exit_price": null,
+          "pnl": 859.37,
+          "pnl_pct": 1.85,
+          "hold_days": 23,
+          "reason": "移动止盈(回撤5%)",
+          "score": -3.5806155378782893
+        },
+        {
+          "code": "sh603071",
+          "name": "物产环能",
+          "buy_date": "2023-09-27",
+          "sell_date": null,
+          "entry": 15.21,
+          "exit_price": null,
+          "pnl": -5247.03,
+          "pnl_pct": -10.0,
+          "hold_days": 77,
+          "reason": "止损",
+          "score": -3.33872444424701
+        },
+        {
+          "code": "sh603587",
+          "name": "地素时尚",
+          "buy_date": "2024-01-26",
+          "sell_date": null,
+          "entry": 13.23,
+          "exit_price": null,
+          "pnl": -4698.43,
+          "pnl_pct": -10.0,
+          "hold_days": 4,
+          "reason": "止损",
+          "score": -4.4634622147009395
+        },
+        {
+          "code": "sh603685",
+          "name": "晨丰科技",
+          "buy_date": "2024-02-02",
+          "sell_date": null,
+          "entry": 13.99,
+          "exit_price": null,
+          "pnl": -7257.5,
+          "pnl_pct": -17.16,
+          "hold_days": 2,
+          "reason": "止损(跳空)",
+          "score": -2.846518930802066
+        },
+        {
+          "code": "sz002259",
+          "name": "升达林业",
+          "buy_date": "2024-02-19",
+          "sell_date": null,
+          "entry": 3.21,
+          "exit_price": null,
+          "pnl": 1129.22,
+          "pnl_pct": 3.43,
+          "hold_days": 15,
+          "reason": "移动止盈(回撤5%)",
+          "score": -8.290833916166676
+        },
+        {
+          "code": "sh603237",
+          "name": "五芳斋",
+          "buy_date": "2024-03-18",
+          "sell_date": null,
+          "entry": 27.5,
+          "exit_price": null,
+          "pnl": -3628.58,
+          "pnl_pct": -10.0,
+          "hold_days": 61,
+          "reason": "止损",
+          "score": -6.983296159699301
+        },
+        {
+          "code": "sh603680",
+          "name": "今创集团",
+          "buy_date": "2024-06-25",
+          "sell_date": null,
+          "entry": 6.36,
+          "exit_price": null,
+          "pnl": 3042.3,
+          "pnl_pct": 9.75,
+          "hold_days": 29,
+          "reason": "移动止盈(回撤9%)",
+          "score": -3.946427340689091
+        },
+        {
+          "code": "sh600182",
+          "name": "S佳通",
+          "buy_date": "2024-08-06",
+          "sell_date": null,
+          "entry": 12.8,
+          "exit_price": null,
+          "pnl": 347.2,
+          "pnl_pct": 1.17,
+          "hold_days": 23,
+          "reason": "移动止盈(回撤5%)",
+          "score": -4.545968597151555
+        },
+        {
+          "code": "sh603275",
+          "name": "众辰科技",
+          "buy_date": "2024-09-10",
+          "sell_date": null,
+          "entry": 25.8,
+          "exit_price": null,
+          "pnl": 3371.17,
+          "pnl_pct": 10.23,
+          "hold_days": 18,
+          "reason": "移动止盈(回撤12%)",
+          "score": -2.7606554199996634
+        },
+        {
+          "code": "sh600377",
+          "name": "宁沪高速",
+          "buy_date": "2024-10-17",
+          "sell_date": null,
+          "entry": 12.96,
+          "exit_price": null,
+          "pnl": 7437.72,
+          "pnl_pct": 19.98,
+          "hold_days": 120,
+          "reason": "时间止损(120d)",
+          "score": -6.51627472201783
+        },
+        {
+          "code": "sh605169",
+          "name": "洪通燃气",
+          "buy_date": "2025-04-22",
+          "sell_date": null,
+          "entry": 9.35,
+          "exit_price": null,
+          "pnl": 6921.16,
+          "pnl_pct": 15.29,
+          "hold_days": 18,
+          "reason": "移动止盈(回撤12%)",
+          "score": -7.047833753597151
+        },
+        {
+          "code": "sh605098",
+          "name": "行动教育",
+          "buy_date": "2025-05-23",
+          "sell_date": null,
+          "entry": 35.66,
+          "exit_price": null,
+          "pnl": 785.46,
+          "pnl_pct": 1.74,
+          "hold_days": 67,
+          "reason": "移动止盈(回撤5%)",
+          "score": -5.2797352254049965
+        },
+        {
+          "code": "sz002014",
+          "name": "永新股份",
+          "buy_date": "2025-09-01",
+          "sell_date": null,
+          "entry": 11.25,
+          "exit_price": null,
+          "pnl": 1510.03,
+          "pnl_pct": 3.02,
+          "hold_days": 89,
+          "reason": "移动止盈(回撤5%)",
+          "score": -2.946642162521787
+        },
+        {
+          "code": "sz002992",
+          "name": "宝明科技",
+          "buy_date": "2026-01-15",
+          "sell_date": null,
+          "entry": 47.0,
+          "exit_price": null,
+          "pnl": 5539.41,
+          "pnl_pct": 10.89,
+          "hold_days": 40,
+          "reason": "移动止盈(回撤9%)",
+          "score": -2.670550750678709
+        },
+        {
+          "code": "sz001378",
+          "name": "德冠新材",
+          "buy_date": "2026-03-27",
+          "sell_date": null,
+          "entry": 23.0,
+          "exit_price": null,
+          "pnl": -4846.89,
+          "pnl_pct": -7.96,
+          "hold_days": 37,
+          "reason": "移动止盈(回撤9%)",
+          "score": -5.600781523655769
+        },
+        {
+          "code": "sz002868",
+          "name": "绿康生化",
+          "buy_date": "2026-05-28",
+          "sell_date": null,
+          "entry": 29.37,
+          "exit_price": null,
+          "pnl": -5363.44,
+          "pnl_pct": -10.0,
+          "hold_days": 6,
+          "reason": "止损",
+          "score": -3.3686338046811883
+        },
+        {
+          "code": "sz001222",
+          "name": "源飞宠物",
+          "buy_date": "2026-06-11",
+          "sell_date": null,
+          "entry": 14.78,
+          "exit_price": null,
+          "pnl": -5098.24,
+          "pnl_pct": -10.0,
+          "hold_days": 9,
+          "reason": "止损",
+          "score": -5.104343092099615
+        },
+        {
+          "code": "sh603273",
+          "name": "天元智能",
+          "buy_date": "2026-06-26",
+          "sell_date": null,
+          "entry": 12.79,
+          "exit_price": null,
+          "pnl": 1884.07,
+          "pnl_pct": 4.38,
+          "hold_days": 8,
+          "reason": "移动止盈(回撤7%)",
+          "score": -5.232349440965626
+        },
+        {
+          "code": "sz000590",
+          "name": "古汉医药",
+          "buy_date": "2026-07-10",
+          "sell_date": null,
+          "entry": 8.19,
+          "exit_price": null,
+          "pnl": 3339.08,
+          "pnl_pct": 7.33,
+          "hold_days": 47,
+          "reason": "移动止盈(回撤9%)",
+          "score": -5.384349631088211
+        },
+        {
+          "code": "sh601100",
+          "name": "恒立液压",
+          "buy_date": "2026-09-18",
+          "sell_date": null,
+          "entry": 93.0,
+          "exit_price": null,
+          "pnl": -1418.38,
+          "pnl_pct": -2.89,
+          "hold_days": 7,
+          "reason": "期末平仓",
+          "score": -5.987762449743629
+        }
+      ]
+    },
+    "BASE_S3": {
+      "config": "基线S3-技术分",
+      "trades": 36,
+      "win_rate": 52.8,
+      "avg_win_pct": 16.27,
+      "avg_loss_pct": -9.84,
+      "profit_factor": 1.22,
+      "total_return_pct": 88.31,
+      "annual_pct": 12.03,
+      "max_drawdown_pct": 54.47,
+      "avg_hold_days": 35.8,
+      "reasons": {
+        "移动止盈": 18,
+        "时间止损": 2,
+        "止损": 15,
+        "期末平仓": 1
+      },
+      "final_equity": 47077.7,
+      "elapsed_s": 75.2,
+      "_trades": [
+        {
+          "code": "sh603833",
+          "name": "欧派家居",
+          "buy_date": "2021-01-04",
+          "sell_date": null,
+          "entry": 130.0,
+          "exit_price": null,
+          "pnl": 1485.09,
+          "pnl_pct": 11.63,
+          "hold_days": 41,
+          "reason": "移动止盈(回撤12%)",
+          "score": 53.03843242004437
+        },
+        {
+          "code": "sh601669",
+          "name": "中国电建",
+          "buy_date": "2021-03-15",
+          "sell_date": null,
+          "entry": 4.07,
+          "exit_price": null,
+          "pnl": 21242.37,
+          "pnl_pct": 80.59,
+          "hold_days": 120,
+          "reason": "时间止损(120d)",
+          "score": 54.34818146378711
+        },
+        {
+          "code": "sz002729",
+          "name": "好利科技",
+          "buy_date": "2021-09-13",
+          "sell_date": null,
+          "entry": 49.4,
+          "exit_price": null,
+          "pnl": -2767.64,
+          "pnl_pct": -6.07,
+          "hold_days": 16,
+          "reason": "移动止盈(回撤12%)",
+          "score": 55.5689121074436
+        },
+        {
+          "code": "sz000419",
+          "name": "通程控股",
+          "buy_date": "2021-10-20",
+          "sell_date": null,
+          "entry": 4.5,
+          "exit_price": null,
+          "pnl": -4520.14,
+          "pnl_pct": -10.0,
+          "hold_days": 9,
+          "reason": "止损",
+          "score": 41.72592828421761
+        },
+        {
+          "code": "sz002405",
+          "name": "四维图新",
+          "buy_date": "2021-11-03",
+          "sell_date": null,
+          "entry": 12.12,
+          "exit_price": null,
+          "pnl": 7611.99,
+          "pnl_pct": 19.22,
+          "hold_days": 24,
+          "reason": "移动止盈(回撤12%)",
+          "score": 49.51261926664834
+        },
+        {
+          "code": "sz000065",
+          "name": "北方国际",
+          "buy_date": "2021-12-08",
+          "sell_date": null,
+          "entry": 8.37,
+          "exit_price": null,
+          "pnl": 264.4,
+          "pnl_pct": 0.72,
+          "hold_days": 50,
+          "reason": "移动止盈(回撤5%)",
+          "score": 53.48763507360888
+        },
+        {
+          "code": "sh600611",
+          "name": "大众交通",
+          "buy_date": "2022-03-03",
+          "sell_date": null,
+          "entry": 3.54,
+          "exit_price": null,
+          "pnl": -4848.95,
+          "pnl_pct": -10.0,
+          "hold_days": 8,
+          "reason": "止损",
+          "score": 50.033078595716425
+        },
+        {
+          "code": "sh600415",
+          "name": "小商品城",
+          "buy_date": "2022-03-17",
+          "sell_date": null,
+          "entry": 4.9,
+          "exit_price": null,
+          "pnl": 1862.78,
+          "pnl_pct": 4.49,
+          "hold_days": 23,
+          "reason": "移动止盈(回撤7%)",
+          "score": 47.75187779537824
+        },
+        {
+          "code": "sh603303",
+          "name": "得邦照明",
+          "buy_date": "2022-04-25",
+          "sell_date": null,
+          "entry": 10.36,
+          "exit_price": null,
+          "pnl": 23667.97,
+          "pnl_pct": 53.38,
+          "hold_days": 100,
+          "reason": "移动止盈(回撤12%)",
+          "score": 38.88211003230562
+        },
+        {
+          "code": "sh601728",
+          "name": "中国电信",
+          "buy_date": "2022-09-26",
+          "sell_date": null,
+          "entry": 3.8,
+          "exit_price": null,
+          "pnl": 6538.03,
+          "pnl_pct": 9.74,
+          "hold_days": 55,
+          "reason": "移动止盈(回撤9%)",
+          "score": 43.52879968455181
+        },
+        {
+          "code": "sz002242",
+          "name": "九阳股份",
+          "buy_date": "2022-12-26",
+          "sell_date": null,
+          "entry": 16.52,
+          "exit_price": null,
+          "pnl": 5450.93,
+          "pnl_pct": 7.51,
+          "hold_days": 48,
+          "reason": "移动止盈(回撤9%)",
+          "score": 42.4741005633393
+        },
+        {
+          "code": "sz000429",
+          "name": "粤高速Ａ",
+          "buy_date": "2023-03-14",
+          "sell_date": null,
+          "entry": 7.98,
+          "exit_price": null,
+          "pnl": 70.8,
+          "pnl_pct": 0.25,
+          "hold_days": 46,
+          "reason": "移动止盈(回撤5%)",
+          "score": 38.497925168946985
+        },
+        {
+          "code": "sz002223",
+          "name": "鱼跃医疗",
+          "buy_date": "2023-05-29",
+          "sell_date": null,
+          "entry": 33.26,
+          "exit_price": null,
+          "pnl": 2722.47,
+          "pnl_pct": 3.58,
+          "hold_days": 40,
+          "reason": "移动止盈(回撤5%)",
+          "score": 50.41306770694361
+        },
+        {
+          "code": "sz000048",
+          "name": "京基智农",
+          "buy_date": "2023-08-02",
+          "sell_date": null,
+          "entry": 21.08,
+          "exit_price": null,
+          "pnl": -8340.7,
+          "pnl_pct": -10.0,
+          "hold_days": 14,
+          "reason": "止损",
+          "score": 55.59048531713862
+        },
+        {
+          "code": "sh603797",
+          "name": "联泰环保",
+          "buy_date": "2023-08-23",
+          "sell_date": null,
+          "entry": 5.83,
+          "exit_price": null,
+          "pnl": -7512.38,
+          "pnl_pct": -10.0,
+          "hold_days": 37,
+          "reason": "止损",
+          "score": 41.64357069286389
+        },
+        {
+          "code": "sh600148",
+          "name": "长春一东",
+          "buy_date": "2023-10-26",
+          "sell_date": null,
+          "entry": 16.34,
+          "exit_price": null,
+          "pnl": 10943.15,
+          "pnl_pct": 16.52,
+          "hold_days": 28,
+          "reason": "移动止盈(回撤12%)",
+          "score": 43.71653646273673
+        },
+        {
+          "code": "sh600135",
+          "name": "乐凯胶片",
+          "buy_date": "2023-12-07",
+          "sell_date": null,
+          "entry": 8.14,
+          "exit_price": null,
+          "pnl": -7846.1,
+          "pnl_pct": -10.0,
+          "hold_days": 29,
+          "reason": "止损",
+          "score": 48.41580202587249
+        },
+        {
+          "code": "sh603898",
+          "name": "XD好莱客",
+          "buy_date": "2024-01-19",
+          "sell_date": null,
+          "entry": 11.06,
+          "exit_price": null,
+          "pnl": -7069.7,
+          "pnl_pct": -10.0,
+          "hold_days": 2,
+          "reason": "止损",
+          "score": 49.201568593732446
+        },
+        {
+          "code": "sh600518",
+          "name": "康美药业",
+          "buy_date": "2024-01-26",
+          "sell_date": null,
+          "entry": 1.9,
+          "exit_price": null,
+          "pnl": -6361.7,
+          "pnl_pct": -10.0,
+          "hold_days": 7,
+          "reason": "止损",
+          "score": 39.40702544977542
+        },
+        {
+          "code": "sz002032",
+          "name": "苏 泊 尔",
+          "buy_date": "2024-02-19",
+          "sell_date": null,
+          "entry": 53.77,
+          "exit_price": null,
+          "pnl": 632.0,
+          "pnl_pct": 1.34,
+          "hold_days": 23,
+          "reason": "移动止盈(回撤5%)",
+          "score": 43.252567730676894
+        },
+        {
+          "code": "sh600461",
+          "name": "洪城环境",
+          "buy_date": "2024-03-25",
+          "sell_date": null,
+          "entry": 9.64,
+          "exit_price": null,
+          "pnl": 2911.69,
+          "pnl_pct": 5.29,
+          "hold_days": 104,
+          "reason": "移动止盈(回撤12%)",
+          "score": 38.7936451879092
+        },
+        {
+          "code": "sh601169",
+          "name": "北京银行",
+          "buy_date": "2024-08-27",
+          "sell_date": null,
+          "entry": 5.63,
+          "exit_price": null,
+          "pnl": -6055.08,
+          "pnl_pct": -10.0,
+          "hold_days": 9,
+          "reason": "止损",
+          "score": 36.873051230480186
+        },
+        {
+          "code": "sh600598",
+          "name": "北大荒",
+          "buy_date": "2024-09-10",
+          "sell_date": null,
+          "entry": 13.04,
+          "exit_price": null,
+          "pnl": 3760.86,
+          "pnl_pct": 7.21,
+          "hold_days": 16,
+          "reason": "移动止盈(回撤9%)",
+          "score": 49.48656730822165
+        },
+        {
+          "code": "sh601398",
+          "name": "工商银行",
+          "buy_date": "2024-10-17",
+          "sell_date": null,
+          "entry": 6.29,
+          "exit_price": null,
+          "pnl": 1269.77,
+          "pnl_pct": 2.38,
+          "hold_days": 68,
+          "reason": "移动止盈(回撤7%)",
+          "score": 54.77803783152573
+        },
+        {
+          "code": "sz002001",
+          "name": "新 和 成",
+          "buy_date": "2025-01-24",
+          "sell_date": null,
+          "entry": 22.49,
+          "exit_price": null,
+          "pnl": -7362.68,
+          "pnl_pct": -12.45,
+          "hold_days": 45,
+          "reason": "止损(跳空)",
+          "score": 41.32204412729998
+        },
+        {
+          "code": "sh600113",
+          "name": "浙江东日",
+          "buy_date": "2025-04-15",
+          "sell_date": null,
+          "entry": 14.3,
+          "exit_price": null,
+          "pnl": 37552.41,
+          "pnl_pct": 75.31,
+          "hold_days": 51,
+          "reason": "移动止盈(回撤12%)",
+          "score": 46.31645148120371
+        },
+        {
+          "code": "sz000027",
+          "name": "深圳能源",
+          "buy_date": "2025-07-07",
+          "sell_date": null,
+          "entry": 6.6,
+          "exit_price": null,
+          "pnl": 793.65,
+          "pnl_pct": 1.06,
+          "hold_days": 38,
+          "reason": "移动止盈(回撤5%)",
+          "score": 54.80496766038297
+        },
+        {
+          "code": "sz000529",
+          "name": "广弘控股",
+          "buy_date": "2025-09-01",
+          "sell_date": null,
+          "entry": 6.36,
+          "exit_price": null,
+          "pnl": -4337.02,
+          "pnl_pct": -4.72,
+          "hold_days": 120,
+          "reason": "时间止损(120d)",
+          "score": 56.64359103479351
+        },
+        {
+          "code": "sz000557",
+          "name": "西部创业",
+          "buy_date": "2026-03-13",
+          "sell_date": null,
+          "entry": 5.16,
+          "exit_price": null,
+          "pnl": -8585.4,
+          "pnl_pct": -10.0,
+          "hold_days": 6,
+          "reason": "止损",
+          "score": 46.02543213684733
+        },
+        {
+          "code": "sh601033",
+          "name": "永兴股份",
+          "buy_date": "2026-03-27",
+          "sell_date": null,
+          "entry": 15.95,
+          "exit_price": null,
+          "pnl": -7606.14,
+          "pnl_pct": -10.0,
+          "hold_days": 5,
+          "reason": "止损",
+          "score": 45.69431863153052
+        },
+        {
+          "code": "sh603335",
+          "name": "迪生力",
+          "buy_date": "2026-04-13",
+          "sell_date": null,
+          "entry": 6.12,
+          "exit_price": null,
+          "pnl": 4322.4,
+          "pnl_pct": 6.54,
+          "hold_days": 8,
+          "reason": "移动止盈(回撤9%)",
+          "score": 45.056972808298184
+        },
+        {
+          "code": "sz002461",
+          "name": "珠江啤酒",
+          "buy_date": "2026-04-27",
+          "sell_date": null,
+          "entry": 10.02,
+          "exit_price": null,
+          "pnl": -7319.26,
+          "pnl_pct": -10.0,
+          "hold_days": 28,
+          "reason": "止损",
+          "score": 53.6056353717671
+        },
+        {
+          "code": "sh600007",
+          "name": "中国国贸",
+          "buy_date": "2026-06-11",
+          "sell_date": null,
+          "entry": 21.24,
+          "exit_price": null,
+          "pnl": -6465.19,
+          "pnl_pct": -10.0,
+          "hold_days": 2,
+          "reason": "止损",
+          "score": 44.580140046505356
+        },
+        {
+          "code": "sz000519",
+          "name": "中兵红箭",
+          "buy_date": "2026-06-18",
+          "sell_date": null,
+          "entry": 21.35,
+          "exit_price": null,
+          "pnl": -8153.06,
+          "pnl_pct": -14.0,
+          "hold_days": 14,
+          "reason": "止损(跳空)",
+          "score": 45.214486075344134
+        },
+        {
+          "code": "sh603301",
+          "name": "振德医疗",
+          "buy_date": "2026-07-10",
+          "sell_date": null,
+          "entry": 87.88,
+          "exit_price": null,
+          "pnl": -4458.71,
+          "pnl_pct": -10.0,
+          "hold_days": 38,
+          "reason": "止损",
+          "score": 42.763992437535414
+        },
+        {
+          "code": "sz002818",
+          "name": "富森美",
+          "buy_date": "2026-09-04",
+          "sell_date": null,
+          "entry": 10.96,
+          "exit_price": null,
+          "pnl": 1015.89,
+          "pnl_pct": 2.37,
+          "hold_days": 17,
+          "reason": "期末平仓",
+          "score": 43.221683211506544
+        }
+      ]
+    }
+  },
+  "random_control": {
+    "n": 200,
+    "validate": {
+      "method": "临时置零 tdx_factor_v2.v2_adjust 后, 真跑score_fn vs 预置候选路径",
+      "real_return": 10.8,
+      "fast_return": 10.8,
+      "real_trades": 40,
+      "fast_trades": 40,
+      "identical": true
+    },
+    "median": -18.09,
+    "p05": -66.16,
+    "p25": -47.92,
+    "p75": 42.87,
+    "p95": 258.55,
+    "min": -89.83,
+    "max": 1149.22,
+    "mean": 26.61,
+    "final_equity_median": 20477.89,
+    "trades_median": 44,
+    "TURN5_return": -88.72,
+    "BASE_S3_return": 88.31,
+    "TURN5_percentile": 0.5,
+    "BASE_percentile": 85.0,
+    "returns": [
+      10.8,
+      -59.74,
+      -17.02,
+      232.27,
+      1.58,
+      -38.37,
+      -35.84,
+      -23.5,
+      5.56,
+      -29.99,
+      -37.15,
+      -58.44,
+      -45.94,
+      303.36,
+      92.79,
+      -27.77,
+      16.51,
+      1.62,
+      -49.1,
+      -53.15,
+      81.01,
+      45.34,
+      -49.85,
+      73.29,
+      -54.55,
+      -61.71,
+      476.63,
+      -39.56,
+      -52.66,
+      17.65,
+      -18.45,
+      45.49,
+      51.62,
+      -10.24,
+      -68.26,
+      133.13,
+      -55.94,
+      -47.92,
+      1149.22,
+      -43.26,
+      -33.74,
+      17.94,
+      -36.23,
+      -37.29,
+      -58.83,
+      -3.34,
+      75.58,
+      -7.92,
+      -58.61,
+      56.28,
+      28.83,
+      345.28,
+      49.55,
+      -29.7,
+      176.17,
+      -56.69,
+      -25.68,
+      -41.44,
+      138.28,
+      -9.27,
+      5.46,
+      -58.09,
+      -56.17,
+      65.73,
+      -46.59,
+      49.51,
+      174.32,
+      -48.2,
+      -76.01,
+      -59.37,
+      48.88,
+      -64.22,
+      258.55,
+      62.92,
+      61.68,
+      -57.7,
+      -52.95,
+      -33.63,
+      -29.42,
+      -72.55,
+      -54.99,
+      -2.85,
+      199.48,
+      -5.9,
+      -51.77,
+      1083.51,
+      -45.32,
+      71.8,
+      48.63,
+      237.22,
+      -3.01,
+      -63.31,
+      -66.16,
+      12.24,
+      113.48,
+      -46.05,
+      76.67,
+      51.17,
+      -33.95,
+      -33.63,
+      -54.2,
+      -40.04,
+      17.09,
+      39.95,
+      -74.75,
+      23.93,
+      -25.8,
+      -6.35,
+      -27.81,
+      -30.57,
+      105.1,
+      95.66,
+      258.61,
+      -54.57,
+      -33.65,
+      -89.83,
+      119.78,
+      -32.46,
+      -34.02,
+      41.88,
+      -66.26,
+      -58.26,
+      -39.43,
+      20.53,
+      -35.6,
+      -75.97,
+      14.32,
+      -80.18,
+      574.35,
+      44.7,
+      91.15,
+      42.87,
+      -65.21,
+      36.21,
+      -13.34,
+      15.37,
+      155.79,
+      32.52,
+      -12.78,
+      -32.34,
+      -10.49,
+      35.9,
+      107.19,
+      56.34,
+      515.07,
+      -3.03,
+      -57.66,
+      -55.97,
+      -46.79,
+      -42.51,
+      -29.48,
+      16.95,
+      11.98,
+      102.37,
+      -37.07,
+      -81.17,
+      456.55,
+      -61.8,
+      33.86,
+      -17.35,
+      -32.48,
+      -56.29,
+      -48.74,
+      -8.89,
+      -59.93,
+      -28.68,
+      374.46,
+      26.11,
+      170.8,
+      -50.04,
+      -60.12,
+      -76.4,
+      -63.25,
+      -11.03,
+      -41.85,
+      5.02,
+      22.93,
+      86.68,
+      -23.48,
+      9.31,
+      -31.51,
+      24.05,
+      -46.37,
+      -34.91,
+      98.28,
+      -18.09,
+      -63.75,
+      -39.92,
+      -45.95,
+      21.92,
+      -44.63,
+      13.7,
+      -31.53,
+      -50.07,
+      -53.91,
+      -1.06,
+      18.96,
+      105.17,
+      -27.84,
+      -52.23
+    ]
+  },
+  "liquidity": {
+    "TURN5": {
+      "n": 39,
+      "source": "TDX amount (扩展库amount已证实损坏, 不采用)",
+      "adv20_median": 17120771.0,
+      "adv20_min": 2094066.0,
+      "adv20_max": 699518795.0,
+      "adv20_p10": 4218422.0,
+      "adv20_p25": 10220191.0,
+      "adv20_p75": 27776079.0,
+      "amt_buyday_median": 6803758,
+      "amt_buyday_min": 167688,
+      "amt_buyday_max": 41888164,
+      "n_below_5m_floor": 16,
+      "participation_by_capital": {
+        "25000": {
+          "median_pct": 0.367,
+          "max_pct": 14.909,
+          "n_gt_1pct": 11,
+          "n_gt_5pct": 5
+        },
+        "100000": {
+          "median_pct": 1.47,
+          "max_pct": 59.635,
+          "n_gt_1pct": 24,
+          "n_gt_5pct": 10
+        },
+        "1000000": {
+          "median_pct": 14.698,
+          "max_pct": 596.346,
+          "n_gt_1pct": 39,
+          "n_gt_5pct": 32
+        },
+        "10000000": {
+          "median_pct": 146.978,
+          "max_pct": 5963.456,
+          "n_gt_1pct": 39,
+          "n_gt_5pct": 39
+        }
+      },
+      "rows": [
+        {
+          "code": "sz002986",
+          "name": "宇新股份",
+          "buy_date": "2021-01-04",
+          "amount_buy_day": 8994695,
+          "adv20": 12410930.0,
+          "adv20_volclose_proxy": 12362350.0,
+          "pnl_pct": -10.0,
+          "hold_days": 3,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.278,
+            "100000": 1.112,
+            "1000000": 11.118,
+            "10000000": 111.177
+          }
+        },
+        {
+          "code": "sz000803",
+          "name": "山高环能",
+          "buy_date": "2021-01-11",
+          "amount_buy_day": 2865633,
+          "adv20": 2094066.0,
+          "adv20_volclose_proxy": 2096347.0,
+          "pnl_pct": -10.0,
+          "hold_days": 21,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.872,
+            "100000": 3.49,
+            "1000000": 34.896,
+            "10000000": 348.963
+          }
+        },
+        {
+          "code": "sh600539",
+          "name": "狮头股份",
+          "buy_date": "2021-02-22",
+          "amount_buy_day": 987051,
+          "adv20": 4218422.0,
+          "adv20_volclose_proxy": 4200377.0,
+          "pnl_pct": 14.68,
+          "hold_days": 62,
+          "reason": "移动止盈(回撤12%)",
+          "participation_pct": {
+            "25000": 2.533,
+            "100000": 10.131,
+            "1000000": 101.312,
+            "10000000": 1013.119
+          }
+        },
+        {
+          "code": "sh605288",
+          "name": "凯迪股份",
+          "buy_date": "2021-05-28",
+          "amount_buy_day": 18812174,
+          "adv20": 24383483.0,
+          "adv20_volclose_proxy": 24406705.0,
+          "pnl_pct": -35.59,
+          "hold_days": 32,
+          "reason": "止损(跳空)",
+          "participation_pct": {
+            "25000": 0.133,
+            "100000": 0.532,
+            "1000000": 5.316,
+            "10000000": 53.157
+          }
+        },
+        {
+          "code": "sh603755",
+          "name": "日辰股份",
+          "buy_date": "2021-07-19",
+          "amount_buy_day": 5541695,
+          "adv20": 13004822.0,
+          "adv20_volclose_proxy": 12977918.0,
+          "pnl_pct": -10.0,
+          "hold_days": 6,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.451,
+            "100000": 1.805,
+            "1000000": 18.045,
+            "10000000": 180.45
+          }
+        },
+        {
+          "code": "sz002729",
+          "name": "好利科技",
+          "buy_date": "2021-08-02",
+          "amount_buy_day": 9048686,
+          "adv20": 12593448.0,
+          "adv20_volclose_proxy": 12572650.0,
+          "pnl_pct": -10.0,
+          "hold_days": 12,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.276,
+            "100000": 1.105,
+            "1000000": 11.051,
+            "10000000": 110.513
+          }
+        },
+        {
+          "code": "sh603031",
+          "name": "安孚科技",
+          "buy_date": "2021-08-23",
+          "amount_buy_day": 4011524,
+          "adv20": 8916520.0,
+          "adv20_volclose_proxy": 8940914.0,
+          "pnl_pct": 33.15,
+          "hold_days": 30,
+          "reason": "移动止盈(回撤12%)",
+          "participation_pct": {
+            "25000": 0.623,
+            "100000": 2.493,
+            "1000000": 24.928,
+            "10000000": 249.282
+          }
+        },
+        {
+          "code": "sh603860",
+          "name": "中公高科",
+          "buy_date": "2021-10-20",
+          "amount_buy_day": 2667208,
+          "adv20": 5631823.0,
+          "adv20_volclose_proxy": 5615411.0,
+          "pnl_pct": 2.61,
+          "hold_days": 47,
+          "reason": "移动止盈(回撤5%)",
+          "participation_pct": {
+            "25000": 0.937,
+            "100000": 3.749,
+            "1000000": 37.492,
+            "10000000": 374.924
+          }
+        },
+        {
+          "code": "sh605288",
+          "name": "凯迪股份",
+          "buy_date": "2021-12-29",
+          "amount_buy_day": 10179240,
+          "adv20": 22469159.0,
+          "adv20_volclose_proxy": 22462645.0,
+          "pnl_pct": -3.24,
+          "hold_days": 15,
+          "reason": "移动止盈(回撤5%)",
+          "participation_pct": {
+            "25000": 0.246,
+            "100000": 0.982,
+            "1000000": 9.824,
+            "10000000": 98.239
+          }
+        },
+        {
+          "code": "sh605288",
+          "name": "凯迪股份",
+          "buy_date": "2022-01-27",
+          "amount_buy_day": 10445624,
+          "adv20": 14360166.0,
+          "adv20_volclose_proxy": 14333101.0,
+          "pnl_pct": -10.0,
+          "hold_days": 23,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.239,
+            "100000": 0.957,
+            "1000000": 9.573,
+            "10000000": 95.734
+          }
+        },
+        {
+          "code": "sh600615",
+          "name": "鑫源智造",
+          "buy_date": "2022-03-10",
+          "amount_buy_day": 1305484,
+          "adv20": 3618985.0,
+          "adv20_volclose_proxy": 3625911.0,
+          "pnl_pct": 8.25,
+          "hold_days": 30,
+          "reason": "移动止盈(回撤9%)",
+          "participation_pct": {
+            "25000": 1.915,
+            "100000": 7.66,
+            "1000000": 76.6,
+            "10000000": 765.999
+          }
+        },
+        {
+          "code": "sh603039",
+          "name": "泛微网络",
+          "buy_date": "2022-05-05",
+          "amount_buy_day": 1080928,
+          "adv20": 36780568.0,
+          "adv20_volclose_proxy": 36702346.0,
+          "pnl_pct": -14.25,
+          "hold_days": 4,
+          "reason": "止损(跳空)",
+          "participation_pct": {
+            "25000": 2.313,
+            "100000": 9.251,
+            "1000000": 92.513,
+            "10000000": 925.131
+          }
+        },
+        {
+          "code": "sz002219",
+          "name": "新里程",
+          "buy_date": "2022-07-01",
+          "amount_buy_day": 298867,
+          "adv20": 28559287.0,
+          "adv20_volclose_proxy": 28597290.0,
+          "pnl_pct": 15.85,
+          "hold_days": 13,
+          "reason": "移动止盈(回撤12%)",
+          "participation_pct": {
+            "25000": 8.365,
+            "100000": 33.46,
+            "1000000": 334.597,
+            "10000000": 3345.97
+          }
+        },
+        {
+          "code": "sh605369",
+          "name": "拱东医疗",
+          "buy_date": "2022-07-22",
+          "amount_buy_day": 16249586,
+          "adv20": 40841198.0,
+          "adv20_volclose_proxy": 40935205.0,
+          "pnl_pct": -10.0,
+          "hold_days": 40,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.154,
+            "100000": 0.615,
+            "1000000": 6.154,
+            "10000000": 61.54
+          }
+        },
+        {
+          "code": "sh603171",
+          "name": "税友股份",
+          "buy_date": "2022-09-26",
+          "amount_buy_day": 7272038,
+          "adv20": 12516295.0,
+          "adv20_volclose_proxy": 12498600.0,
+          "pnl_pct": 85.18,
+          "hold_days": 120,
+          "reason": "时间止损(120d)",
+          "participation_pct": {
+            "25000": 0.344,
+            "100000": 1.375,
+            "1000000": 13.751,
+            "10000000": 137.513
+          }
+        },
+        {
+          "code": "sh603991",
+          "name": "领先股份",
+          "buy_date": "2023-04-04",
+          "amount_buy_day": 6782440,
+          "adv20": 8416349.0,
+          "adv20_volclose_proxy": 8433725.0,
+          "pnl_pct": -10.0,
+          "hold_days": 94,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.369,
+            "100000": 1.474,
+            "1000000": 14.744,
+            "10000000": 147.44
+          }
+        },
+        {
+          "code": "sh603031",
+          "name": "安孚科技",
+          "buy_date": "2023-08-23",
+          "amount_buy_day": 5346588,
+          "adv20": 18238303.0,
+          "adv20_volclose_proxy": 18304751.0,
+          "pnl_pct": -10.0,
+          "hold_days": 107,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.468,
+            "100000": 1.87,
+            "1000000": 18.704,
+            "10000000": 187.035
+          }
+        },
+        {
+          "code": "sh603880",
+          "name": "南卫股份",
+          "buy_date": "2024-02-02",
+          "amount_buy_day": 346580,
+          "adv20": 4510540.0,
+          "adv20_volclose_proxy": 4510634.0,
+          "pnl_pct": -14.1,
+          "hold_days": 4,
+          "reason": "止损(跳空)",
+          "participation_pct": {
+            "25000": 7.213,
+            "100000": 28.853,
+            "1000000": 288.534,
+            "10000000": 2885.337
+          }
+        },
+        {
+          "code": "sh603031",
+          "name": "安孚科技",
+          "buy_date": "2024-02-19",
+          "amount_buy_day": 19417692,
+          "adv20": 20512235.0,
+          "adv20_volclose_proxy": 20768713.0,
+          "pnl_pct": 17.32,
+          "hold_days": 29,
+          "reason": "移动止盈(回撤12%)",
+          "participation_pct": {
+            "25000": 0.129,
+            "100000": 0.515,
+            "1000000": 5.15,
+            "10000000": 51.499
+          }
+        },
+        {
+          "code": "sz002490",
+          "name": "山东墨龙",
+          "buy_date": "2024-04-01",
+          "amount_buy_day": 382858,
+          "adv20": 27436115.0,
+          "adv20_volclose_proxy": 27414987.0,
+          "pnl_pct": -14.38,
+          "hold_days": 4,
+          "reason": "止损(跳空)",
+          "participation_pct": {
+            "25000": 6.53,
+            "100000": 26.119,
+            "1000000": 261.193,
+            "10000000": 2611.934
+          }
+        },
+        {
+          "code": "sh603351",
+          "name": "威尔药业",
+          "buy_date": "2024-04-10",
+          "amount_buy_day": 4719028,
+          "adv20": 10786246.0,
+          "adv20_volclose_proxy": 10817630.0,
+          "pnl_pct": 6.48,
+          "hold_days": 32,
+          "reason": "移动止盈(回撤9%)",
+          "participation_pct": {
+            "25000": 0.53,
+            "100000": 2.119,
+            "1000000": 21.191,
+            "10000000": 211.908
+          }
+        },
+        {
+          "code": "sh600671",
+          "name": "天目药业",
+          "buy_date": "2024-06-03",
+          "amount_buy_day": 2147716,
+          "adv20": 3630336.0,
+          "adv20_volclose_proxy": 3632544.0,
+          "pnl_pct": -10.0,
+          "hold_days": 4,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 1.164,
+            "100000": 4.656,
+            "1000000": 46.561,
+            "10000000": 465.611
+          }
+        },
+        {
+          "code": "sh600671",
+          "name": "天目药业",
+          "buy_date": "2024-06-11",
+          "amount_buy_day": 1020497,
+          "adv20": 4024136.0,
+          "adv20_volclose_proxy": 4034660.0,
+          "pnl_pct": -10.0,
+          "hold_days": 26,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 2.45,
+            "100000": 9.799,
+            "1000000": 97.991,
+            "10000000": 979.915
+          }
+        },
+        {
+          "code": "sz001225",
+          "name": "和泰机电",
+          "buy_date": "2024-07-23",
+          "amount_buy_day": 4221906,
+          "adv20": 5473267.0,
+          "adv20_volclose_proxy": 5479438.0,
+          "pnl_pct": 30.1,
+          "hold_days": 120,
+          "reason": "时间止损(120d)",
+          "participation_pct": {
+            "25000": 0.592,
+            "100000": 2.369,
+            "1000000": 23.686,
+            "10000000": 236.86
+          }
+        },
+        {
+          "code": "sh603325",
+          "name": "博隆技术",
+          "buy_date": "2025-01-24",
+          "amount_buy_day": 28263588,
+          "adv20": 36993611.0,
+          "adv20_volclose_proxy": 37132415.0,
+          "pnl_pct": 11.79,
+          "hold_days": 44,
+          "reason": "移动止盈(回撤9%)",
+          "participation_pct": {
+            "25000": 0.088,
+            "100000": 0.354,
+            "1000000": 3.538,
+            "10000000": 35.381
+          }
+        },
+        {
+          "code": "sz001223",
+          "name": "欧克科技",
+          "buy_date": "2025-04-22",
+          "amount_buy_day": 15026829,
+          "adv20": 30779973.0,
+          "adv20_volclose_proxy": 30706942.0,
+          "pnl_pct": 2.11,
+          "hold_days": 4,
+          "reason": "移动止盈(回撤5%)",
+          "participation_pct": {
+            "25000": 0.166,
+            "100000": 0.665,
+            "1000000": 6.655,
+            "10000000": 66.548
+          }
+        },
+        {
+          "code": "sh603325",
+          "name": "博隆技术",
+          "buy_date": "2025-06-23",
+          "amount_buy_day": 25146950,
+          "adv20": 27776079.0,
+          "adv20_volclose_proxy": 27814807.0,
+          "pnl_pct": -5.11,
+          "hold_days": 23,
+          "reason": "移动止盈(回撤9%)",
+          "participation_pct": {
+            "25000": 0.099,
+            "100000": 0.398,
+            "1000000": 3.977,
+            "10000000": 39.766
+          }
+        },
+        {
+          "code": "sh603091",
+          "name": "众鑫股份",
+          "buy_date": "2025-07-28",
+          "amount_buy_day": 41888164,
+          "adv20": 72399781.0,
+          "adv20_volclose_proxy": 72463143.0,
+          "pnl_pct": -10.0,
+          "hold_days": 23,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.06,
+            "100000": 0.239,
+            "1000000": 2.387,
+            "10000000": 23.873
+          }
+        },
+        {
+          "code": "sh603307",
+          "name": "扬州金泉",
+          "buy_date": "2025-09-01",
+          "amount_buy_day": 28341632,
+          "adv20": 34570450.0,
+          "adv20_volclose_proxy": 34476636.0,
+          "pnl_pct": 10.26,
+          "hold_days": 47,
+          "reason": "移动止盈(回撤9%)",
+          "participation_pct": {
+            "25000": 0.088,
+            "100000": 0.353,
+            "1000000": 3.528,
+            "10000000": 35.284
+          }
+        },
+        {
+          "code": "sh603091",
+          "name": "众鑫股份",
+          "buy_date": "2025-11-18",
+          "amount_buy_day": 26380246,
+          "adv20": 49673649.0,
+          "adv20_volclose_proxy": 49690024.0,
+          "pnl_pct": 6.3,
+          "hold_days": 34,
+          "reason": "移动止盈(回撤9%)",
+          "participation_pct": {
+            "25000": 0.095,
+            "100000": 0.379,
+            "1000000": 3.791,
+            "10000000": 37.907
+          }
+        },
+        {
+          "code": "sz001238",
+          "name": "浙江正特",
+          "buy_date": "2026-01-08",
+          "amount_buy_day": 24776882,
+          "adv20": 17120771.0,
+          "adv20_volclose_proxy": 17120187.0,
+          "pnl_pct": 0.88,
+          "hold_days": 3,
+          "reason": "移动止盈(回撤5%)",
+          "participation_pct": {
+            "25000": 0.101,
+            "100000": 0.404,
+            "1000000": 4.036,
+            "10000000": 40.36
+          }
+        },
+        {
+          "code": "sz001270",
+          "name": "铖昌科技",
+          "buy_date": "2026-01-15",
+          "amount_buy_day": 32442536,
+          "adv20": 699518795.0,
+          "adv20_volclose_proxy": 699930677.0,
+          "pnl_pct": 16.25,
+          "hold_days": 16,
+          "reason": "移动止盈(回撤12%)",
+          "participation_pct": {
+            "25000": 0.077,
+            "100000": 0.308,
+            "1000000": 3.082,
+            "10000000": 30.824
+          }
+        },
+        {
+          "code": "sh603813",
+          "name": "原尚股份",
+          "buy_date": "2026-02-12",
+          "amount_buy_day": 11031288,
+          "adv20": 25104056.0,
+          "adv20_volclose_proxy": 25070148.0,
+          "pnl_pct": 9.43,
+          "hold_days": 15,
+          "reason": "移动止盈(回撤9%)",
+          "participation_pct": {
+            "25000": 0.227,
+            "100000": 0.907,
+            "1000000": 9.065,
+            "10000000": 90.651
+          }
+        },
+        {
+          "code": "sz001238",
+          "name": "浙江正特",
+          "buy_date": "2026-03-20",
+          "amount_buy_day": 13898800,
+          "adv20": 17030227.0,
+          "adv20_volclose_proxy": 16985527.0,
+          "pnl_pct": -10.0,
+          "hold_days": 43,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.18,
+            "100000": 0.719,
+            "1000000": 7.195,
+            "10000000": 71.949
+          }
+        },
+        {
+          "code": "sh600421",
+          "name": "退市华嵘",
+          "buy_date": "2026-05-28",
+          "amount_buy_day": 167688,
+          "adv20": 18497946.0,
+          "adv20_volclose_proxy": 18481850.0,
+          "pnl_pct": -83.33,
+          "hold_days": 4,
+          "reason": "止损(跳空)",
+          "participation_pct": {
+            "25000": 14.909,
+            "100000": 59.635,
+            "1000000": 596.346,
+            "10000000": 5963.456
+          }
+        },
+        {
+          "code": "sz002898",
+          "name": "赛隆退",
+          "buy_date": "2026-06-04",
+          "amount_buy_day": 446540,
+          "adv20": 17502027.0,
+          "adv20_volclose_proxy": 17517102.0,
+          "pnl_pct": -3.03,
+          "hold_days": 16,
+          "reason": "移动止盈(回撤5%)",
+          "participation_pct": {
+            "25000": 5.599,
+            "100000": 22.394,
+            "1000000": 223.944,
+            "10000000": 2239.441
+          }
+        },
+        {
+          "code": "sh603001",
+          "name": "奥康国际",
+          "buy_date": "2026-07-03",
+          "amount_buy_day": 1778592,
+          "adv20": 238559915.0,
+          "adv20_volclose_proxy": 239597677.0,
+          "pnl_pct": -12.9,
+          "hold_days": 3,
+          "reason": "止损(跳空)",
+          "participation_pct": {
+            "25000": 1.406,
+            "100000": 5.622,
+            "1000000": 56.224,
+            "10000000": 562.242
+          }
+        },
+        {
+          "code": "sh603235",
+          "name": "天新药业",
+          "buy_date": "2026-07-10",
+          "amount_buy_day": 6803758,
+          "adv20": 10220191.0,
+          "adv20_volclose_proxy": 10240983.0,
+          "pnl_pct": 2.51,
+          "hold_days": 10,
+          "reason": "移动止盈(回撤5%)",
+          "participation_pct": {
+            "25000": 0.367,
+            "100000": 1.47,
+            "1000000": 14.698,
+            "10000000": 146.978
+          }
+        },
+        {
+          "code": "sh603235",
+          "name": "天新药业",
+          "buy_date": "2026-07-31",
+          "amount_buy_day": 8867500,
+          "adv20": 12092780.0,
+          "adv20_volclose_proxy": 12091056.0,
+          "pnl_pct": 7.49,
+          "hold_days": 42,
+          "reason": "期末平仓",
+          "participation_pct": {
+            "25000": 0.282,
+            "100000": 1.128,
+            "1000000": 11.277,
+            "10000000": 112.771
+          }
+        }
+      ]
+    },
+    "TURN5_v2": {
+      "n": 36,
+      "source": "TDX amount (扩展库amount已证实损坏, 不采用)",
+      "adv20_median": 24762563.0,
+      "adv20_min": 4485963.0,
+      "adv20_max": 685036418.0,
+      "adv20_p10": 10857477.0,
+      "adv20_p25": 15553801.0,
+      "adv20_p75": 49638026.0,
+      "amt_buyday_median": 21405948,
+      "amt_buyday_min": 4796316,
+      "amt_buyday_max": 637638464,
+      "n_below_5m_floor": 1,
+      "participation_by_capital": {
+        "25000": {
+          "median_pct": 0.12,
+          "max_pct": 0.521,
+          "n_gt_1pct": 0,
+          "n_gt_5pct": 0
+        },
+        "100000": {
+          "median_pct": 0.478,
+          "max_pct": 2.085,
+          "n_gt_1pct": 8,
+          "n_gt_5pct": 0
+        },
+        "1000000": {
+          "median_pct": 4.78,
+          "max_pct": 20.849,
+          "n_gt_1pct": 34,
+          "n_gt_5pct": 14
+        },
+        "10000000": {
+          "median_pct": 47.803,
+          "max_pct": 208.493,
+          "n_gt_1pct": 36,
+          "n_gt_5pct": 35
+        }
+      },
+      "rows": [
+        {
+          "code": "sz000953",
+          "name": "中哲精化",
+          "buy_date": "2021-01-04",
+          "amount_buy_day": 4796316,
+          "adv20": 4485963.0,
+          "adv20_volclose_proxy": 4483705.0,
+          "pnl_pct": 1.68,
+          "hold_days": 24,
+          "reason": "移动止盈(回撤7%)",
+          "participation_pct": {
+            "25000": 0.521,
+            "100000": 2.085,
+            "1000000": 20.849,
+            "10000000": 208.493
+          }
+        },
+        {
+          "code": "sz002735",
+          "name": "王子新材",
+          "buy_date": "2021-02-08",
+          "amount_buy_day": 5944320,
+          "adv20": 59002296.0,
+          "adv20_volclose_proxy": 58542070.0,
+          "pnl_pct": 4.95,
+          "hold_days": 16,
+          "reason": "移动止盈(回撤7%)",
+          "participation_pct": {
+            "25000": 0.421,
+            "100000": 1.682,
+            "1000000": 16.823,
+            "10000000": 168.228
+          }
+        },
+        {
+          "code": "sh603039",
+          "name": "泛微网络",
+          "buy_date": "2021-03-15",
+          "amount_buy_day": 75639296,
+          "adv20": 58416835.0,
+          "adv20_volclose_proxy": 58197124.0,
+          "pnl_pct": 4.12,
+          "hold_days": 33,
+          "reason": "移动止盈(回撤9%)",
+          "participation_pct": {
+            "25000": 0.033,
+            "100000": 0.132,
+            "1000000": 1.322,
+            "10000000": 13.221
+          }
+        },
+        {
+          "code": "sh605288",
+          "name": "凯迪股份",
+          "buy_date": "2021-05-07",
+          "amount_buy_day": 11430868,
+          "adv20": 24762563.0,
+          "adv20_volclose_proxy": 24710796.0,
+          "pnl_pct": 3.08,
+          "hold_days": 26,
+          "reason": "移动止盈(回撤5%)",
+          "participation_pct": {
+            "25000": 0.219,
+            "100000": 0.875,
+            "1000000": 8.748,
+            "10000000": 87.482
+          }
+        },
+        {
+          "code": "sh603968",
+          "name": "醋化股份",
+          "buy_date": "2021-06-21",
+          "amount_buy_day": 20919264,
+          "adv20": 16720285.0,
+          "adv20_volclose_proxy": 16747871.0,
+          "pnl_pct": -10.0,
+          "hold_days": 26,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.12,
+            "100000": 0.478,
+            "1000000": 4.78,
+            "10000000": 47.803
+          }
+        },
+        {
+          "code": "sz002972",
+          "name": "科安达",
+          "buy_date": "2021-08-02",
+          "amount_buy_day": 8740889,
+          "adv20": 6705376.0,
+          "adv20_volclose_proxy": 6722488.0,
+          "pnl_pct": 11.08,
+          "hold_days": 31,
+          "reason": "移动止盈(回撤9%)",
+          "participation_pct": {
+            "25000": 0.286,
+            "100000": 1.144,
+            "1000000": 11.44,
+            "10000000": 114.405
+          }
+        },
+        {
+          "code": "sh603322",
+          "name": "超讯科技",
+          "buy_date": "2021-09-22",
+          "amount_buy_day": 8484026,
+          "adv20": 15553801.0,
+          "adv20_volclose_proxy": 15558746.0,
+          "pnl_pct": 1.92,
+          "hold_days": 80,
+          "reason": "移动止盈(回撤5%)",
+          "participation_pct": {
+            "25000": 0.295,
+            "100000": 1.179,
+            "1000000": 11.787,
+            "10000000": 117.869
+          }
+        },
+        {
+          "code": "sh603029",
+          "name": "天鹅股份",
+          "buy_date": "2022-01-27",
+          "amount_buy_day": 21405948,
+          "adv20": 17454831.0,
+          "adv20_volclose_proxy": 17317897.0,
+          "pnl_pct": 54.26,
+          "hold_days": 18,
+          "reason": "移动止盈(回撤12%)",
+          "participation_pct": {
+            "25000": 0.117,
+            "100000": 0.467,
+            "1000000": 4.672,
+            "10000000": 46.716
+          }
+        },
+        {
+          "code": "sh605266",
+          "name": "健之佳",
+          "buy_date": "2022-03-03",
+          "amount_buy_day": 24255880,
+          "adv20": 28732911.0,
+          "adv20_volclose_proxy": 28667191.0,
+          "pnl_pct": -10.0,
+          "hold_days": 4,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.103,
+            "100000": 0.412,
+            "1000000": 4.123,
+            "10000000": 41.227
+          }
+        },
+        {
+          "code": "sh605058",
+          "name": "澳弘电子",
+          "buy_date": "2022-03-10",
+          "amount_buy_day": 25796252,
+          "adv20": 19401020.0,
+          "adv20_volclose_proxy": 19331270.0,
+          "pnl_pct": -10.0,
+          "hold_days": 29,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.097,
+            "100000": 0.388,
+            "1000000": 3.877,
+            "10000000": 38.765
+          }
+        },
+        {
+          "code": "sh603848",
+          "name": "好太太",
+          "buy_date": "2022-04-25",
+          "amount_buy_day": 29358060,
+          "adv20": 18787498.0,
+          "adv20_volclose_proxy": 18674699.0,
+          "pnl_pct": 33.87,
+          "hold_days": 48,
+          "reason": "移动止盈(回撤12%)",
+          "participation_pct": {
+            "25000": 0.085,
+            "100000": 0.341,
+            "1000000": 3.406,
+            "10000000": 34.062
+          }
+        },
+        {
+          "code": "sh603979",
+          "name": "金诚信",
+          "buy_date": "2022-07-08",
+          "amount_buy_day": 75521464,
+          "adv20": 109869246.0,
+          "adv20_volclose_proxy": 109877487.0,
+          "pnl_pct": 2.76,
+          "hold_days": 33,
+          "reason": "移动止盈(回撤7%)",
+          "participation_pct": {
+            "25000": 0.033,
+            "100000": 0.132,
+            "1000000": 1.324,
+            "10000000": 13.241
+          }
+        },
+        {
+          "code": "sh605500",
+          "name": "森林包装",
+          "buy_date": "2022-08-26",
+          "amount_buy_day": 7294980,
+          "adv20": 5981255.0,
+          "adv20_volclose_proxy": 5975721.0,
+          "pnl_pct": -12.28,
+          "hold_days": 21,
+          "reason": "止损(跳空)",
+          "participation_pct": {
+            "25000": 0.343,
+            "100000": 1.371,
+            "1000000": 13.708,
+            "10000000": 137.081
+          }
+        },
+        {
+          "code": "sh603685",
+          "name": "晨丰科技",
+          "buy_date": "2022-10-10",
+          "amount_buy_day": 14022647,
+          "adv20": 11629527.0,
+          "adv20_volclose_proxy": 11647569.0,
+          "pnl_pct": 1.04,
+          "hold_days": 53,
+          "reason": "移动止盈(回撤5%)",
+          "participation_pct": {
+            "25000": 0.178,
+            "100000": 0.713,
+            "1000000": 7.131,
+            "10000000": 71.313
+          }
+        },
+        {
+          "code": "sh603048",
+          "name": "浙江黎明",
+          "buy_date": "2022-12-26",
+          "amount_buy_day": 7394954,
+          "adv20": 13438105.0,
+          "adv20_volclose_proxy": 13416491.0,
+          "pnl_pct": 8.91,
+          "hold_days": 54,
+          "reason": "移动止盈(回撤9%)",
+          "participation_pct": {
+            "25000": 0.338,
+            "100000": 1.352,
+            "1000000": 13.523,
+            "10000000": 135.227
+          }
+        },
+        {
+          "code": "sh600721",
+          "name": "百花医药",
+          "buy_date": "2023-03-21",
+          "amount_buy_day": 18473556,
+          "adv20": 19154789.0,
+          "adv20_volclose_proxy": 19154979.0,
+          "pnl_pct": 12.22,
+          "hold_days": 103,
+          "reason": "移动止盈(回撤9%)",
+          "participation_pct": {
+            "25000": 0.135,
+            "100000": 0.541,
+            "1000000": 5.413,
+            "10000000": 54.131
+          }
+        },
+        {
+          "code": "sz001216",
+          "name": "华瓷股份",
+          "buy_date": "2023-08-23",
+          "amount_buy_day": 18209988,
+          "adv20": 13817267.0,
+          "adv20_volclose_proxy": 13805498.0,
+          "pnl_pct": 1.85,
+          "hold_days": 23,
+          "reason": "移动止盈(回撤5%)",
+          "participation_pct": {
+            "25000": 0.137,
+            "100000": 0.549,
+            "1000000": 5.491,
+            "10000000": 54.915
+          }
+        },
+        {
+          "code": "sh603071",
+          "name": "物产环能",
+          "buy_date": "2023-09-27",
+          "amount_buy_day": 20892840,
+          "adv20": 31002926.0,
+          "adv20_volclose_proxy": 31035308.0,
+          "pnl_pct": -10.0,
+          "hold_days": 77,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.12,
+            "100000": 0.479,
+            "1000000": 4.786,
+            "10000000": 47.863
+          }
+        },
+        {
+          "code": "sh603587",
+          "name": "地素时尚",
+          "buy_date": "2024-01-26",
+          "amount_buy_day": 20332260,
+          "adv20": 31698326.0,
+          "adv20_volclose_proxy": 31713483.0,
+          "pnl_pct": -10.0,
+          "hold_days": 4,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.123,
+            "100000": 0.492,
+            "1000000": 4.918,
+            "10000000": 49.183
+          }
+        },
+        {
+          "code": "sh603685",
+          "name": "晨丰科技",
+          "buy_date": "2024-02-02",
+          "amount_buy_day": 27048374,
+          "adv20": 19067028.0,
+          "adv20_volclose_proxy": 18975398.0,
+          "pnl_pct": -17.16,
+          "hold_days": 2,
+          "reason": "止损(跳空)",
+          "participation_pct": {
+            "25000": 0.092,
+            "100000": 0.37,
+            "1000000": 3.697,
+            "10000000": 36.971
+          }
+        },
+        {
+          "code": "sz002259",
+          "name": "升达林业",
+          "buy_date": "2024-02-19",
+          "amount_buy_day": 7153700,
+          "adv20": 7812026.0,
+          "adv20_volclose_proxy": 7854278.0,
+          "pnl_pct": 3.43,
+          "hold_days": 15,
+          "reason": "移动止盈(回撤5%)",
+          "participation_pct": {
+            "25000": 0.349,
+            "100000": 1.398,
+            "1000000": 13.979,
+            "10000000": 139.788
+          }
+        },
+        {
+          "code": "sh603237",
+          "name": "五芳斋",
+          "buy_date": "2024-03-18",
+          "amount_buy_day": 21966140,
+          "adv20": 23407343.0,
+          "adv20_volclose_proxy": 23400725.0,
+          "pnl_pct": -10.0,
+          "hold_days": 61,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.114,
+            "100000": 0.455,
+            "1000000": 4.552,
+            "10000000": 45.525
+          }
+        },
+        {
+          "code": "sh603680",
+          "name": "今创集团",
+          "buy_date": "2024-06-25",
+          "amount_buy_day": 32115380,
+          "adv20": 27971915.0,
+          "adv20_volclose_proxy": 27692246.0,
+          "pnl_pct": 9.75,
+          "hold_days": 29,
+          "reason": "移动止盈(回撤9%)",
+          "participation_pct": {
+            "25000": 0.078,
+            "100000": 0.311,
+            "1000000": 3.114,
+            "10000000": 31.138
+          }
+        },
+        {
+          "code": "sh600182",
+          "name": "S佳通",
+          "buy_date": "2024-08-06",
+          "amount_buy_day": 7879503,
+          "adv20": 10857477.0,
+          "adv20_volclose_proxy": 10864973.0,
+          "pnl_pct": 1.17,
+          "hold_days": 23,
+          "reason": "移动止盈(回撤5%)",
+          "participation_pct": {
+            "25000": 0.317,
+            "100000": 1.269,
+            "1000000": 12.691,
+            "10000000": 126.912
+          }
+        },
+        {
+          "code": "sh603275",
+          "name": "众辰科技",
+          "buy_date": "2024-09-10",
+          "amount_buy_day": 11967394,
+          "adv20": 11047302.0,
+          "adv20_volclose_proxy": 11007830.0,
+          "pnl_pct": 10.23,
+          "hold_days": 18,
+          "reason": "移动止盈(回撤12%)",
+          "participation_pct": {
+            "25000": 0.209,
+            "100000": 0.836,
+            "1000000": 8.356,
+            "10000000": 83.56
+          }
+        },
+        {
+          "code": "sh600377",
+          "name": "宁沪高速",
+          "buy_date": "2024-10-17",
+          "amount_buy_day": 156365552,
+          "adv20": 243804520.0,
+          "adv20_volclose_proxy": 242747638.0,
+          "pnl_pct": 19.98,
+          "hold_days": 120,
+          "reason": "时间止损(120d)",
+          "participation_pct": {
+            "25000": 0.016,
+            "100000": 0.064,
+            "1000000": 0.64,
+            "10000000": 6.395
+          }
+        },
+        {
+          "code": "sh605169",
+          "name": "洪通燃气",
+          "buy_date": "2025-04-22",
+          "amount_buy_day": 19605580,
+          "adv20": 24254709.0,
+          "adv20_volclose_proxy": 24314313.0,
+          "pnl_pct": 15.29,
+          "hold_days": 18,
+          "reason": "移动止盈(回撤12%)",
+          "participation_pct": {
+            "25000": 0.128,
+            "100000": 0.51,
+            "1000000": 5.101,
+            "10000000": 51.006
+          }
+        },
+        {
+          "code": "sh605098",
+          "name": "行动教育",
+          "buy_date": "2025-05-23",
+          "amount_buy_day": 32746242,
+          "adv20": 49879313.0,
+          "adv20_volclose_proxy": 49816133.0,
+          "pnl_pct": 1.74,
+          "hold_days": 67,
+          "reason": "移动止盈(回撤5%)",
+          "participation_pct": {
+            "25000": 0.076,
+            "100000": 0.305,
+            "1000000": 3.054,
+            "10000000": 30.538
+          }
+        },
+        {
+          "code": "sz002014",
+          "name": "永新股份",
+          "buy_date": "2025-09-01",
+          "amount_buy_day": 50840016,
+          "adv20": 49638026.0,
+          "adv20_volclose_proxy": 49629137.0,
+          "pnl_pct": 3.02,
+          "hold_days": 89,
+          "reason": "移动止盈(回撤5%)",
+          "participation_pct": {
+            "25000": 0.049,
+            "100000": 0.197,
+            "1000000": 1.967,
+            "10000000": 19.67
+          }
+        },
+        {
+          "code": "sz002992",
+          "name": "宝明科技",
+          "buy_date": "2026-01-15",
+          "amount_buy_day": 68600168,
+          "adv20": 78408540.0,
+          "adv20_volclose_proxy": 78366380.0,
+          "pnl_pct": 10.89,
+          "hold_days": 40,
+          "reason": "移动止盈(回撤9%)",
+          "participation_pct": {
+            "25000": 0.036,
+            "100000": 0.146,
+            "1000000": 1.458,
+            "10000000": 14.577
+          }
+        },
+        {
+          "code": "sz001378",
+          "name": "德冠新材",
+          "buy_date": "2026-03-27",
+          "amount_buy_day": 88458344,
+          "adv20": 67031600.0,
+          "adv20_volclose_proxy": 66766084.0,
+          "pnl_pct": -7.96,
+          "hold_days": 37,
+          "reason": "移动止盈(回撤9%)",
+          "participation_pct": {
+            "25000": 0.028,
+            "100000": 0.113,
+            "1000000": 1.13,
+            "10000000": 11.305
+          }
+        },
+        {
+          "code": "sz002868",
+          "name": "绿康生化",
+          "buy_date": "2026-05-28",
+          "amount_buy_day": 85550680,
+          "adv20": 87545212.0,
+          "adv20_volclose_proxy": 86030004.0,
+          "pnl_pct": -10.0,
+          "hold_days": 6,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.029,
+            "100000": 0.117,
+            "1000000": 1.169,
+            "10000000": 11.689
+          }
+        },
+        {
+          "code": "sz001222",
+          "name": "源飞宠物",
+          "buy_date": "2026-06-11",
+          "amount_buy_day": 20815340,
+          "adv20": 29996159.0,
+          "adv20_volclose_proxy": 29937601.0,
+          "pnl_pct": -10.0,
+          "hold_days": 9,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.12,
+            "100000": 0.48,
+            "1000000": 4.804,
+            "10000000": 48.041
+          }
+        },
+        {
+          "code": "sh603273",
+          "name": "天元智能",
+          "buy_date": "2026-06-26",
+          "amount_buy_day": 34732808,
+          "adv20": 35134464.0,
+          "adv20_volclose_proxy": 35109675.0,
+          "pnl_pct": 4.38,
+          "hold_days": 8,
+          "reason": "移动止盈(回撤7%)",
+          "participation_pct": {
+            "25000": 0.072,
+            "100000": 0.288,
+            "1000000": 2.879,
+            "10000000": 28.791
+          }
+        },
+        {
+          "code": "sz000590",
+          "name": "古汉医药",
+          "buy_date": "2026-07-10",
+          "amount_buy_day": 43777088,
+          "adv20": 35221492.0,
+          "adv20_volclose_proxy": 35169919.0,
+          "pnl_pct": 7.33,
+          "hold_days": 47,
+          "reason": "移动止盈(回撤9%)",
+          "participation_pct": {
+            "25000": 0.057,
+            "100000": 0.228,
+            "1000000": 2.284,
+            "10000000": 22.843
+          }
+        },
+        {
+          "code": "sh601100",
+          "name": "恒立液压",
+          "buy_date": "2026-09-18",
+          "amount_buy_day": 637638464,
+          "adv20": 685036418.0,
+          "adv20_volclose_proxy": 684636246.0,
+          "pnl_pct": -2.89,
+          "hold_days": 7,
+          "reason": "期末平仓",
+          "participation_pct": {
+            "25000": 0.004,
+            "100000": 0.016,
+            "1000000": 0.157,
+            "10000000": 1.568
+          }
+        }
+      ]
+    },
+    "BASE_S3": {
+      "n": 36,
+      "source": "TDX amount (扩展库amount已证实损坏, 不采用)",
+      "adv20_median": 117778178.0,
+      "adv20_min": 11326147.0,
+      "adv20_max": 3748937754.0,
+      "adv20_p10": 24054544.0,
+      "adv20_p25": 48803519.0,
+      "adv20_p75": 211030377.0,
+      "amt_buyday_median": 157571952,
+      "amt_buyday_min": 15337117,
+      "amt_buyday_max": 2079129216,
+      "n_below_5m_floor": 0,
+      "participation_by_capital": {
+        "25000": {
+          "median_pct": 0.017,
+          "max_pct": 0.163,
+          "n_gt_1pct": 0,
+          "n_gt_5pct": 0
+        },
+        "100000": {
+          "median_pct": 0.069,
+          "max_pct": 0.652,
+          "n_gt_1pct": 0,
+          "n_gt_5pct": 0
+        },
+        "1000000": {
+          "median_pct": 0.69,
+          "max_pct": 6.52,
+          "n_gt_1pct": 13,
+          "n_gt_5pct": 2
+        },
+        "10000000": {
+          "median_pct": 6.897,
+          "max_pct": 65.201,
+          "n_gt_1pct": 34,
+          "n_gt_5pct": 22
+        }
+      },
+      "rows": [
+        {
+          "code": "sh603833",
+          "name": "欧派家居",
+          "buy_date": "2021-01-04",
+          "amount_buy_day": 469102368,
+          "adv20": 228914215.0,
+          "adv20_volclose_proxy": 228905889.0,
+          "pnl_pct": 11.63,
+          "hold_days": 41,
+          "reason": "移动止盈(回撤12%)",
+          "participation_pct": {
+            "25000": 0.005,
+            "100000": 0.021,
+            "1000000": 0.213,
+            "10000000": 2.132
+          }
+        },
+        {
+          "code": "sh601669",
+          "name": "中国电建",
+          "buy_date": "2021-03-15",
+          "amount_buy_day": 800254336,
+          "adv20": 335275412.0,
+          "adv20_volclose_proxy": 335212770.0,
+          "pnl_pct": 80.59,
+          "hold_days": 120,
+          "reason": "时间止损(120d)",
+          "participation_pct": {
+            "25000": 0.003,
+            "100000": 0.012,
+            "1000000": 0.125,
+            "10000000": 1.25
+          }
+        },
+        {
+          "code": "sz002729",
+          "name": "好利科技",
+          "buy_date": "2021-09-13",
+          "amount_buy_day": 16516773,
+          "adv20": 18921639.0,
+          "adv20_volclose_proxy": 18961276.0,
+          "pnl_pct": -6.07,
+          "hold_days": 16,
+          "reason": "移动止盈(回撤12%)",
+          "participation_pct": {
+            "25000": 0.151,
+            "100000": 0.605,
+            "1000000": 6.054,
+            "10000000": 60.545
+          }
+        },
+        {
+          "code": "sz000419",
+          "name": "通程控股",
+          "buy_date": "2021-10-20",
+          "amount_buy_day": 15337117,
+          "adv20": 11326147.0,
+          "adv20_volclose_proxy": 11325830.0,
+          "pnl_pct": -10.0,
+          "hold_days": 9,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.163,
+            "100000": 0.652,
+            "1000000": 6.52,
+            "10000000": 65.201
+          }
+        },
+        {
+          "code": "sz002405",
+          "name": "四维图新",
+          "buy_date": "2021-11-03",
+          "amount_buy_day": 695340288,
+          "adv20": 310259437.0,
+          "adv20_volclose_proxy": 309436142.0,
+          "pnl_pct": 19.22,
+          "hold_days": 24,
+          "reason": "移动止盈(回撤12%)",
+          "participation_pct": {
+            "25000": 0.004,
+            "100000": 0.014,
+            "1000000": 0.144,
+            "10000000": 1.438
+          }
+        },
+        {
+          "code": "sz000065",
+          "name": "北方国际",
+          "buy_date": "2021-12-08",
+          "amount_buy_day": 139476256,
+          "adv20": 48977929.0,
+          "adv20_volclose_proxy": 49194966.0,
+          "pnl_pct": 0.72,
+          "hold_days": 50,
+          "reason": "移动止盈(回撤5%)",
+          "participation_pct": {
+            "25000": 0.018,
+            "100000": 0.072,
+            "1000000": 0.717,
+            "10000000": 7.17
+          }
+        },
+        {
+          "code": "sh600611",
+          "name": "大众交通",
+          "buy_date": "2022-03-03",
+          "amount_buy_day": 56830320,
+          "adv20": 24466710.0,
+          "adv20_volclose_proxy": 24504342.0,
+          "pnl_pct": -10.0,
+          "hold_days": 8,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.044,
+            "100000": 0.176,
+            "1000000": 1.76,
+            "10000000": 17.596
+          }
+        },
+        {
+          "code": "sh600415",
+          "name": "小商品城",
+          "buy_date": "2022-03-17",
+          "amount_buy_day": 256110640,
+          "adv20": 211030377.0,
+          "adv20_volclose_proxy": 210867092.0,
+          "pnl_pct": 4.49,
+          "hold_days": 23,
+          "reason": "移动止盈(回撤7%)",
+          "participation_pct": {
+            "25000": 0.01,
+            "100000": 0.039,
+            "1000000": 0.39,
+            "10000000": 3.905
+          }
+        },
+        {
+          "code": "sh603303",
+          "name": "得邦照明",
+          "buy_date": "2022-04-25",
+          "amount_buy_day": 27691928,
+          "adv20": 16003432.0,
+          "adv20_volclose_proxy": 15936161.0,
+          "pnl_pct": 53.38,
+          "hold_days": 100,
+          "reason": "移动止盈(回撤12%)",
+          "participation_pct": {
+            "25000": 0.09,
+            "100000": 0.361,
+            "1000000": 3.611,
+            "10000000": 36.112
+          }
+        },
+        {
+          "code": "sh601728",
+          "name": "中国电信",
+          "buy_date": "2022-09-26",
+          "amount_buy_day": 385653952,
+          "adv20": 261063570.0,
+          "adv20_volclose_proxy": 261379581.0,
+          "pnl_pct": 9.74,
+          "hold_days": 55,
+          "reason": "移动止盈(回撤9%)",
+          "participation_pct": {
+            "25000": 0.006,
+            "100000": 0.026,
+            "1000000": 0.259,
+            "10000000": 2.593
+          }
+        },
+        {
+          "code": "sz002242",
+          "name": "九阳股份",
+          "buy_date": "2022-12-26",
+          "amount_buy_day": 93268936,
+          "adv20": 71794957.0,
+          "adv20_volclose_proxy": 71787670.0,
+          "pnl_pct": 7.51,
+          "hold_days": 48,
+          "reason": "移动止盈(回撤9%)",
+          "participation_pct": {
+            "25000": 0.027,
+            "100000": 0.107,
+            "1000000": 1.072,
+            "10000000": 10.722
+          }
+        },
+        {
+          "code": "sz000429",
+          "name": "粤高速Ａ",
+          "buy_date": "2023-03-14",
+          "amount_buy_day": 36714500,
+          "adv20": 24054544.0,
+          "adv20_volclose_proxy": 24044194.0,
+          "pnl_pct": 0.25,
+          "hold_days": 46,
+          "reason": "移动止盈(回撤5%)",
+          "participation_pct": {
+            "25000": 0.068,
+            "100000": 0.272,
+            "1000000": 2.724,
+            "10000000": 27.237
+          }
+        },
+        {
+          "code": "sz002223",
+          "name": "鱼跃医疗",
+          "buy_date": "2023-05-29",
+          "amount_buy_day": 462497440,
+          "adv20": 371307391.0,
+          "adv20_volclose_proxy": 371499105.0,
+          "pnl_pct": 3.58,
+          "hold_days": 40,
+          "reason": "移动止盈(回撤5%)",
+          "participation_pct": {
+            "25000": 0.005,
+            "100000": 0.022,
+            "1000000": 0.216,
+            "10000000": 2.162
+          }
+        },
+        {
+          "code": "sz000048",
+          "name": "京基智农",
+          "buy_date": "2023-08-02",
+          "amount_buy_day": 275570528,
+          "adv20": 123646287.0,
+          "adv20_volclose_proxy": 123926732.0,
+          "pnl_pct": -10.0,
+          "hold_days": 14,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.009,
+            "100000": 0.036,
+            "1000000": 0.363,
+            "10000000": 3.629
+          }
+        },
+        {
+          "code": "sh603797",
+          "name": "联泰环保",
+          "buy_date": "2023-08-23",
+          "amount_buy_day": 54550572,
+          "adv20": 26589605.0,
+          "adv20_volclose_proxy": 26615857.0,
+          "pnl_pct": -10.0,
+          "hold_days": 37,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.046,
+            "100000": 0.183,
+            "1000000": 1.833,
+            "10000000": 18.332
+          }
+        },
+        {
+          "code": "sh600148",
+          "name": "长春一东",
+          "buy_date": "2023-10-26",
+          "amount_buy_day": 44707088,
+          "adv20": 32880352.0,
+          "adv20_volclose_proxy": 32894521.0,
+          "pnl_pct": 16.52,
+          "hold_days": 28,
+          "reason": "移动止盈(回撤12%)",
+          "participation_pct": {
+            "25000": 0.056,
+            "100000": 0.224,
+            "1000000": 2.237,
+            "10000000": 22.368
+          }
+        },
+        {
+          "code": "sh600135",
+          "name": "乐凯胶片",
+          "buy_date": "2023-12-07",
+          "amount_buy_day": 237207632,
+          "adv20": 96551529.0,
+          "adv20_volclose_proxy": 96743154.0,
+          "pnl_pct": -10.0,
+          "hold_days": 29,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.011,
+            "100000": 0.042,
+            "1000000": 0.422,
+            "10000000": 4.216
+          }
+        },
+        {
+          "code": "sh603898",
+          "name": "XD好莱客",
+          "buy_date": "2024-01-19",
+          "amount_buy_day": 27729644,
+          "adv20": 17609684.0,
+          "adv20_volclose_proxy": 17604688.0,
+          "pnl_pct": -10.0,
+          "hold_days": 2,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.09,
+            "100000": 0.361,
+            "1000000": 3.606,
+            "10000000": 36.062
+          }
+        },
+        {
+          "code": "sh600518",
+          "name": "康美药业",
+          "buy_date": "2024-01-26",
+          "amount_buy_day": 128545568,
+          "adv20": 137293578.0,
+          "adv20_volclose_proxy": 137101321.0,
+          "pnl_pct": -10.0,
+          "hold_days": 7,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.019,
+            "100000": 0.078,
+            "1000000": 0.778,
+            "10000000": 7.779
+          }
+        },
+        {
+          "code": "sz002032",
+          "name": "苏 泊 尔",
+          "buy_date": "2024-02-19",
+          "amount_buy_day": 281334016,
+          "adv20": 125990265.0,
+          "adv20_volclose_proxy": 126231092.0,
+          "pnl_pct": 1.34,
+          "hold_days": 23,
+          "reason": "移动止盈(回撤5%)",
+          "participation_pct": {
+            "25000": 0.009,
+            "100000": 0.036,
+            "1000000": 0.355,
+            "10000000": 3.554
+          }
+        },
+        {
+          "code": "sh600461",
+          "name": "洪城环境",
+          "buy_date": "2024-03-25",
+          "amount_buy_day": 99135976,
+          "adv20": 94867217.0,
+          "adv20_volclose_proxy": 95056912.0,
+          "pnl_pct": 5.29,
+          "hold_days": 104,
+          "reason": "移动止盈(回撤12%)",
+          "participation_pct": {
+            "25000": 0.025,
+            "100000": 0.101,
+            "1000000": 1.009,
+            "10000000": 10.087
+          }
+        },
+        {
+          "code": "sh601169",
+          "name": "北京银行",
+          "buy_date": "2024-08-27",
+          "amount_buy_day": 484448608,
+          "adv20": 410864214.0,
+          "adv20_volclose_proxy": 411338655.0,
+          "pnl_pct": -10.0,
+          "hold_days": 9,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.005,
+            "100000": 0.021,
+            "1000000": 0.206,
+            "10000000": 2.064
+          }
+        },
+        {
+          "code": "sh600598",
+          "name": "北大荒",
+          "buy_date": "2024-09-10",
+          "amount_buy_day": 190170656,
+          "adv20": 137225664.0,
+          "adv20_volclose_proxy": 137170110.0,
+          "pnl_pct": 7.21,
+          "hold_days": 16,
+          "reason": "移动止盈(回撤9%)",
+          "participation_pct": {
+            "25000": 0.013,
+            "100000": 0.053,
+            "1000000": 0.526,
+            "10000000": 5.258
+          }
+        },
+        {
+          "code": "sh601398",
+          "name": "工商银行",
+          "buy_date": "2024-10-17",
+          "amount_buy_day": 2079129216,
+          "adv20": 3748937754.0,
+          "adv20_volclose_proxy": 3752645197.0,
+          "pnl_pct": 2.38,
+          "hold_days": 68,
+          "reason": "移动止盈(回撤7%)",
+          "participation_pct": {
+            "25000": 0.001,
+            "100000": 0.005,
+            "1000000": 0.048,
+            "10000000": 0.481
+          }
+        },
+        {
+          "code": "sz002001",
+          "name": "新 和 成",
+          "buy_date": "2025-01-24",
+          "amount_buy_day": 404038528,
+          "adv20": 477605762.0,
+          "adv20_volclose_proxy": 476646637.0,
+          "pnl_pct": -12.45,
+          "hold_days": 45,
+          "reason": "止损(跳空)",
+          "participation_pct": {
+            "25000": 0.006,
+            "100000": 0.025,
+            "1000000": 0.248,
+            "10000000": 2.475
+          }
+        },
+        {
+          "code": "sh600113",
+          "name": "浙江东日",
+          "buy_date": "2025-04-15",
+          "amount_buy_day": 63973784,
+          "adv20": 57736288.0,
+          "adv20_volclose_proxy": 57652073.0,
+          "pnl_pct": 75.31,
+          "hold_days": 51,
+          "reason": "移动止盈(回撤12%)",
+          "participation_pct": {
+            "25000": 0.039,
+            "100000": 0.156,
+            "1000000": 1.563,
+            "10000000": 15.631
+          }
+        },
+        {
+          "code": "sz000027",
+          "name": "深圳能源",
+          "buy_date": "2025-07-07",
+          "amount_buy_day": 323738784,
+          "adv20": 134123990.0,
+          "adv20_volclose_proxy": 134270014.0,
+          "pnl_pct": 1.06,
+          "hold_days": 38,
+          "reason": "移动止盈(回撤5%)",
+          "participation_pct": {
+            "25000": 0.008,
+            "100000": 0.031,
+            "1000000": 0.309,
+            "10000000": 3.089
+          }
+        },
+        {
+          "code": "sz000529",
+          "name": "广弘控股",
+          "buy_date": "2025-09-01",
+          "amount_buy_day": 74429368,
+          "adv20": 48803519.0,
+          "adv20_volclose_proxy": 48825607.0,
+          "pnl_pct": -4.72,
+          "hold_days": 120,
+          "reason": "时间止损(120d)",
+          "participation_pct": {
+            "25000": 0.034,
+            "100000": 0.134,
+            "1000000": 1.344,
+            "10000000": 13.436
+          }
+        },
+        {
+          "code": "sz000557",
+          "name": "西部创业",
+          "buy_date": "2026-03-13",
+          "amount_buy_day": 130069816,
+          "adv20": 69681456.0,
+          "adv20_volclose_proxy": 69686245.0,
+          "pnl_pct": -10.0,
+          "hold_days": 6,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.019,
+            "100000": 0.077,
+            "1000000": 0.769,
+            "10000000": 7.688
+          }
+        },
+        {
+          "code": "sh601033",
+          "name": "永兴股份",
+          "buy_date": "2026-03-27",
+          "amount_buy_day": 144986736,
+          "adv20": 120687404.0,
+          "adv20_volclose_proxy": 120819909.0,
+          "pnl_pct": -10.0,
+          "hold_days": 5,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.017,
+            "100000": 0.069,
+            "1000000": 0.69,
+            "10000000": 6.897
+          }
+        },
+        {
+          "code": "sh603335",
+          "name": "迪生力",
+          "buy_date": "2026-04-13",
+          "amount_buy_day": 191729392,
+          "adv20": 94750257.0,
+          "adv20_volclose_proxy": 94715476.0,
+          "pnl_pct": 6.54,
+          "hold_days": 8,
+          "reason": "移动止盈(回撤9%)",
+          "participation_pct": {
+            "25000": 0.013,
+            "100000": 0.052,
+            "1000000": 0.522,
+            "10000000": 5.216
+          }
+        },
+        {
+          "code": "sz002461",
+          "name": "珠江啤酒",
+          "buy_date": "2026-04-27",
+          "amount_buy_day": 157571952,
+          "adv20": 117778178.0,
+          "adv20_volclose_proxy": 117738302.0,
+          "pnl_pct": -10.0,
+          "hold_days": 28,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.016,
+            "100000": 0.063,
+            "1000000": 0.635,
+            "10000000": 6.346
+          }
+        },
+        {
+          "code": "sh600007",
+          "name": "中国国贸",
+          "buy_date": "2026-06-11",
+          "amount_buy_day": 103350512,
+          "adv20": 63840352.0,
+          "adv20_volclose_proxy": 64149213.0,
+          "pnl_pct": -10.0,
+          "hold_days": 2,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.024,
+            "100000": 0.097,
+            "1000000": 0.968,
+            "10000000": 9.676
+          }
+        },
+        {
+          "code": "sz000519",
+          "name": "中兵红箭",
+          "buy_date": "2026-06-18",
+          "amount_buy_day": 1960389376,
+          "adv20": 1511758496.0,
+          "adv20_volclose_proxy": 1511141802.0,
+          "pnl_pct": -14.0,
+          "hold_days": 14,
+          "reason": "止损(跳空)",
+          "participation_pct": {
+            "25000": 0.001,
+            "100000": 0.005,
+            "1000000": 0.051,
+            "10000000": 0.51
+          }
+        },
+        {
+          "code": "sh603301",
+          "name": "振德医疗",
+          "buy_date": "2026-07-10",
+          "amount_buy_day": 193611584,
+          "adv20": 205921953.0,
+          "adv20_volclose_proxy": 207741252.0,
+          "pnl_pct": -10.0,
+          "hold_days": 38,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.013,
+            "100000": 0.052,
+            "1000000": 0.516,
+            "10000000": 5.165
+          }
+        },
+        {
+          "code": "sz002818",
+          "name": "富森美",
+          "buy_date": "2026-09-04",
+          "amount_buy_day": 64716216,
+          "adv20": 40614538.0,
+          "adv20_volclose_proxy": 40682519.0,
+          "pnl_pct": 2.37,
+          "hold_days": 17,
+          "reason": "期末平仓",
+          "participation_pct": {
+            "25000": 0.039,
+            "100000": 0.155,
+            "1000000": 1.545,
+            "10000000": 15.452
+          }
+        }
+      ]
+    },
+    "init_capital": 25000.0,
+    "note": "成交额一律取 TDX 源; 扩展库 amount 已证实约40%股票损坏(≈1.27e9常数填充), 禁用"
+  },
+  "size_proxy": {
+    "n_stocks": 3131,
+    "var_between": 1.0851,
+    "var_within": 0.6597,
+    "share_between": 0.6219,
+    "note": "log(成交量) 的方差分解: between=股票固有规模差异, within=个股自身时序波动",
+    "rank_corr_adjacent_scan_days": {
+      "n_pairs": 278,
+      "mean": 0.8897,
+      "min": 0.8156,
+      "max": 0.9364,
+      "note": "相邻扫描日成交量截面的 Spearman 秩相关; 接近1=TURN5是固定股票排序(规模/流动性水平)"
+    },
+    "market_adv20_proxy_median": 132739526.0,
+    "market_adv20_proxy_note": "volume*close 近似(扩展库amount损坏, 不用)",
+    "turn5_adv20_proxy_median": 17120187.0,
+    "turn5_picked_repeat": {
+      "n_trades": 44,
+      "n_unique": 35,
+      "top": [
+        [
+          "sh605288",
+          3
+        ],
+        [
+          "sh603031",
+          3
+        ],
+        [
+          "sh600671",
+          2
+        ],
+        [
+          "sh603325",
+          2
+        ],
+        [
+          "sh603091",
+          2
+        ],
+        [
+          "sz001238",
+          2
+        ],
+        [
+          "sh603235",
+          2
+        ],
+        [
+          "sz002986",
+          1
+        ],
+        [
+          "sz000803",
+          1
+        ],
+        [
+          "sh600539",
+          1
+        ]
+      ]
+    }
+  }
+}

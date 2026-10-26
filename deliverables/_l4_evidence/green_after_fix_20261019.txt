@@ -1,0 +1,28 @@
+......F                                                                  [100%]
+================================== FAILURES ===================================
+_____ TestNWCaliberRegression.test_authority_source_factors_have_icir_nw ______
+
+self = <tests.test_factor_layer_sign.TestNWCaliberRegression object at 0x000002C3E7C5FB90>
+
+    def test_authority_source_factors_have_icir_nw(self):
+        """权威源 data/factor_ic/factor_ic_latest.json 每因子必须带 icir_nw (非 None)。
+    
+        已知红 (2026-10-19): 当前权威源是 2026-10-18 03:06 旧版 (pure_python_v10_exact_132d),
+        factors 只有 name/ic/status 三键, icir_nw 键 0 个 —— "NW 口径从未落盘"正是
+        本断言要暴露的状态; 待 Task#3「B+C 同一次重跑权威源」用新 summarize 刷新后转绿。
+        """
+        p = BASE / "data" / "factor_ic" / "factor_ic_latest.json"
+        data = json.loads(p.read_text(encoding="utf-8"))
+        factors = data.get("factors")
+        assert isinstance(factors, list) and factors, f"权威源 factors 应为非空 list, 实际 {type(factors)}"
+        missing = [f.get("name") for f in factors if f.get("icir_nw") is None]
+>       assert not missing, (
+            f"权威源 {len(missing)}/{len(factors)} 个因子缺 icir_nw(非None): {missing[:5]}... "
+            f"—— NW 口径未落盘/回退 naive (computed_at={data.get('computed_at')})")
+E       AssertionError: 权威源 28/28 个因子缺 icir_nw(非None): ['AMIHUD', 'ATR_RATIO', 'CONSECUTIVE_LOSS', 'LOWER_SHADOW', 'MDD60']... —— NW 口径未落盘/回退 naive (computed_at=2026-10-18 03:06:14)
+E       assert not ['AMIHUD', 'ATR_RATIO', 'CONSECUTIVE_LOSS', 'LOWER_SHADOW', 'MDD60', 'OBV_TREND', ...]
+
+tests\test_factor_layer_sign.py:200: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_factor_layer_sign.py::TestNWCaliberRegression::test_authority_source_factors_have_icir_nw
+1 failed, 6 passed in 3.04s

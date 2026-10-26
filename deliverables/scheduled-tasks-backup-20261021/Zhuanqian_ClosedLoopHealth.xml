@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-16"?>
+<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Date>2026-10-19T07:16:19</Date>
+    <Author>DESKTOP-THU5BUJ\WIN10</Author>
+    <Description>Daily closed-loop health report. Runs scripts/closedloop_health.py via scripts/Zhuanqian_ClosedLoopHealth.bat and appends to data/closedloop.log. Without this task the health checker has no execution carrier: it stalled 36h on 2026-10-17..18 while still reporting a perfect score. A0 detects such stalls; this task is what prevents them.</Description>
+    <URI>\Zhuanqian_ClosedLoopHealth</URI>
+  </RegistrationInfo>
+  <Principals>
+    <Principal id="Author">
+      <UserId>S-1-5-21-1594319831-3187001615-754757647-1001</UserId>
+      <LogonType>InteractiveToken</LogonType>
+    </Principal>
+  </Principals>
+  <Settings>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
+    <ExecutionTimeLimit>PT1H</ExecutionTimeLimit>
+    <Hidden>true</Hidden>
+    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+    <StartWhenAvailable>true</StartWhenAvailable>
+    <WakeToRun>true</WakeToRun>
+    <IdleSettings>
+      <Duration>PT10M</Duration>
+      <WaitTimeout>PT1H</WaitTimeout>
+      <StopOnIdleEnd>false</StopOnIdleEnd>
+      <RestartOnIdle>false</RestartOnIdle>
+    </IdleSettings>
+  </Settings>
+  <Triggers>
+    <CalendarTrigger>
+      <StartBoundary>2026-10-20T07:30:00</StartBoundary>
+      <ScheduleByDay>
+        <DaysInterval>1</DaysInterval>
+      </ScheduleByDay>
+    </CalendarTrigger>
+  </Triggers>
+  <Actions Context="Author">
+    <Exec>
+      <Command>C:\WINDOWS\System32\wscript.exe</Command>
+      <Arguments>"D:\open code\zhuanqian\scripts\run_path_hidden.vbs" "D:\open code\zhuanqian\scripts\Zhuanqian_ClosedLoopHealth.bat"</Arguments>
+      <WorkingDirectory>D:\open code\zhuanqian</WorkingDirectory>
+    </Exec>
+  </Actions>
+</Task>

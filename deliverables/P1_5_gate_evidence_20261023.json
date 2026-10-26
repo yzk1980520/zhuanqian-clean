@@ -1,0 +1,162 @@
+{
+  "decision_id": "P1#5/t_c575000e/20261023",
+  "generated": "2026-10-23 06:37:37",
+  "engine_commit": "pure_python_v10_exact_132d@0aec0775",
+  "gate_items": {
+    "G1_IC": {
+      "threshold": 0.03,
+      "rule": "|ic_mean|>=0.03 (GATE_CONFIG同阈值)"
+    },
+    "G2_IR": {
+      "threshold": 0.3,
+      "rule": "|icir_nw|>=0.3 (W14 NW口径, naive禁用)"
+    },
+    "G3_MONO": {
+      "rule": "5分位平均前瞻收益单调, 相邻逆序<=1 (方向不限)"
+    },
+    "G4_FULL": {
+      "rule": "132d窗口 且 有效截面日>=106",
+      "window_days": 132,
+      "dates_with_ic": 132
+    }
+  },
+  "data_window": {
+    "last_date": "2026-10-20",
+    "last_ic_date": "2026-10-13",
+    "universe_size": 500,
+    "max_stocks": 500,
+    "mono_dates_range": [
+      "2026-03-27",
+      "2026-10-13"
+    ]
+  },
+  "delisted_coverage": {
+    "included": true,
+    "note": "池=data/history_daily(9442文件, 含TDX已删退市代码); data/delisted_audit.json verdict=delisted_in_pool=true, exclusive=157, survivorship_gap=0 (2026-10-23 04:37 快照)"
+  },
+  "per_factor": {
+    "STARTUP_ACCEL": {
+      "ic": 0.0428,
+      "icir_nw": 0.0846,
+      "naive_icir": 0.1638,
+      "n_dates": 132,
+      "ic_status_pipeline": "dead",
+      "G1_ic": true,
+      "G2_ir": false,
+      "G3_mono": true,
+      "q_means": [
+        -0.3384,
+        -0.2691,
+        -0.1227,
+        -0.1394,
+        0.1047
+      ],
+      "q_spearman": null,
+      "direction": "positive",
+      "verdict": "FAIL"
+    },
+    "GAP_UP_CNT20": {
+      "ic": -0.0249,
+      "icir_nw": -0.0648,
+      "naive_icir": 0.1322,
+      "n_dates": 132,
+      "ic_status_pipeline": "dead",
+      "G1_ic": false,
+      "G2_ir": false,
+      "G3_mono": false,
+      "q_means": [
+        -0.3099,
+        0.0446,
+        -0.1411,
+        -0.204,
+        -0.1561
+      ],
+      "q_spearman": null,
+      "direction": "positive",
+      "verdict": "FAIL"
+    },
+    "GAP_UP_X_ACCEL": {
+      "ic": -0.009,
+      "icir_nw": -0.0552,
+      "naive_icir": 0.0944,
+      "n_dates": 132,
+      "ic_status_pipeline": "dead",
+      "G1_ic": false,
+      "G2_ir": false,
+      "G3_mono": false,
+      "q_means": [
+        -0.3809,
+        -0.0897,
+        -0.0915,
+        -0.3448,
+        0.1424
+      ],
+      "q_spearman": null,
+      "direction": "positive",
+      "verdict": "FAIL"
+    }
+  },
+  "pre_post": {
+    "authority_file": "data\\factor_ic\\factor_ic_latest.json",
+    "authority_computed_at": "2026-10-21T03:10:04",
+    "note": "P1#5 因子族在权威源(10-21)未登记 → 无同名基线; 以下为重叠因子同口径对照(窗口平移~2日, 非同一窗口, 仅供参考)",
+    "overlap": [
+      {
+        "name": "PRICE_VOL_RANK",
+        "ic_prev": -0.0382,
+        "ic_now": 0.0517,
+        "icir_nw_now": 0.1447,
+        "status_prev": "dead",
+        "status_now": "dead"
+      },
+      {
+        "name": "UPPER_SHADOW",
+        "ic_prev": 0.0012,
+        "ic_now": -0.002,
+        "icir_nw_now": -0.0108,
+        "status_prev": "dead",
+        "status_now": "dead"
+      },
+      {
+        "name": "chg10",
+        "ic_prev": 0.0644,
+        "ic_now": 0.0443,
+        "icir_nw_now": 0.0895,
+        "status_prev": "valid",
+        "status_now": "dead"
+      },
+      {
+        "name": "chg5",
+        "ic_prev": 0.0425,
+        "ic_now": 0.0225,
+        "icir_nw_now": 0.0616,
+        "status_prev": "valid",
+        "status_now": "dead"
+      },
+      {
+        "name": "value_proxy",
+        "ic_prev": 0.0851,
+        "ic_now": -0.0195,
+        "icir_nw_now": -0.0357,
+        "status_prev": "valid",
+        "status_now": "dead"
+      },
+      {
+        "name": "vol_ratio",
+        "ic_prev": -0.0047,
+        "ic_now": -0.0048,
+        "icir_nw_now": -0.0192,
+        "status_prev": "frozen",
+        "status_now": "dead"
+      }
+    ]
+  },
+  "pessimistic_loss": "P1#5族未合入前: 零代码变更零损失。若R0合入且某因子IC日后转负: 该因子按naive权重反噬, 量级≈|IC|×权重×前瞻窗口; 失效后走降级路径退回因子池, 回滚=从STRATEGIES/加分链摘除该因子(见失效条件)。",
+  "invalidation_conditions": "任一P1#5因子滚动20日|IC|<0.03 → 判失效, 退回因子池(契约degradation_path); 实盘摘除加分项, 不强行合入。",
+  "verdict": "NOT-PASS",
+  "not_pass_reasons": [
+    "STARTUP_ACCEL: G1=True/G2=False/G3=True",
+    "GAP_UP_CNT20: G1=False/G2=False/G3=False",
+    "GAP_UP_X_ACCEL: G1=False/G2=False/G3=False"
+  ]
+}

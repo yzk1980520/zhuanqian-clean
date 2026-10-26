@@ -1,0 +1,16 @@
+{
+ "run_at": "2026-10-26 07:48:27",
+ "dry_run": false,
+ "markets": [
+  "sh",
+  "sz",
+  "bj"
+ ],
+ "scanned": 9671,
+ "updated": [],
+ "appended_total": 0,
+ "fresh": 0,
+ "no_ext": 9671,
+ "no_day": 0,
+ "errors": []
+}

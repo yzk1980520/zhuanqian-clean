@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<title>御龙决 · 作战台</title>
+<link rel="stylesheet" href="https://unpkg.com/@visactor/vchart@2.1.6/dist/vchart.css">
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Microsoft YaHei',sans-serif;background:#0f1117;color:#e6e8ee;min-height:100vh}
+.app{max-width:1200px;margin:0 auto;padding:20px 16px 48px}
+.header{display:flex;justify-content:space-between;align-items:center;padding:10px 0;margin-bottom:16px;border-bottom:1px solid #232636}
+.header h1{font-size:20px}.meta{font-size:12px;color:#8a93a3}
+.gate-box{display:flex;align-items:center;gap:16px;padding:14px 24px;background:#131620;border-radius:10px;border:2px solid #f5222d;margin-bottom:16px}
+.gate-info{font-size:14px;line-height:1.8}.gate-info b{color:#f5222d;font-size:18px;font-weight:700}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
+.kpi{background:#131620;border-radius:8px;padding:10px;text-align:center}
+.kpi span{display:block;font-size:10px;color:#8a93a3;margin-bottom:2px}
+.kpi b{font-size:16px;font-weight:700}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:#1a1e2a;border:1px solid #2a3040;border-radius:12px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,0.3)}
+.full{grid-column:1/-1}.card h2{font-size:13px;color:#8a93a3;margin-bottom:8px;font-weight:400}
+.mini-chart{height:200px}.chart{height:260px}
+.hold-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:8px}
+.hold-card{background:#131620;border-radius:8px;padding:10px;border:1px solid #252b3a}
+.hold-head{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.hold-head h3{font-size:14px;font-weight:600}.hold-head span{font-size:11px;color:#6ea8fe}
+.hold-head .pnl.pos{color:#4caf7d;margin-left:auto}.hold-head .pnl.neg{color:#e06c6c;margin-left:auto}
+.hold-stats{display:flex;gap:8px;flex-wrap:wrap;font-size:10px;color:#8a93a3;margin-bottom:4px}
+.hold-stats span{background:#0f1117;padding:2px 6px;border-radius:4px}
+table{width:100%;border-collapse:collapse;font-size:11px}
+th,td{padding:4px 6px;border-bottom:1px solid #252b3a;text-align:left}
+th{color:#8a93a3;font-weight:400;font-size:10px}
+.footer{text-align:center;font-size:10px;color:#555;margin-top:20px;padding-top:10px;border-top:1px solid #232636}
+</style></head><body>
+<div class="app">
+<div class="header"><h1>御龙决 · 作战台</h1><span class="meta">生成 2026-09-02 04:04 | 全仓1只</span></div>
+<div class="gate-box"><div style="font-size:20px">CLOSED</div>
+<div class="gate-info"><div>上证 <b>3952</b> vs MA250 <b>3984</b></div><div>市场评分 56 (偏暖) | 仓位建议 全仓1只</div></div></div>
+<div class="kpi-row">
+<div class="kpi"><span>胜率</span><b>37.8%</b></div>
+<div class="kpi"><span>5日超额</span><b>+0.32%</b></div>
+<div class="kpi"><span>持仓数</span><b>1</b></div>
+<div class="kpi"><span>环境门</span><b style="color:#f5222d">CLOSED</b></div>
+</div>
+<div class="grid">
+<div class="card full"><h2>持仓K线（收盘价+成本线+止损线）</h2><div class="hold-grid"><div class='hold-card'><div class='hold-head'><h3>中牧股份</h3><span>sh600195</span><span class='pnl pos'>+0.6%</span></div><div class='hold-stats'><span>成本6.81</span><span>现价6.85</span><span>止损6.26</span><span>最高6.96</span><span>市值23975</span></div><div id='h-0' class='mini-chart'></div></div></div></div>
+<div class="card"><h2>市场五维雷达</h2><div id="radar" class="chart"></div></div>
+<div class="card"><h2>因子 Walk-Forward 验证</h2><table><tr><th>因子</th><th>训练IC</th><th>测试IC</th><th>结论</th></tr><tr><td>alpha13</td><td>0.0562</td><td>0.0535</td><td style='color:#4caf7d'>WEAK_PASS</td></tr><tr><td>alpha15</td><td>0.0349</td><td>0.0532</td><td style='color:#4caf7d'>WEAK_PASS</td></tr><tr><td>alpha16_fix</td><td>0.0627</td><td>0.0754</td><td style='color:#4caf7d'>WEAK_PASS</td></tr><tr><td>amount_q_reversal</td><td>-0.0183</td><td>-0.0420</td><td style='color:#f0b429'>WEAK_PASS</td></tr></table></div>
+</div>
+<div class="footer">御龙决作战台 V1 | 数据源：TDX + holdings + market_state_cache + backtest_result + walk_forward</div>
+</div>
+<script>
+var HOLDINGS_DATA = {"h-0":{"dates":["2026-07-22","2026-07-23","2026-07-24","2026-07-27","2026-07-28","2026-07-29","2026-07-30","2026-07-31","2026-08-03","2026-08-04","2026-08-05","2026-08-06","2026-08-07","2026-08-10","2026-08-11","2026-08-12","2026-08-13","2026-08-14","2026-08-17","2026-08-18","2026-08-19","2026-08-20","2026-08-21","2026-08-24","2026-08-25","2026-08-26","2026-08-27","2026-08-28","2026-08-31","2026-09-01"],"closes":[6.42,6.47,6.27,6.34,6.4,6.42,6.46,6.54,6.64,6.55,6.52,6.54,6.56,6.67,6.61,6.66,6.64,6.58,6.6,6.81,6.68,6.85,6.71,6.73,6.83,6.91,6.78,6.89,6.83,6.85],"cost":6.81,"stop_loss":6.265}};
+
+// ── 持仓折线图（ECharts） ──
+for (var k in HOLDINGS_DATA) {
+  var d = HOLDINGS_DATA[k];
+  var chart = echarts.init(document.getElementById(k));
+  chart.setOption({
+    backgroundColor:'transparent',
+    tooltip:{trigger:'axis'},
+    grid:{left:35,right:20,top:15,bottom:35},
+    xAxis:{type:'category',data:d.dates,
+      axisLabel:{rotate:45,fontSize:8,color:'#8a93a3'},
+      axisLine:{lineStyle:{color:'#2a3040'}}},
+    yAxis:{type:'value',
+      axisLabel:{color:'#8a93a3'},
+      splitLine:{lineStyle:{color:'#252b3a'}}},
+    series:[{
+      type:'line',data:d.closes,smooth:true,
+      lineStyle:{color:'#4caf7d',width:2},
+      itemStyle:{color:'#4caf7d'},
+      areaStyle:{color:'rgba(76,175,125,0.15)'},
+      markLine:{
+        silent:true,
+        symbol:'none',
+        data:[
+          {yAxis:d.cost,label:{formatter:'成本'+d.cost,color:'#1890ff'},lineStyle:{color:'#1890ff',type:'dashed'}},
+          {yAxis:d.stop_loss,label:{formatter:'止损'+d.stop_loss,color:'#f5222d'},lineStyle:{color:'#f5222d',type:'dashed'}}
+        ]
+      }
+    }],
+  });
+  window.addEventListener('resize', function(){chart.resize();});
+}
+
+// ── 雷达图（ECharts） ──
+var radar = echarts.init(document.getElementById('radar'));
+radar.setOption({
+  backgroundColor:'transparent',
+  tooltip:{},
+  radar:{
+    indicator:[
+      {name:'趋势',max:100},{name:'赚钱效应',max:100},
+      {name:'量能',max:100},{name:'资金',max:100},{name:'板块',max:100}
+    ],
+    radius:'65%',center:['50%','55%'],
+    axisName:{color:'#e6e8ee',fontSize:11},
+    splitLine:{lineStyle:{color:'#2a3040'}},
+    splitArea:{areaStyle:{color:['#131620','#1a1e2a']}},
+    axisLine:{lineStyle:{color:'#2a3040'}},
+  },
+  series:[{
+    type:'radar',
+    data:[{
+      value:[65,50,55,50,60],
+      name:'市场评分',
+      areaStyle:{color:'rgba(24,144,255,0.25)'},
+      lineStyle:{color:'#1890ff',width:2},
+      itemStyle:{color:'#1890ff'},
+    }]
+  }]
+});
+</script>
+</body></html>

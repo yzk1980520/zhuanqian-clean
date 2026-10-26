@@ -1,0 +1,6 @@
+# CI 专用最小依赖 (2026-10-15 老六修复)
+# 背景: scripts/test_*.py 的 AST 全量扫描显示测试第三方依赖仅 numpy + requests,
+# 原 requirements.txt 全量安装(akshare/pytdx/scipy/statsmodels 等)在 GitHub
+# runner 上耗时且高频失败, 是 checks 0/1 的成因之一
+numpy>=1.24
+requests>=2.31

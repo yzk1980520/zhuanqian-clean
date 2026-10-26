@@ -1,0 +1,61 @@
+{
+  "architecture_issues": [
+    "Hermes Agent 使用 YAML 配置 + .env 明文密钥双轨制；zhuanqian 使用 JSON 单轨制。两套系统配置格式完全不统一，导致维护时需同步理解两种语法。",
+    "Hermes config.yaml 中 desktop.repo_scan_roots 硬编码指向 zhuanqian 路径（D:\\open code\\zhuanqian），形成平台配置对业务代码的反向依赖，违反分层原则。",
+    "Hermes MOA presets 中嵌入 zhuanqian 专属任务名（回测审查/因子评审/选股确认），导致通用调度器与具体业务逻辑耦合。",
+    "profile.yaml 混入智囊团群聊会话快照和 UI 元数据（_ui_meta），将易变的状态数据与静态配置混存，每次会话变更都会污染配置文件。",
+    "zhuanqian 技能库在两个位置同时维护：hermes-home/skills/zhuanqian/ 和项目内 skills/zhuanqian/，通过符号链接同步，存在双写不一致风险。",
+    "Hermes 遗留备份目录未清理：hermes-agent-backup-20260915-032610（365行完整配置副本）、hermes-agent.broken-20260912-022435、hermes-agent.broken-20260910-181007，合计占用大量空间且含历史密钥。",
+    "config.yaml 存在三个在线版本：config.yaml.bak_phoenix_20260903_140000（provider=openai-api/default=glm-5.2）、config.yaml.bak_provider_fix_20260903_184826（provider=agnes/default=agnes-2.5-flash）、当前 config.yaml（custom provider），配置漂移风险极高。"
+  ],
+  "config_redundancies": [
+    "config.json 中 factor_weights 存在两套互相矛盾的定义：第90-98行（chg5=20, chg10=15, amount_q_reversal=-12, vol_price_corr=10）与第108-125行（chg5=20, chg10=36, amount_q_reversal=-10, vol_price_corr_20=-15, momentum_reversal=10），权重值不一致，运行时实际加载哪套取决于代码实现。",
+    "飞书凭证 triple-stored：Hermes config.yaml（platforms.feishu.app_id/secret）、.env.bak_20260910 系列（FEISHU_APP_ID/SECRET）、zhuanqian config/feishu_config.json（enabled:false 未生效副本），三处任一泄漏即全泄漏。",
+    "FEISHU_APP_ID=cli_aa18b9d5a338dbd3 和 FEISHU_APP_SECRET=[REDACTED_FEISHU_APP_SECRET] 在 config.yaml 和 .env 备份中明文重复存储。",
+    "API 密钥跨 .env 备份冗余：OPENROUTER_API_KEY、GLM_API_KEY、KIMI_API_KEY、AGNES_API_KEY 在 .env.bak_20260910、.env.bak_20260907_agnes、.env.new 中完全相同地重复存储，扩大攻击面。",
+    "策略 weights 在 config.json（两套定义）和 AGENTS.md 决策表中分别维护，若代码读取路径变更会导致静默行为翻转。",
+    "zhuanqian 的 config_test_group_a.json 和 config_test_group_b.json 似乎是实验性配置残留，与生产 config.json 并存，无文档说明其用途。",
+    "AGNES_API_KEY 在 .env.bak_20260910 中出现两个不同值（[REDACTED_CPK_KEY]... vs [REDACTED_CPK_KEY]...），表明密钥轮换后旧备份未同步删除。"
+  ],
+  "coupling_analysis": [
+    "路径耦合：Hermes config.yaml:289 通过 desktop.repo_scan_roots 将 D:\\open code\\zhuanqian 注册为扫描根，Hermes 启动时会遍历该项目目录，平台运行时对业务代码产生文件 IO 依赖。",
+    "技能耦合：AGENTS.md 声明的技能检索协议（skills/zhuanqian/）与 Hermes 自动扫描机制双向绑定——Hermes 扫描 hermes-home/skills/ 目录，zhuanqian 项目内 skills/ 是符号链接副本，修改任一位置会影响另一位置。",
+    "调度耦合：zhuanqian config/laowu_permissions.json 中 cron_task 字段引用 Hermes_LaowuDailyReview（Hermes cron 体系），但实际执行依赖 Windows Task Scheduler（cron_config.json），两套调度器对同一任务名存在认知差。",
+    "数据流单向依赖：Hermes 需要读取 zhuanqian 的 backtest_result.json、holdings.json 做健康检查；zhuanqian 无需读取 Hermes 数据，但 Hermes 的 MOA preset 定义中硬编码了 zhuanqian 任务名，形成逻辑环。",
+    "凭证传递耦合：Hermes MOA preset 中的 provider（custom:agnes）依赖 .env 中的 AGNES_API_KEY；zhuanqian 脚本通过 Hermes agent 下发执行，间接依赖同一密钥链，密钥轮换需同步两处。",
+    "Webhook 死配置：zhuanqian config/feishu_config.json 存在但 enabled=false，webhook_url 为空，告警通道实际走 Hermes platforms/feishu，配置文件为僵尸代码。"
+  ],
+  "cron_analysis": [
+    "zhuanqian cron_config.json 定义 6 个事件，仅 pre_pick（09:25）和 after_close（15:30）启用，其余 4 个（weekly_ic/monthly_tune/dojo_daily_brief/dojo_pick_preview）均为 enabled:false，9.2 自进化框架的周度/月度节奏实际未落地。",
+    "Hermes 平台 cron 系统在 sessions/ 目录积累大量 session dump（50+ request_dump_cron_*.json 文件），从 20260903 到 20260917 持续增长，无 TTL 清理机制，磁盘占用持续膨胀。",
+    "Hermes 拥有完整的 cron 测试套件（hermes-agent.broken 下 30+ test_cron_*.py 文件），但当前 config.yaml 未声明任何 cron 任务——测试覆盖的代码与实际运行的 cron 之间存在鸿沟。",
+    "双重调度风险：zhuanqian 通过 Windows Task Scheduler 管理 cron（Hermes_StockBoard 等）；Hermes 自身也有 cron 机制（hermes cron 命令）。两者无互锁机制，如果同一任务在两边注册会导致重复执行。",
+    "Hermes cron 配置文件位置不透明：在 hermes-home 根目录未发现显式的 cron.yaml 或 cron.json（搜索 hermes-home 下 *cron*.yaml = 0 结果），cron 任务可能通过数据库（kanban.db）或 web UI 管理，DevOps 可审计性低。",
+    "cron session 隔离：Hermes 有 test_cron_profile_isolation.py 和 test_cron_session_isolation.py 测试，但无法确认当前运行中的 cron 是否实际启用了 profile 隔离，session dump 文件名中的 ID 无法追溯到具体任务。",
+    "zhuanqian cron 的 max_concurrent=1 和 retry_count=3 配置意味着单个任务失败后最多重试 3 次，但 60 秒 retry_delay 对 T+0 选股（09:25 执行）而言过长——如果 pre_pick 失败重试 3 次（180 秒），将错过开盘窗口。"
+  ],
+  "security_concerns": [
+    "API 密钥明文存储：.env.bak_20260910 包含至少 12 个有效 API 密钥（OPENROUTER/GLM/KIMI/AGNES/HUAWEICLOUD/DASHSCOPE/HINDSIGHT/MEM0/TAVILY/FREELLMAPI 等），无任何加密或权限控制，任何能读取 hermes-home 的用户均可获取全部密钥。",
+    "密钥备份扩散：.env.bak_20260916_missing_keys、.env.bak_20260916_api_server_key、.env.bak_20260910、.env.bak_20260907_agnes、.env.new 共 5 个 .env 备份文件共享同一目录，任一备份被误提交即全量泄漏。",
+    "飞书 app_secret 明文暴露：config.yaml 第41行 FEISHU_APP_SECRET=[REDACTED_FEISHU_APP_SECRET]，该密钥可在 git 历史中被恢复。",
+    "Decuria API server key 硬编码：config.yaml 第24/37行 API_SERVER_KEY=[REDACTED_API_SERVER_KEY]，与 .env 中的 FREELLMAPI_KEY 均明文存储，一旦 gateway 被中间人攻击即可截获。",
+    "微信账户凭证散落：weixin/accounts/ 和 weixin/accounts_archive_20260829_044542/ 目录下存在多个 @im.bot.json/.sync.json/.context-tokens.json 文件，微信会话 token 无加密持久化。",
+    "SUDO_PASSWORD 配置项虽然为空，但 .env.bak_20260910 第261行注释提示了明文密码存储模式，存在操作者误填入的风险。",
+    "GITHUB_TOKEN 在 .env.bak_20260910 第433行出现（值被 Hermes 自动 redact），说明曾使用或个人 PAT 被写入备份文件。",
+    "Hermes profile.yaml 包含智囊团群聊消息快照（text: '群聊团队成员来齐了没' 等），将用户对话数据混入配置文件目录，存在隐私泄露风险。",
+    "TERMINAL_SSH_KEY/TERMINAL_SSH_HOST 等配置项虽为空，但 .env 中保留注释说明，攻击者可据此推断目标基础设施信息。"
+  ],
+  "optimization_recommendations": [
+    "【高优先级】统一 secret 管理：将 .env 中所有 API 密钥迁移至 Windows Credential Manager 或 Hermes vault（已支持 login 凭证加密），.env 文件仅保留非敏感配置项（如 TERMINAL_TIMEOUT），并加入 .gitignore。",
+    "【高优先级】消除 config.json factor_weights 二义性：合并两套定义为单一权威源，或明确区分 'weights'（生产权重）和 'factor_weights'（策略权重）的语义边界，消除运行时歧义。",
+    "【高优先级】清理 Hermes 备份目录：删除 hermes-agent-backup-20260915-032610、hermes-agent.broken-20260912-022435 等历史备份，或迁移至独立归档存储，减少密钥暴露面。",
+    "【中优先级】统一调度系统：将 zhuanqian 的 cron_config.json 任务迁移至 Hermes cron 体系（利用 Hermes 的 delivery 和 profile 隔离），废弃 Windows Task Scheduler 依赖，消除双重调度风险。",
+    "【中优先级】配置格式收敛：将 zhuanqian 的 JSON 配置（config.json/cron_config.json）统一为 Hermes 的 YAML 风格，或至少统一配置解析路径，降低认知负载。",
+    "【中优先级】配置与状态分离：将 profile.yaml 中的 _ui_meta 和 session 快照数据迁移至 kanban.db 或独立的 state 目录，避免 UI 操作污染配置文件。",
+    "【低优先级】标准化技能库：消除 zhuanqian 技能的双目录同步（项目内 skills/ 与 hermes-home/skills/zhuanqian），改为单一权威源 + Hermes 配置引用路径。",
+    "【低优先级】cron session dump 清理：在 Hermes cron 配置中添加 session dump 的 TTL（如 7 天自动清理），防止 sessions/ 目录无限增长。",
+    "【低优先级】飞书凭证收敛：删除 zhuanqian config/feishu_config.json（enabled=false 僵尸配置），统一使用 Hermes platforms/feishu 凭证，避免三处维护。",
+    "【低优先级】因子权重单一权威源：将 AGENTS.md 决策表中的因子权重描述改为引用 config.json（如 '参见 config.json factor_weights'），消除文档与代码不同步风险。"
+  ],
+  "summary": "Hermes Agent 与 zhuanqian 两套系统存在显著架构裂缝：（1）配置管理双轨制（YAML+JSON）+ factor_weights 内部矛盾，存在静默行为翻转风险；（2）Hermes 通过 desktop.repo_scan_roots 和 MOA presets 反向耦合 zhuanqian 业务代码，违反分层原则；（3）API 密钥明文散布于 5+ 个 .env 备份和 config.yaml，安全债务严重；（4）cron 体系分裂（Hermes cron vs Windows Task Scheduler），且 zhuanqian 6 个 cron 任务 4 个未启用，自进化框架周/月节奏悬空；（5）profile.yaml 混入 UI 状态数据、Hermes 遗留备份目录含历史密钥、config.json 存在双份 factor_weights 定义。建议优先收敛 secret 管理、消除配置二义性、统一调度系统。"
+}

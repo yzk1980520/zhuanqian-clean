@@ -1,0 +1,106 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+pip-wheel-metadata/
+setuptools-devel/
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+node-cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data (runtime, 4GB+)
+data/
+!data/*.json
+!data/factor_registry/
+
+# Logs
+logs/
+*.log
+
+# Backups
+*.bak
+*.bak_*
+*.backup.*
+backups/
+.trash/
+docs/.trash/
+
+# Archives
+archive/
+!archive/root-py-batch3/
+
+# Test artifacts
+__test_export.csv
+recommendation_verify.json
+
+# Coverage
+htmlcov/
+.coverage
+coverage.xml
+.pytest_cache/
+
+# Config (sensitive)
+config/real_config.json
+config/feishu_config.json
+config/feishu_fallback_app.json
+config/pause_state.json
+
+# Generated reports
+reports/
+backtest_analysis/
+
+# Worktrees
+.worktrees/
+.cache/
+
+# Large files (should use LFS or be excluded)
+*.zip
+*.tar.gz
+*.7z
+
+# AOCI
+.aoci/
+aoci.txt
+aoci.code.txt
+aoci.meta.txt
+
+# .workbuddy
+.workbuddy/
+
+# Hermetic scratch
+.hermes/scratch/
+
+# Windows reserved
+nul
+CON
+PRN
+AUX

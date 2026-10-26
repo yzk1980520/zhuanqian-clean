@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<title>选股系统看板</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Microsoft YaHei",sans-serif;background:#0f1115;color:#e6e6e6;padding:20px}
+h1{font-size:22px;margin-bottom:6px}
+.sub{color:#8a93a3;font-size:12px;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+.card{background:#1a1e28;border:1px solid #2a3040;border-radius:10px;padding:14px}
+.card-title{font-weight:bold;font-size:14px;margin-bottom:10px;border-bottom:1px solid #2a3040;padding-bottom:8px}
+.card-body{font-size:13px;line-height:1.7}
+.card-ok{border-color:#2e7d4f}
+.card-warn{border-color:#b8860b}
+.card-danger{border-color:#b3403a}
+.kv{display:flex;justify-content:space-between;padding:2px 0}
+.b{font-weight:bold}
+table{width:100%;border-collapse:collapse;margin-top:6px;font-size:12px}
+th,td{text-align:left;padding:4px 6px;border-bottom:1px solid #252b3a}
+th{color:#8a93a3;font-weight:normal}
+.pos{color:#4caf7d}.neg{color:#e06c6c}
+.signal{margin:3px 0}.sub-title{margin-top:8px;color:#f0b429}
+.line{white-space:pre-wrap;padding:1px 0}
+.ok{color:#4caf7d}.warn{color:#f0b429}
+.refresh{color:#8a93a3;font-size:12px;margin-top:16px}
+a{color:#6ea8fe;text-decoration:none}
+</style>
+<meta http-equiv="refresh" content="60">
+</head><body>
+<h1>📊 选股系统看板</h1>
+<div class="sub">生成时间: 2026-08-24 02:35:38 | 自动 60s 刷新 | source: zhuanqian/data</div>
+<div class="grid">
+<div class="card card-danger"><div class="card-title">账户与风控</div><div class="card-body"><div class="kv"><span>账户总资产</span><b>24006.41</b></div>
+<div class="kv"><span>股票市值</span><b>23485.0</b></div>
+<div class="kv"><span>仓位(当前/建议)</span><b>97.8% / 50%</b></div>
+<div class="kv"><span>总盈亏</span><b class="pos">+0.00%</b></div><div class='sub-title'>❌ 仓位合规: ⚠️ 超限</div><div class='signal'><span>📊 最大回撤股票: 中牧股份(sh600195) 0.00%</span></div><div class='signal'><span>🔴 仓位97.8%超过弱市建议上限50%</span>
+<div class="card">
+    <div class="card-title">🎯 S3选股候选池</div>
+<div class="card">
+    <div class="card-title">🎯 S3选股候选池</div>
+    <div class="card-body">
+        <table>
+            <tr><th>#</th><th>代码</th><th>名称</th><th>分数</th></tr>
+            <tr><td>1</td><td>sh600097</td><td>开创国际</td><td>85.0</td></tr>
+<tr><td>2</td><td>sh603721</td><td>中广天择</td><td>85.0</td></tr>
+<tr><td>3</td><td>sh600892</td><td>大晟文化</td><td>84.0</td></tr>
+<tr><td>4</td><td>sh601566</td><td>九牧王</td><td>84.0</td></tr>
+<tr><td>5</td><td>sh600252</td><td>中恒集团</td><td>83.0</td></tr>
+<tr><td>6</td><td>sh600715</td><td>文投控股</td><td>83.0</td></tr>
+<tr><td>7</td><td>sh601808</td><td>中海油服</td><td>82.0</td></tr>
+<tr><td>8</td><td>sh603276</td><td>恒兴新材</td><td>82.0</td></tr>
+<tr><td>9</td><td>sh600403</td><td>大有能源</td><td>80.0</td></tr>
+<tr><td>10</td><td>sh600621</td><td>华鑫股份</td><td>80.0</td></tr>
+
+        </table>
+        <div class="refresh">更新时间: 2026-10-18 17:07:11</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-title">🎯 S3选股候选池</div>
+    <div class="card-body">
+        <table>
+            <tr><th>#</th><th>代码</th><th>名称</th><th>分数</th></tr>
+            <tr><td>1</td><td>sh603727</td><td>博迈科</td><td>86.0</td></tr>
+<tr><td>2</td><td>sh600863</td><td>华能蒙电</td><td>83.0</td></tr>
+<tr><td>3</td><td>sh600513</td><td>联环药业</td><td>82.0</td></tr>
+<tr><td>4</td><td>sh600573</td><td>惠泉啤酒</td><td>82.0</td></tr>
+<tr><td>5</td><td>sh600789</td><td>鲁抗医药</td><td>82.0</td></tr>
+
+        </table>
+        <div class="refresh">更新时间: 2026-10-10 06:01:34</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-title">🎯 S3选股候选池</div>
+    <div class="card-body">
+        <table>
+            <tr><th>#</th><th>代码</th><th>名称</th><th>分数</th></tr>
+            <tr><td>1</td><td>sh603727</td><td>博迈科</td><td>86.0</td></tr>
+<tr><td>2</td><td>sh600863</td><td>华能蒙电</td><td>83.0</td></tr>
+<tr><td>3</td><td>sh600513</td><td>联环药业</td><td>82.0</td></tr>
+<tr><td>4</td><td>sh600573</td><td>惠泉啤酒</td><td>82.0</td></tr>
+<tr><td>5</td><td>sh600789</td><td>鲁抗医药</td><td>82.0</td></tr>
+
+        </table>
+        <div class="refresh">更新时间: 2026-10-08 18:55:11</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-title">🎯 S3选股候选池</div>
+    <div class="card-body">
+        <table>
+            <tr><th>#</th><th>代码</th><th>名称</th><th>分数</th></tr>
+            <tr><td>1</td><td>sh603727</td><td>博迈科</td><td>86.0</td></tr>
+<tr><td>2</td><td>sh600863</td><td>华能蒙电</td><td>83.0</td></tr>
+<tr><td>3</td><td>sh600513</td><td>联环药业</td><td>82.0</td></tr>
+<tr><td>4</td><td>sh600573</td><td>惠泉啤酒</td><td>82.0</td></tr>
+<tr><td>5</td><td>sh600789</td><td>鲁抗医药</td><td>82.0</td></tr>
+
+        </table>
+        <div class="refresh">更新时间: 2026-10-08 18:13:38</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-title">🎯 S3选股候选池</div>
+    <div class="card-body">
+        <table>
+            <tr><th>#</th><th>代码</th><th>名称</th><th>分数</th></tr>
+            <tr><td>1</td><td>sh600000</td><td>浦发银行</td><td>59.0</td></tr>
+<tr><td>2</td><td>sh600036</td><td>招商银行</td><td>30.0</td></tr>
+<tr><td>3</td><td>sh600519</td><td>贵州茅台</td><td>25.0</td></tr>
+<tr><td>4</td><td>sh601318</td><td>中国平安</td><td>4.0</td></tr>
+
+        </table>
+        <div class="refresh">更新时间: 2026-10-08 08:58:44</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-title">🎯 S3选股候选池</div>
+    <div class="card-body">
+        <table>
+            <tr><th>#</th><th>代码</th><th>名称</th><th>分数</th></tr>
+            <tr><td>1</td><td>sh600000</td><td>浦发银行</td><td>59.0</td></tr>
+<tr><td>2</td><td>sh600036</td><td>招商银行</td><td>30.0</td></tr>
+<tr><td>3</td><td>sh600519</td><td>贵州茅台</td><td>25.0</td></tr>
+<tr><td>4</td><td>sh601318</td><td>中国平安</td><td>4.0</td></tr>
+
+        </table>
+        <div class="refresh">更新时间: 2026-10-08 08:57:52</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-title">🎯 S3选股候选池</div>
+    <div class="card-body">
+        <table>
+            <tr><th>#</th><th>代码</th><th>名称</th><th>分数</th></tr>
+            <tr><td>1</td><td>sh600000</td><td>浦发银行</td><td>59.0</td></tr>
+<tr><td>2</td><td>sh600036</td><td>招商银行</td><td>30.0</td></tr>
+<tr><td>3</td><td>sh600519</td><td>贵州茅台</td><td>25.0</td></tr>
+<tr><td>4</td><td>sh601318</td><td>中国平安</td><td>4.0</td></tr>
+
+        </table>
+        <div class="refresh">更新时间: 2026-10-08 08:16:25</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-title">🎯 S3选股候选池</div>
+    <div class="card-body">
+        <table>
+            <tr><th>#</th><th>代码</th><th>名称</th><th>分数</th></tr>
+            <tr><td>1</td><td>sh601989</td><td>中国重工</td><td>75.0</td></tr>
+<tr><td>2</td><td>sh600036</td><td>招商银行</td><td>68.0</td></tr>
+<tr><td>3</td><td>sh601028</td><td>玉龙股份</td><td>67.0</td></tr>
+<tr><td>4</td><td>sh600000</td><td>浦发银行</td><td>61.0</td></tr>
+<tr><td>5</td><td>sh601318</td><td>中国平安</td><td>47.0</td></tr>
+
+        </table>
+        <div class="refresh">更新时间: 2026-10-07 19:44:46</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-title">🎯 S3选股候选池</div>
+    <div class="card-body">
+        <table>
+            <tr><th>#</th><th>代码</th><th>名称</th><th>分数</th></tr>
+            <tr><td>1</td><td>sh601989</td><td>中国重工</td><td>75.0</td></tr>
+<tr><td>2</td><td>sh600036</td><td>招商银行</td><td>68.0</td></tr>
+<tr><td>3</td><td>sh601028</td><td>玉龙股份</td><td>67.0</td></tr>
+<tr><td>4</td><td>sh600000</td><td>浦发银行</td><td>61.0</td></tr>
+<tr><td>5</td><td>sh601318</td><td>中国平安</td><td>47.0</td></tr>
+<tr><td>6</td><td>sh600190</td><td>退市锦港</td><td>35.0</td></tr>
+<tr><td>7</td><td>sh600462</td><td>退市九有</td><td>32.0</td></tr>
+<tr><td>8</td><td>sh603003</td><td>退市龙宇</td><td>29.0</td></tr>
+<tr><td>9</td><td>sh600387</td><td>退市海越</td><td>28.0</td></tr>
+<tr><td>10</td><td>sh600705</td><td>中航产融</td><td>25.0</td></tr>
+
+        </table>
+        <div class="refresh">更新时间: 2026-10-07 19:00:19</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-title">🎯 S3选股候选池</div>
+    <div class="card-body">
+        <table>
+            <tr><th>#</th><th>代码</th><th>名称</th><th>分数</th></tr>
+            <tr><td>1</td><td>sh601989</td><td>中国重工</td><td>75.0</td></tr>
+<tr><td>2</td><td>sh600036</td><td>招商银行</td><td>68.0</td></tr>
+<tr><td>3</td><td>sh601028</td><td>玉龙股份</td><td>67.0</td></tr>
+<tr><td>4</td><td>sh600000</td><td>浦发银行</td><td>61.0</td></tr>
+<tr><td>5</td><td>sh601318</td><td>中国平安</td><td>47.0</td></tr>
+<tr><td>6</td><td>sh600190</td><td>退市锦港</td><td>35.0</td></tr>
+<tr><td>7</td><td>sh600462</td><td>退市九有</td><td>32.0</td></tr>
+<tr><td>8</td><td>sh603003</td><td>退市龙宇</td><td>29.0</td></tr>
+<tr><td>9</td><td>sh600387</td><td>退市海越</td><td>28.0</td></tr>
+<tr><td>10</td><td>sh600705</td><td>中航产融</td><td>25.0</td></tr>
+
+        </table>
+        <div class="refresh">更新时间: 2026-10-07 18:00:40</div>
+    </div>
+</div>
+    <div class="card-body">
+        <table>
+            <tr><th>#</th><th>代码</th><th>名称</th><th>分数</th></tr>
+            <tr><td>1</td><td>sh601989</td><td>中国重工</td><td>75.0</td></tr>
+<tr><td>2</td><td>sh600036</td><td>招商银行</td><td>68.0</td></tr>
+<tr><td>3</td><td>sh601028</td><td>玉龙股份</td><td>67.0</td></tr>
+<tr><td>4</td><td>sh600000</td><td>浦发银行</td><td>61.0</td></tr>
+<tr><td>5</td><td>sh601318</td><td>中国平安</td><td>47.0</td></tr>
+
+        </table>
+        <div class="refresh">更新时间: 2026-10-07 07:21:50</div>
+    </div>
+</div></div></div></div>
+<div class="card "><div class="card-title">👥 团队架构可视化</div><div class="card-body">
+    <div style='display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin-bottom:12px'>
+    
+        <div style='background:#1e2230;border-radius:8px;padding:10px;border-left:3px solid #3b82f6'>
+            <div style='display:flex;align-items:center;gap:6px;margin-bottom:6px'>
+                <span style='color:#3b82f6;font-size:16px'>⚡ 执行节点</span>
+                <span style='font-weight:bold;font-size:14px'>老三</span>
+                <span style='margin-left:auto;font-size:11px'>🟢 活跃</span>
+            </div>
+            <div style='font-size:11px;color:#8a93a3;line-height:1.6'>
+                <div>🎯 opencode 无人值守编码执行员</div>
+                <div>🤖 deepseek-v4-flash-free</div>
+                <div>📍 本目录</div>
+            </div>
+        </div>
+        <div style='background:#1e2230;border-radius:8px;padding:10px;border-left:3px solid #8b5cf6'>
+            <div style='display:flex;align-items:center;gap:6px;margin-bottom:6px'>
+                <span style='color:#8b5cf6;font-size:16px'>🔧 人工开发</span>
+                <span style='font-weight:bold;font-size:14px'>老四</span>
+                <span style='margin-left:auto;font-size:11px'>🟢 活跃</span>
+            </div>
+            <div style='font-size:11px;color:#8a93a3;line-height:1.6'>
+                <div>🎯 Trae 人工开发</div>
+                <div>🤖 无指定模型</div>
+                <div>📍 D:\open code\zhuanqian\tasks\c</div>
+            </div>
+        </div>
+        <div style='background:#1e2230;border-radius:8px;padding:10px;border-left:3px solid #f97316'>
+            <div style='display:flex;align-items:center;gap:6px;margin-bottom:6px'>
+                <span style='color:#f97316;font-size:16px'>🐎 后备节点</span>
+                <span style='font-weight:bold;font-size:14px'>牛马</span>
+                <span style='margin-left:auto;font-size:11px'>🟢 待命</span>
+            </div>
+            <div style='font-size:11px;color:#8a93a3;line-height:1.6'>
+                <div>🎯 prime-agent 交互式编码研究员</div>
+                <div>🤖 zai-free/glm-4-flash (免费)</div>
+                <div>📍 本目录</div>
+            </div>
+        </div>
+        <div style='background:#1e2230;border-radius:8px;padding:10px;border-left:3px solid #10b981'>
+            <div style='display:flex;align-items:center;gap:6px;margin-bottom:6px'>
+                <span style='color:#10b981;font-size:16px'>📋 成员</span>
+                <span style='font-weight:bold;font-size:14px'>老五(atomcode)</span>
+                <span style='margin-left:auto;font-size:11px'>🟢 活跃</span>
+            </div>
+            <div style='font-size:11px;color:#8a93a3;line-height:1.6'>
+                <div>🎯 独立复核/评审 + 简单任务（编码/查询/报告）</div>
+                <div>🤖 hy3 (腾讯混元, 免费)</div>
+                <div>📍 本目录</div>
+            </div>
+        </div>
+        <div style='background:#1e2230;border-radius:8px;padding:10px;border-left:3px solid #ec4899'>
+            <div style='display:flex;align-items:center;gap:6px;margin-bottom:6px'>
+                <span style='color:#ec4899;font-size:16px'>🧠 深度分析</span>
+                <span style='font-weight:bold;font-size:14px'>老二</span>
+                <span style='margin-left:auto;font-size:11px'>🟢 活跃</span>
+            </div>
+            <div style='font-size:11px;color:#8a93a3;line-height:1.6'>
+                <div>🎯 独立深度分析师(兼对抗审查) — 数据诊断/红队论证/长文综合; 代码</div>
+                <div>🤖 6源轮动(5免费+agnes年费兜底), 默认de</div>
+                <div>📍 D:\open code\DSH Desktop</div>
+            </div>
+        </div>
+    </div>
+    <div style='margin-top:12px;padding-top:10px;border-top:1px solid #2a3040'>
+        <div style='font-size:12px;color:#f0b429;margin-bottom:8px'>🔄 协作流程</div>
+        <div style='font-size:11px;color:#8a93a3;line-height:1.8'>
+            <b style='color:#6366f1'>总管</b> → <b style='color:#3b82f6'>老三</b>(执行) → <b style='color:#10b981'>老五</b>(复核) → 总管验收 → <b style='color:#f59e0b'>老大</b>确认 → 实盘合入<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓ <span style='color:#e06c6c'>打回重做</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style='color:#06b6d4'>第二大脑</b>(独立审查)↔<b style='color:#6366f1'>总管</b><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style='color:#f97316'>牛马</b>(后备待命)
+        </div>
+    </div>
+    <div style='margin-top:10px;padding:8px;background:#1a1e28;border-radius:6px;font-size:11px'>
+        <span style='color:#f0b429'>🚫 授权红线:</span> 交易数据写入/cron调度/实盘合入/策略参数修改 → <b style='color:#6366f1'>总管独占</b>，不可下放
+    </div></div></div>
+    <div style='margin-top:16px;padding-top:12px;border-top:1px dashed #2a3040'>
+        <div style='font-size:11px;color:#8a93a3;margin-bottom:8px'>🔮 预留扩展模块（点击展开）</div>
+        <div style='display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:6px'>
+        <div style='background:#1e2230;border-radius:6px;padding:8px;border-left:2px solid #f0b429;font-size:11px'>
+            <div style='font-weight:bold;margin-bottom:4px'>⏳ 📊 绩效归因</div>
+            <div style='color:#8a93a3;font-size:10px'>待P0实施：收益分解(选股alpha+择时beta+市场因子...</div>
+        </div>
+        <div style='background:#1e2230;border-radius:6px;padding:8px;border-left:2px solid #f0b429;font-size:11px'>
+            <div style='font-weight:bold;margin-bottom:4px'>⏳ ⚠️ 风险预警</div>
+            <div style='color:#8a93a3;font-size:10px'>待P0实施：分级预警(提示/警告/熔断)...</div>
+        </div>
+        <div style='background:#1e2230;border-radius:6px;padding:8px;border-left:2px solid #64748b;font-size:11px'>
+            <div style='font-weight:bold;margin-bottom:4px'>🔮 🤖 AI分析</div>
+            <div style='color:#8a93a3;font-size:10px'>待P1实施：个股深度分析+策略复盘...</div>
+        </div>
+        <div style='background:#1e2230;border-radius:6px;padding:8px;border-left:2px solid #64748b;font-size:11px'>
+            <div style='font-weight:bold;margin-bottom:4px'>🔮 📅 事件驱动</div>
+            <div style='color:#8a93a3;font-size:10px'>待P1实施：业绩预告/解禁/指数调仓过滤...</div>
+        </div>
+        </div>
+        <div style='margin-top:8px;font-size:10px;color:#64748b'>
+            +4 更多模块已预留接口，详见 docs/system-extension-plan-v2.md
+        </div>
+    </div>
+<div class="card card-warn"><div class="card-title">🧭 团队任务概览</div><div class="card-body"><div class='kv' style='font-size:11px;color:#cfd5e0'><b>台账消息: 71 | 待Kimi复核: 0 | 分派老三: 0 | 老二审查: 0 | 老五复核: 0 | 总管验收: 1 | 阻塞: 2 | 进行中: 1 | 待复核评审: 2</b></div><div class='sub-title'>📌 待办清单（最近 12 条）</div><div class='line neg' style='font-size:11.5px'>• 🚫 阻塞: E-20260819-035 — E-20260819-035: DeepSeek Harness 桌面版安装状态 (status=blocked)</div><div class='line neg' style='font-size:11.5px'>• 🚫 阻塞: T-20260819-003 — 安装 DeepSeek-Harness-Token-Free v2.2.0 (HYQi 免token) (status=blocked)</div><div class='line warn' style='font-size:11.5px'>• 🧐 待复核/评审: E-20260820-003 — E-20260820-003: 全员讨论：vol_shrink20 回测结果如何执行 (status=review)</div><div class='line warn' style='font-size:11.5px'>• 🧐 待复核/评审: E-20260820-004 — E-20260820-004: A/B实现成本初估（老四离线，老三补位） (status=review)</div><div class='line ' style='font-size:11.5px'>• 🚧 进行中: E-20260819-040 — E-20260819-040: DSH桌面版安装中 (status=in_progress)</div><div class='line ok' style='font-size:11.5px'>• ✅ 待总管验收: E-20260819-043 — E-20260819-043: 手册TDX描述更正 (status=done)</div></div></div>
+<div class="card "><div class="card-title">📝 最新沟通流水</div><div class="card-body"><table><tr><th style='width:60px'>时间</th><th>from→to</th><th>title / status</th></tr><tr><td style='color:#8a93a3'>2026-08-24 02:13</td><td>老二→总管</td><td>老二headless完成: 只回复四个字: 沟通测试 <span class=''>[done]</span></td></tr><tr><td style='color:#8a93a3'>2026-08-24 01:44</td><td>总管→团队</td><td>老二(DSH Desktop v0.5.0)入编团队: 岗位 <span class=''>[done]</span></td></tr><tr><td style='color:#8a93a3'>2026-08-24 00:37</td><td>老五→总管</td><td>T-20260823-003 评分区分度只读评审交付 — s <span class='ok'>[approved]</span></td></tr><tr><td style='color:#8a93a3'>2026-08-23 19:20</td><td>总管→团队</td><td>E-20260823-002: 技能库精简(46→26目录) <span class='ok'>[completed]</span></td></tr><tr><td style='color:#8a93a3'>2026-08-23 18:14</td><td>总管→老大</td><td>每日自动化日报 2026-08-23 <span class='ok'>[completed]</span></td></tr><tr><td style='color:#8a93a3'>2026-08-22 23:19</td><td>总管→boss</td><td>Python环境损坏需手动修复：请手动下载Python 3. <span class='ok'>[archived]</span></td></tr><tr><td style='color:#8a93a3'>2026-08-22 23:15</td><td>总管→boss</td><td>Python环境冲突需管理员修复：_socket.pyd损坏 <span class='ok'>[archived]</span></td></tr><tr><td style='color:#8a93a3'>2026-08-22 23:15</td><td>总管→laowu</td><td>因子权重优化验证：tdx_core.py已修改（chg5/r <span class='ok'>[archived]</span></td></tr></table><div style='margin-top:8px;color:#8a93a3;font-size:11px'>last_sync: 2026-08-24T02:14:54 | source: team/channel.json</div></div></div>
+<div class="card "><div class="card-title">实盘持仓</div><div class="card-body"><div class='ok'>无实盘持仓</div></div></div>
+<!-- 模拟盘已禁用，老大要求实盘 -->
+<!-- <div class="card "><div class="card-title">模拟轮回</div><div class="card-body"><div class='kv'><span>持仓数</span><b>46</b></div><div class='kv'><span>盈利/亏损</span><b>22 / 24</b></div><table><tr><th>名称</th><th>开仓</th><th>成本</th><th>现价</th></tr><tr><td>华东医药</td><td>2026-08-12</td><td>29.5</td><td class='neg'>28.1 (-4.7%)</td></tr><tr><td>日丰股份</td><td>2026-08-12</td><td>9.85</td><td class='pos'>10.82 (+9.8%)</td></tr><tr><td>上海家化</td><td>2026-08-12</td><td>17.91</td><td class='pos'>18.09 (+1.0%)</td></tr><tr><td>中煤能源</td><td>2026-08-13</td><td>14.15</td><td class='pos'>14.3 (+1.1%)</td></tr><tr><td>宝丰能源</td><td>2026-08-13</td><td>23.43</td><td class='pos'>24.06 (+2.7%)</td></tr><tr><td>天富能源</td><td>2026-08-13</td><td>7.7</td><td class='neg'>7.29 (-5.3%)</td></tr><tr><td>亚宝药业</td><td>2026-08-14</td><td>7.04</td><td class='neg'>6.87 (-2.4%)</td></tr><tr><td>九芝堂</td><td>2026-08-14</td><td>9.53</td><td class='neg'>9.04 (-5.1%)</td></tr><tr><td>信邦制药</td><td>2026-08-14</td><td>3.13</td><td class='neg'>3.04 (-2.9%)</td></tr><tr><td>步长制药</td><td>2026-08-14</td><td>16.0</td><td class='neg'>15.52 (-3.0%)</td></tr><tr><td>国睿科技</td><td>2026-08-14</td><td>26.0</td><td class='pos'>26.01 (+0.0%)</td></tr><tr><td>一心堂</td><td>2026-08-14</td><td>12.06</td><td class='neg'>11.61 (-3.7%)</td></tr><tr><td>吉比特</td><td>2026-08-16</td><td>390.3</td><td class='neg'>383.81 (-1.7%)</td></tr><tr><td>中通客车</td><td>2026-08-16</td><td>10.36</td><td class='neg'>10.27 (-0.9%)</td></tr><tr><td>通化东宝</td><td>2026-08-16</td><td>8.57</td><td class='neg'>8.11 (-5.4%)</td></tr></table></div></div> -->
+<div class="card "><div class="card-title">每日简报</div><div class="card-body"><div class='line'>📊 KIMI选股日报</div><div class='line'>==============================</div><div class='line'>市场: 53/100 震荡</div><div class='line'>市场判断源: market_state_engine (v2.1 5维)</div><div class='line'>策略: 趋势</div><div class='line'>仓位: 中等仓位</div><div class='line'></div><div class='line'>📁 持仓:</div><div class='line'>  成本: 53.826 x 400股 = 21530.40元</div><div class='line'>  现价: 52.62  |  市值: 21048.00元</div><div class='line'>  盈亏: -482.40元 (-2.24%)</div><div class='line'>  浮盈: -2.24%  |  止损: -</div><div class='line'></div><div class='line'>⚠️ 操作纪律:</div><div class='line'>  禁止5日快进快出 (净超额-0.09%, 佣金吃掉利润)</div><div class='line'>  事件驱动入场 + 20日趋势持有 (净超额+1.89%)</div><div class='line'>  单笔≥1万元摊薄5元最低佣金 (1万0.15%→2万0.10%)</div><div class='line'></div><div class='line'>✅ 昨日推荐回验:</div><div class='line'>  2026-08-14 亚宝药业(600351) 5日待观察 [未买入]</div><div class='line'>==============================</div><div class='line'>完整日志: data/daily_pick.log</div></div></div>
+<div class="card "><div class="card-title">主升浪研究</div><div class="card-body"><div class='ok'>主升浪 P0-P3 已完成, P2d 龙头验证闭环</div></div></div>
+<div class="card "><div class="card-title">健康门</div><div class="card-body"><div class='kv'><span>今日健康门</span><b>open</b></div><div class='ok'>无红牌</div></div></div>
+<div class="card card-ok"><div class="card-title">📤 微信推送状态</div><div class="card-body"><div class='kv'><span>最后推送</span><b>2026-08-21 15:05:01</b></div><div style='margin-top:8px;font-size:11px;color:#8a93a3'>最近推送:</div><div class='line'>- 🛡️ 持仓风控: 全部健康, 无告警</div></div></div>
+</div>
+<div class="refresh">数据只读 · 全部来自 D:\open code\zhuanqian\data · 触发选股请见 opencode 看板入口</div>
+</body></html>

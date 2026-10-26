@@ -1,0 +1,930 @@
+{
+  "meta": {
+    "window": [
+      "2026-03-23",
+      "2026-09-30"
+    ],
+    "trading_days": 132,
+    "scan_days": 27,
+    "universe": 3147,
+    "inds_universe": 3055,
+    "init_capital": 25000.0,
+    "scan_step": 5,
+    "contract": {
+      "stop_pct": 0.1,
+      "trailing_ladder": [
+        [
+          6,
+          0.15
+        ],
+        [
+          10,
+          0.05
+        ],
+        [
+          15,
+          0.07
+        ],
+        [
+          25,
+          0.09
+        ],
+        [
+          999,
+          0.12
+        ]
+      ],
+      "max_hold_days": 120,
+      "chase_ban_pct": 4.0,
+      "slippage_rate": 0.001
+    }
+  },
+  "runs": {
+    "TURN5": {
+      "config": "TURN5-成交量升序",
+      "trades": 6,
+      "win_rate": 33.3,
+      "avg_win_pct": 7.64,
+      "avg_loss_pct": -26.45,
+      "profit_factor": 0.04,
+      "total_return_pct": -85.23,
+      "annual_pct": -98.2,
+      "max_drawdown_pct": 96.48,
+      "avg_hold_days": 18.8,
+      "reasons": {
+        "止损": 2,
+        "移动止盈": 3,
+        "期末平仓": 1
+      },
+      "final_equity": 3691.65,
+      "elapsed_s": 0.0,
+      "_trades": [
+        {
+          "code": "sh605081",
+          "name": "退市太和",
+          "buy_date": "2026-03-23",
+          "sell_date": null,
+          "entry": 8.15,
+          "exit_price": null,
+          "pnl": -2857.66,
+          "pnl_pct": -11.53,
+          "hold_days": 6,
+          "reason": "止损(跳空)",
+          "score": -12.502094842256955
+        },
+        {
+          "code": "sh603370",
+          "name": "华新精科",
+          "buy_date": "2026-04-07",
+          "sell_date": null,
+          "entry": 42.5,
+          "exit_price": null,
+          "pnl": 586.97,
+          "pnl_pct": 2.94,
+          "hold_days": 33,
+          "reason": "移动止盈(回撤7%)",
+          "score": -12.604865543870273
+        },
+        {
+          "code": "sh600421",
+          "name": "退市华嵘",
+          "buy_date": "2026-05-29",
+          "sell_date": null,
+          "entry": 2.04,
+          "exit_price": null,
+          "pnl": -18880.7,
+          "pnl_pct": -83.33,
+          "hold_days": 3,
+          "reason": "止损(跳空)",
+          "score": -10.623763400484325
+        },
+        {
+          "code": "sz002898",
+          "name": "赛隆退",
+          "buy_date": "2026-06-05",
+          "sell_date": null,
+          "entry": 0.33,
+          "exit_price": null,
+          "pnl": -124.47,
+          "pnl_pct": -3.03,
+          "hold_days": 15,
+          "reason": "移动止盈(回撤5%)",
+          "score": -10.893028746149875
+        },
+        {
+          "code": "sh603102",
+          "name": "百合股份",
+          "buy_date": "2026-07-06",
+          "sell_date": null,
+          "entry": 33.62,
+          "exit_price": null,
+          "pnl": 404.3,
+          "pnl_pct": 12.34,
+          "hold_days": 35,
+          "reason": "移动止盈(回撤12%)",
+          "score": -13.034842779874834
+        },
+        {
+          "code": "sh603062",
+          "name": "麦加芯彩",
+          "buy_date": "2026-08-31",
+          "sell_date": null,
+          "entry": 40.0,
+          "exit_price": null,
+          "pnl": -326.56,
+          "pnl_pct": -7.9,
+          "hold_days": 21,
+          "reason": "期末平仓",
+          "score": -12.149285339291868
+        }
+      ]
+    },
+    "TURN5_v2": {
+      "config": "TURN5-含v2叠加",
+      "trades": 5,
+      "win_rate": 40.0,
+      "avg_win_pct": 12.15,
+      "avg_loss_pct": -10.0,
+      "profit_factor": 0.68,
+      "total_return_pct": -9.06,
+      "annual_pct": -16.47,
+      "max_drawdown_pct": 31.05,
+      "avg_hold_days": 23.2,
+      "reasons": {
+        "移动止盈": 1,
+        "止损": 3,
+        "期末平仓": 1
+      },
+      "final_equity": 22734.23,
+      "elapsed_s": 10.8,
+      "_trades": [
+        {
+          "code": "sh603102",
+          "name": "百合股份",
+          "buy_date": "2026-03-23",
+          "sell_date": null,
+          "entry": 38.4,
+          "exit_price": null,
+          "pnl": 577.28,
+          "pnl_pct": 2.68,
+          "hold_days": 36,
+          "reason": "移动止盈(回撤5%)",
+          "score": -4.987972314998588
+        },
+        {
+          "code": "sz002868",
+          "name": "绿康生化",
+          "buy_date": "2026-05-22",
+          "sell_date": null,
+          "entry": 36.18,
+          "exit_price": null,
+          "pnl": -2571.79,
+          "pnl_pct": -10.0,
+          "hold_days": 2,
+          "reason": "止损",
+          "score": -2.9953692431507584
+        },
+        {
+          "code": "sz002868",
+          "name": "绿康生化",
+          "buy_date": "2026-05-29",
+          "sell_date": null,
+          "entry": 28.75,
+          "exit_price": null,
+          "pnl": -2044.67,
+          "pnl_pct": -10.0,
+          "hold_days": 7,
+          "reason": "止损",
+          "score": -3.5647925577875537
+        },
+        {
+          "code": "sz001205",
+          "name": "盛航股份",
+          "buy_date": "2026-06-12",
+          "sell_date": null,
+          "entry": 14.12,
+          "exit_price": null,
+          "pnl": -2008.49,
+          "pnl_pct": -10.0,
+          "hold_days": 25,
+          "reason": "止损",
+          "score": -5.241394589270502
+        },
+        {
+          "code": "sz000985",
+          "name": "大庆华科",
+          "buy_date": "2026-07-27",
+          "sell_date": null,
+          "entry": 14.06,
+          "exit_price": null,
+          "pnl": 3913.66,
+          "pnl_pct": 21.62,
+          "hold_days": 46,
+          "reason": "期末平仓",
+          "score": -5.247224217659882
+        }
+      ]
+    },
+    "BASE_S3": {
+      "config": "基线S3-技术分",
+      "trades": 3,
+      "win_rate": 33.3,
+      "avg_win_pct": 10.41,
+      "avg_loss_pct": -10.0,
+      "profit_factor": 0.43,
+      "total_return_pct": -11.13,
+      "annual_pct": -20.02,
+      "max_drawdown_pct": 24.15,
+      "avg_hold_days": 42.0,
+      "reasons": {
+        "止损": 2,
+        "期末平仓": 1
+      },
+      "final_equity": 22217.83,
+      "elapsed_s": 6.7,
+      "_trades": [
+        {
+          "code": "sz000895",
+          "name": "双汇发展",
+          "buy_date": "2026-03-23",
+          "sell_date": null,
+          "entry": 27.58,
+          "exit_price": null,
+          "pnl": -2520.71,
+          "pnl_pct": -10.0,
+          "hold_days": 42,
+          "reason": "止损",
+          "score": 40.27686920471896
+        },
+        {
+          "code": "sh600674",
+          "name": "川投能源",
+          "buy_date": "2026-05-29",
+          "sell_date": null,
+          "entry": 15.44,
+          "exit_price": null,
+          "pnl": -2195.98,
+          "pnl_pct": -10.0,
+          "hold_days": 18,
+          "reason": "止损",
+          "score": 48.809883968345154
+        },
+        {
+          "code": "sh600177",
+          "name": "雅戈尔",
+          "buy_date": "2026-06-29",
+          "sell_date": null,
+          "entry": 7.59,
+          "exit_price": null,
+          "pnl": 2016.1,
+          "pnl_pct": 10.41,
+          "hold_days": 66,
+          "reason": "期末平仓",
+          "score": 40.252259243505996
+        }
+      ]
+    }
+  },
+  "random_control": {
+    "n": 200,
+    "validate": {
+      "method": "临时置零 tdx_factor_v2.v2_adjust 后, 真跑score_fn vs 预置候选路径",
+      "real_return": -36.15,
+      "fast_return": -36.15,
+      "real_trades": 9,
+      "fast_trades": 9,
+      "identical": true
+    },
+    "median": -8.16,
+    "p05": -35.64,
+    "p25": -20.58,
+    "p75": 7.04,
+    "p95": 47.68,
+    "min": -53.69,
+    "max": 137.62,
+    "mean": -2.64,
+    "final_equity_median": 22960.63,
+    "trades_median": 6,
+    "TURN5_return": -85.23,
+    "BASE_S3_return": -11.13,
+    "TURN5_percentile": 0.0,
+    "BASE_percentile": 44.5,
+    "returns": [
+      -36.15,
+      -39.13,
+      18.72,
+      -9.4,
+      -38.92,
+      -6.89,
+      47.68,
+      74.25,
+      -3.92,
+      -8.69,
+      -5.47,
+      17.24,
+      7.04,
+      24.82,
+      4.46,
+      44.13,
+      -17.23,
+      -4.92,
+      -10.53,
+      26.16,
+      -7.34,
+      -13.55,
+      -29.47,
+      7.98,
+      7.94,
+      9.81,
+      -40.47,
+      -19.03,
+      -24.13,
+      -6.61,
+      10.25,
+      -2.86,
+      7.17,
+      22.52,
+      -20.85,
+      -53.69,
+      -11.43,
+      -7.89,
+      -10.33,
+      -38.47,
+      -42.79,
+      -26.68,
+      -36.23,
+      -28.6,
+      16.78,
+      68.56,
+      3.74,
+      62.7,
+      0.59,
+      -21.92,
+      -0.0,
+      13.51,
+      9.56,
+      -0.04,
+      -0.74,
+      -5.46,
+      -34.1,
+      37.42,
+      90.35,
+      -8.14,
+      -0.88,
+      8.37,
+      -1.89,
+      -34.29,
+      3.53,
+      -9.01,
+      -9.74,
+      21.23,
+      -20.58,
+      -34.57,
+      -31.25,
+      -19.76,
+      17.9,
+      34.18,
+      -9.3,
+      -8.16,
+      -1.36,
+      -43.83,
+      34.24,
+      -2.22,
+      79.95,
+      -12.05,
+      -34.1,
+      -14.98,
+      -20.28,
+      -13.98,
+      -3.85,
+      3.61,
+      -34.57,
+      26.95,
+      99.7,
+      -11.32,
+      -19.88,
+      121.5,
+      14.59,
+      -7.41,
+      10.69,
+      26.06,
+      -26.36,
+      -12.19,
+      -9.23,
+      -6.9,
+      -24.71,
+      137.62,
+      -10.96,
+      -11.54,
+      -24.86,
+      -20.1,
+      11.08,
+      -2.06,
+      -11.17,
+      -11.54,
+      1.45,
+      -27.52,
+      -20.88,
+      -18.36,
+      -12.58,
+      -17.0,
+      0.12,
+      -14.33,
+      19.08,
+      -0.53,
+      -26.66,
+      20.78,
+      -13.48,
+      -25.1,
+      -16.8,
+      -18.05,
+      -13.58,
+      -34.51,
+      11.01,
+      -25.34,
+      -0.76,
+      -3.53,
+      -28.75,
+      3.54,
+      39.93,
+      9.88,
+      -29.85,
+      -21.16,
+      5.36,
+      -27.28,
+      -11.96,
+      -22.96,
+      -22.78,
+      -22.71,
+      -0.24,
+      -7.57,
+      -33.35,
+      -25.83,
+      -13.13,
+      41.09,
+      -2.54,
+      5.67,
+      3.1,
+      26.07,
+      -32.71,
+      40.04,
+      -38.49,
+      13.9,
+      -11.82,
+      -11.68,
+      74.06,
+      -29.51,
+      1.05,
+      2.49,
+      -5.48,
+      3.83,
+      -16.29,
+      -30.22,
+      -11.54,
+      52.34,
+      19.3,
+      -33.52,
+      -14.71,
+      -23.8,
+      -6.0,
+      -14.48,
+      -12.48,
+      -6.84,
+      27.11,
+      28.03,
+      -16.27,
+      -13.96,
+      -9.38,
+      -21.83,
+      -17.64,
+      -4.55,
+      -14.36,
+      15.51,
+      -10.29,
+      1.47,
+      -11.52,
+      -24.64,
+      -0.52,
+      -22.11,
+      6.54,
+      -35.64,
+      -26.37,
+      45.16
+    ]
+  },
+  "liquidity": {
+    "TURN5": {
+      "n": 6,
+      "source": "TDX amount (扩展库amount已证实损坏, 不采用)",
+      "adv20_median": 18263277.0,
+      "adv20_min": 10316355.0,
+      "adv20_max": 33479338.0,
+      "adv20_p10": 10316355.0,
+      "adv20_p25": 17502027.0,
+      "adv20_p75": 18883109.0,
+      "amt_buyday_median": 2307162,
+      "amt_buyday_min": 167688,
+      "amt_buyday_max": 15495691,
+      "n_below_5m_floor": 3,
+      "participation_by_capital": {
+        "25000": {
+          "median_pct": 1.084,
+          "max_pct": 14.909,
+          "n_gt_1pct": 3,
+          "n_gt_5pct": 2
+        },
+        "100000": {
+          "median_pct": 4.334,
+          "max_pct": 59.635,
+          "n_gt_1pct": 4,
+          "n_gt_5pct": 2
+        },
+        "1000000": {
+          "median_pct": 43.343,
+          "max_pct": 596.346,
+          "n_gt_1pct": 6,
+          "n_gt_5pct": 6
+        },
+        "10000000": {
+          "median_pct": 433.433,
+          "max_pct": 5963.456,
+          "n_gt_1pct": 6,
+          "n_gt_5pct": 6
+        }
+      },
+      "rows": [
+        {
+          "code": "sh605081",
+          "name": "退市太和",
+          "buy_date": "2026-03-23",
+          "amount_buy_day": 2307162,
+          "adv20": 18883109.0,
+          "adv20_volclose_proxy": 18869686.0,
+          "pnl_pct": -11.53,
+          "hold_days": 6,
+          "reason": "止损(跳空)",
+          "participation_pct": {
+            "25000": 1.084,
+            "100000": 4.334,
+            "1000000": 43.343,
+            "10000000": 433.433
+          }
+        },
+        {
+          "code": "sh603370",
+          "name": "华新精科",
+          "buy_date": "2026-04-07",
+          "amount_buy_day": 12512983,
+          "adv20": 33479338.0,
+          "adv20_volclose_proxy": 33428680.0,
+          "pnl_pct": 2.94,
+          "hold_days": 33,
+          "reason": "移动止盈(回撤7%)",
+          "participation_pct": {
+            "25000": 0.2,
+            "100000": 0.799,
+            "1000000": 7.992,
+            "10000000": 79.917
+          }
+        },
+        {
+          "code": "sh600421",
+          "name": "退市华嵘",
+          "buy_date": "2026-05-29",
+          "amount_buy_day": 167688,
+          "adv20": 18497946.0,
+          "adv20_volclose_proxy": 18481850.0,
+          "pnl_pct": -83.33,
+          "hold_days": 3,
+          "reason": "止损(跳空)",
+          "participation_pct": {
+            "25000": 14.909,
+            "100000": 59.635,
+            "1000000": 596.346,
+            "10000000": 5963.456
+          }
+        },
+        {
+          "code": "sz002898",
+          "name": "赛隆退",
+          "buy_date": "2026-06-05",
+          "amount_buy_day": 446540,
+          "adv20": 17502027.0,
+          "adv20_volclose_proxy": 17517102.0,
+          "pnl_pct": -3.03,
+          "hold_days": 15,
+          "reason": "移动止盈(回撤5%)",
+          "participation_pct": {
+            "25000": 5.599,
+            "100000": 22.394,
+            "1000000": 223.944,
+            "10000000": 2239.441
+          }
+        },
+        {
+          "code": "sh603102",
+          "name": "百合股份",
+          "buy_date": "2026-07-06",
+          "amount_buy_day": 15495691,
+          "adv20": 18263277.0,
+          "adv20_volclose_proxy": 18242361.0,
+          "pnl_pct": 12.34,
+          "hold_days": 35,
+          "reason": "移动止盈(回撤12%)",
+          "participation_pct": {
+            "25000": 0.161,
+            "100000": 0.645,
+            "1000000": 6.453,
+            "10000000": 64.534
+          }
+        },
+        {
+          "code": "sh603062",
+          "name": "麦加芯彩",
+          "buy_date": "2026-08-31",
+          "amount_buy_day": 7464865,
+          "adv20": 10316355.0,
+          "adv20_volclose_proxy": 10326200.0,
+          "pnl_pct": -7.9,
+          "hold_days": 21,
+          "reason": "期末平仓",
+          "participation_pct": {
+            "25000": 0.335,
+            "100000": 1.34,
+            "1000000": 13.396,
+            "10000000": 133.961
+          }
+        }
+      ]
+    },
+    "TURN5_v2": {
+      "n": 5,
+      "source": "TDX amount (扩展库amount已证实损坏, 不采用)",
+      "adv20_median": 51142416.0,
+      "adv20_min": 23909004.0,
+      "adv20_max": 90489674.0,
+      "adv20_p10": 23909004.0,
+      "adv20_p25": 30564611.0,
+      "adv20_p75": 68887630.0,
+      "amt_buyday_median": 60028836,
+      "amt_buyday_min": 21549268,
+      "amt_buyday_max": 80007496,
+      "n_below_5m_floor": 0,
+      "participation_by_capital": {
+        "25000": {
+          "median_pct": 0.042,
+          "max_pct": 0.116,
+          "n_gt_1pct": 0,
+          "n_gt_5pct": 0
+        },
+        "100000": {
+          "median_pct": 0.167,
+          "max_pct": 0.464,
+          "n_gt_1pct": 0,
+          "n_gt_5pct": 0
+        },
+        "1000000": {
+          "median_pct": 1.666,
+          "max_pct": 4.641,
+          "n_gt_1pct": 5,
+          "n_gt_5pct": 0
+        },
+        "10000000": {
+          "median_pct": 16.659,
+          "max_pct": 46.405,
+          "n_gt_1pct": 5,
+          "n_gt_5pct": 5
+        }
+      },
+      "rows": [
+        {
+          "code": "sh603102",
+          "name": "百合股份",
+          "buy_date": "2026-03-23",
+          "amount_buy_day": 65828472,
+          "adv20": 30564611.0,
+          "adv20_volclose_proxy": 30408763.0,
+          "pnl_pct": 2.68,
+          "hold_days": 36,
+          "reason": "移动止盈(回撤5%)",
+          "participation_pct": {
+            "25000": 0.038,
+            "100000": 0.152,
+            "1000000": 1.519,
+            "10000000": 15.191
+          }
+        },
+        {
+          "code": "sz002868",
+          "name": "绿康生化",
+          "buy_date": "2026-05-22",
+          "amount_buy_day": 60028836,
+          "adv20": 68887630.0,
+          "adv20_volclose_proxy": 67628717.0,
+          "pnl_pct": -10.0,
+          "hold_days": 2,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.042,
+            "100000": 0.167,
+            "1000000": 1.666,
+            "10000000": 16.659
+          }
+        },
+        {
+          "code": "sz002868",
+          "name": "绿康生化",
+          "buy_date": "2026-05-29",
+          "amount_buy_day": 80007496,
+          "adv20": 90489674.0,
+          "adv20_volclose_proxy": 88933082.0,
+          "pnl_pct": -10.0,
+          "hold_days": 7,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.031,
+            "100000": 0.125,
+            "1000000": 1.25,
+            "10000000": 12.499
+          }
+        },
+        {
+          "code": "sz001205",
+          "name": "盛航股份",
+          "buy_date": "2026-06-12",
+          "amount_buy_day": 50254220,
+          "adv20": 51142416.0,
+          "adv20_volclose_proxy": 51223322.0,
+          "pnl_pct": -10.0,
+          "hold_days": 25,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.05,
+            "100000": 0.199,
+            "1000000": 1.99,
+            "10000000": 19.899
+          }
+        },
+        {
+          "code": "sz000985",
+          "name": "大庆华科",
+          "buy_date": "2026-07-27",
+          "amount_buy_day": 21549268,
+          "adv20": 23909004.0,
+          "adv20_volclose_proxy": 23895350.0,
+          "pnl_pct": 21.62,
+          "hold_days": 46,
+          "reason": "期末平仓",
+          "participation_pct": {
+            "25000": 0.116,
+            "100000": 0.464,
+            "1000000": 4.641,
+            "10000000": 46.405
+          }
+        }
+      ]
+    },
+    "BASE_S3": {
+      "n": 3,
+      "source": "TDX amount (扩展库amount已证实损坏, 不采用)",
+      "adv20_median": 295534914.0,
+      "adv20_min": 172711738.0,
+      "adv20_max": 533884346.0,
+      "adv20_p10": 172711738.0,
+      "adv20_p25": 172711738.0,
+      "adv20_p75": 533884346.0,
+      "amt_buyday_median": 616485376,
+      "amt_buyday_min": 239454832,
+      "amt_buyday_max": 1071780736,
+      "n_below_5m_floor": 0,
+      "participation_by_capital": {
+        "25000": {
+          "median_pct": 0.004,
+          "max_pct": 0.01,
+          "n_gt_1pct": 0,
+          "n_gt_5pct": 0
+        },
+        "100000": {
+          "median_pct": 0.016,
+          "max_pct": 0.042,
+          "n_gt_1pct": 0,
+          "n_gt_5pct": 0
+        },
+        "1000000": {
+          "median_pct": 0.162,
+          "max_pct": 0.418,
+          "n_gt_1pct": 0,
+          "n_gt_5pct": 0
+        },
+        "10000000": {
+          "median_pct": 1.622,
+          "max_pct": 4.176,
+          "n_gt_1pct": 2,
+          "n_gt_5pct": 0
+        }
+      },
+      "rows": [
+        {
+          "code": "sz000895",
+          "name": "双汇发展",
+          "buy_date": "2026-03-23",
+          "amount_buy_day": 616485376,
+          "adv20": 295534914.0,
+          "adv20_volclose_proxy": 295399502.0,
+          "pnl_pct": -10.0,
+          "hold_days": 42,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.004,
+            "100000": 0.016,
+            "1000000": 0.162,
+            "10000000": 1.622
+          }
+        },
+        {
+          "code": "sh600674",
+          "name": "川投能源",
+          "buy_date": "2026-05-29",
+          "amount_buy_day": 1071780736,
+          "adv20": 533884346.0,
+          "adv20_volclose_proxy": 533666603.0,
+          "pnl_pct": -10.0,
+          "hold_days": 18,
+          "reason": "止损",
+          "participation_pct": {
+            "25000": 0.002,
+            "100000": 0.009,
+            "1000000": 0.093,
+            "10000000": 0.933
+          }
+        },
+        {
+          "code": "sh600177",
+          "name": "雅戈尔",
+          "buy_date": "2026-06-29",
+          "amount_buy_day": 239454832,
+          "adv20": 172711738.0,
+          "adv20_volclose_proxy": 173069262.0,
+          "pnl_pct": 10.41,
+          "hold_days": 66,
+          "reason": "期末平仓",
+          "participation_pct": {
+            "25000": 0.01,
+            "100000": 0.042,
+            "1000000": 0.418,
+            "10000000": 4.176
+          }
+        }
+      ]
+    },
+    "init_capital": 25000.0,
+    "note": "成交额一律取 TDX 源; 扩展库 amount 已证实约40%股票损坏(≈1.27e9常数填充), 禁用"
+  },
+  "size_proxy": {
+    "n_stocks": 3043,
+    "var_between": 1.3131,
+    "var_within": 0.2804,
+    "share_between": 0.824,
+    "note": "log(成交量) 的方差分解: between=股票固有规模差异, within=个股自身时序波动",
+    "rank_corr_adjacent_scan_days": {
+      "n_pairs": 26,
+      "mean": 0.9119,
+      "min": 0.8779,
+      "max": 0.9385,
+      "note": "相邻扫描日成交量截面的 Spearman 秩相关; 接近1=TURN5是固定股票排序(规模/流动性水平)"
+    },
+    "market_adv20_proxy_median": 132739526.0,
+    "market_adv20_proxy_note": "volume*close 近似(扩展库amount损坏, 不用)",
+    "turn5_adv20_proxy_median": 18481850.0,
+    "turn5_picked_repeat": {
+      "n_trades": 6,
+      "n_unique": 6,
+      "top": [
+        [
+          "sh605081",
+          1
+        ],
+        [
+          "sh603370",
+          1
+        ],
+        [
+          "sh600421",
+          1
+        ],
+        [
+          "sz002898",
+          1
+        ],
+        [
+          "sh603102",
+          1
+        ],
+        [
+          "sh603062",
+          1
+        ]
+      ]
+    }
+  }
+}

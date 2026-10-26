@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "created": "2026-10-17",
+    "author": "W8 门禁改造",
+    "note": "walk-forward 过拟合衰减门禁阈值与 TTL 配置 —— 由 scripts/walk_forward_gate.py 读取。命令行参数优先于本文件; 本文件优先于脚本内置默认。",
+    "decided_by": "老大拍板 2026-10-17"
+  },
+  "decay_threshold": {
+    "description": "样本外夏普衰减上限, 超过即判定过拟合并阻断(exit 3)",
+    "value": 0.5,
+    "semantics": "metric=ratio 时含义是'OOS 至少保留 IS 一半的边'; metric=abs 时含义是'OOS 夏普不得低于 IS 夏普 0.5 以上'",
+    "default": true,
+    "note": "当前 894 窗实跑 IS=0.9906 OOS=0.2122 -> abs=0.7784 / ratio=0.7858, 两种口径下均超 0.50, 判定阻断。改值即改门禁松紧, 属政策决定。"
+  },
+  "metric": {
+    "description": "判定用哪种衰减口径",
+    "value": "ratio",
+    "options": ["ratio", "abs"],
+    "note": "ratio=(IS-OOS)/IS 是老大'保留一半'语义的对应口径, 故为默认; abs=IS-OOS 是 walk_forward_backtest.py:167 sharpe_drop 的原始定义。两种都写进 data/walk_forward_gate.json 留证。"
+  },
+  "ttl_days": {
+    "description": "walk-forward 结果最大允许年龄（自然日）",
+    "value": 90,
+    "semantics": "data_age_days > ttl_days 时按 fail-safe 阻断，不降级为 WARN",
+    "decided_by": "老大拍板 2026-10-17"
+  }
+}

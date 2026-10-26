@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-16"?>
+<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Date>2026-10-20T03:43:17</Date>
+    <Author>DESKTOP-THU5BUJ\WIN10</Author>
+    <Description>Forward trading-calendar refresh. Runs _refresh_trading_calendar.py via the silent VBS runner. MANDATORY since 2026-10-20: trading_hours.py now enforces a real fail-close, so a stale calendar (pulled_at older than 7 days) halts the entire pick/buy chain. Before this task existed zero scheduled tasks refreshed the calendar and pulled_at went 11 days stale.</Description>
+    <URI>\Zhuanqian_CalendarRefresh</URI>
+  </RegistrationInfo>
+  <Principals>
+    <Principal id="Author">
+      <UserId>S-1-5-21-1594319831-3187001615-754757647-1001</UserId>
+      <LogonType>InteractiveToken</LogonType>
+    </Principal>
+  </Principals>
+  <Settings>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
+    <ExecutionTimeLimit>PT1H</ExecutionTimeLimit>
+    <Hidden>true</Hidden>
+    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+    <StartWhenAvailable>true</StartWhenAvailable>
+    <WakeToRun>true</WakeToRun>
+    <IdleSettings>
+      <Duration>PT10M</Duration>
+      <WaitTimeout>PT1H</WaitTimeout>
+      <StopOnIdleEnd>false</StopOnIdleEnd>
+      <RestartOnIdle>false</RestartOnIdle>
+    </IdleSettings>
+  </Settings>
+  <Triggers>
+    <CalendarTrigger>
+      <StartBoundary>2026-10-25T05:45:00</StartBoundary>
+      <ScheduleByWeek>
+        <WeeksInterval>1</WeeksInterval>
+        <DaysOfWeek>
+          <Sunday />
+        </DaysOfWeek>
+      </ScheduleByWeek>
+    </CalendarTrigger>
+  </Triggers>
+  <Actions Context="Author">
+    <Exec>
+      <Command>C:\WINDOWS\System32\wscript.exe</Command>
+      <Arguments>"D:\open code\zhuanqian\scripts\run_path_hidden.vbs" "D:\open code\zhuanqian\scripts\Zhuanqian_CalendarRefresh.bat"</Arguments>
+      <WorkingDirectory>D:\open code\zhuanqian</WorkingDirectory>
+    </Exec>
+  </Actions>
+</Task>

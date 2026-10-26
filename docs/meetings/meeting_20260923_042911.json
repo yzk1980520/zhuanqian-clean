@@ -1,0 +1,23 @@
+{
+  "meeting_id": "2026-09-23T04:29:11.023575",
+  "topic": "回测性能优化方案",
+  "context": "当前单扫描日90秒，全量132日预计10-12小时",
+  "participants": [
+    {
+      "role": "laosang",
+      "name": "老三",
+      "status": "prompt_generated"
+    },
+    {
+      "role": "lawu",
+      "name": "老五",
+      "status": "prompt_generated"
+    },
+    {
+      "role": "niuma",
+      "name": "牛马",
+      "status": "prompt_generated"
+    }
+  ],
+  "report_generated": null
+}

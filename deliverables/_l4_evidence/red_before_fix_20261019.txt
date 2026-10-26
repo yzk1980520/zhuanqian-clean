@@ -1,0 +1,124 @@
+F.FFF.F                                                                  [100%]
+================================== FAILURES ===================================
+_____ TestNegativeICSymbol.test_negative_ic_factor_not_scored_as_positive _____
+
+self = <tests.test_factor_layer_sign.TestNegativeICSymbol object at 0x0000020BFAE5DA50>
+tmp_path = WindowsPath('C:/Users/WIN10/AppData/Local/Temp/pytest-of-WIN10/pytest-605/test_negative_ic_factor_not_sc0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000020BFB093D10>
+capsys = <_pytest.capture.CaptureFixture object at 0x0000020BFB093CD0>
+
+    def test_negative_ic_factor_not_scored_as_positive(self, tmp_path, monkeypatch, capsys):
+        """TURN5 (权威源 IC=-0.0658, 负) 权重 0.15: 因子值最高的股票 factor_score 必须 <=0。
+    
+        先红: 修复前融合路径 factor_score += w*z 无符号防护, 高 TURN5 值得 +0.15 正分。
+        """
+        ALP, hi_code, lo_code = _setup_universe(
+            tmp_path, monkeypatch, "TURN5", hi_val=100.0, lo_val=10.0,
+            ic=-0.0658, weight=0.15, factor_layer_enabled=True)
+    
+        picks, _ = ALP.run_stock_selection(top_n=10, scan_range=10)
+        by_code = {p["code"]: p for p in picks}
+        hi = by_code[hi_code]
+    
+>       assert hi["factor_score"] <= 0, (
+            f"负 IC 因子被当正信号用: TURN5(IC=-0.0658) 因子值最高的 {hi_code} "
+            f"factor_score={hi['factor_score']} > 0 —— 高因子值反而加分, 方向反了")
+E       AssertionError: 负 IC 因子被当正信号用: TURN5(IC=-0.0658) 因子值最高的 sh600001 factor_score=0.15 > 0 —— 高因子值反而加分, 方向反了
+E       assert 0.15 <= 0
+
+tests\test_factor_layer_sign.py:97: AssertionError
+---------------------------- Captured stdout call -----------------------------
+  ⚠️ DL预测降级: 缺少torch依赖(dl_stock_predictor_torch需import torch), 跳过DL预测→statistical fallback (根因: 当前解释器未装torch)
+
+== 执行选股 (TOP 10, 扫描 10只) ==
+因子权重真源: config.json -> factor_weights (1个因子)
+  [注] 仓库根 factor_weights.json 非本链路真源，实盘不读取
+加载历史数据: 2只 (分层: {'sh60': 2}), 全量库: 2只
+评分完成: 2只股票, 有效候选: 2只
+✅ 选股结果已保存: C:\Users\WIN10\AppData\Local\Temp\pytest-of-WIN10\pytest-605\test_negative_ic_factor_not_sc0\data\picks_latest.json
+
+TOP 10最优个股:
+  1. sh600001: 69.34分 (技术99.0+因子0.15) - 买入
+  2. sh600002: 69.25分 (技术99.0+因子-0.15) - 买入
+_________ TestNegativeICSymbol.test_factor_layer_off_means_tech_only __________
+
+self = <tests.test_factor_layer_sign.TestNegativeICSymbol object at 0x0000020BFB0D5410>
+tmp_path = WindowsPath('C:/Users/WIN10/AppData/Local/Temp/pytest-of-WIN10/pytest-605/test_factor_layer_off_means_te0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000020BFF2893D0>
+capsys = <_pytest.capture.CaptureFixture object at 0x0000020BFF3FA3D0>
+
+    def test_factor_layer_off_means_tech_only(self, tmp_path, monkeypatch, capsys):
+        """factor_layer_enabled=false: 因子层不参与打分, score==tech_score, factor_score==0。"""
+        ALP, hi_code, lo_code = _setup_universe(
+            tmp_path, monkeypatch, "TURN5", hi_val=100.0, lo_val=10.0,
+            ic=-0.0658, weight=0.15, factor_layer_enabled=False)
+    
+        picks, _ = ALP.run_stock_selection(top_n=10, scan_range=10)
+        for p in picks:
+>           assert p["factor_score"] == 0.0, f"{p['code']} 因子层关闭后 factor_score 应恒 0"
+E           AssertionError: sh600001 因子层关闭后 factor_score 应恒 0
+E           assert 0.15 == 0.0
+
+tests\test_factor_layer_sign.py:128: AssertionError
+---------------------------- Captured stdout call -----------------------------
+
+== 执行选股 (TOP 10, 扫描 10只) ==
+因子权重真源: config.json -> factor_weights (1个因子)
+  [注] 仓库根 factor_weights.json 非本链路真源，实盘不读取
+加载历史数据: 2只 (分层: {'sh60': 2}), 全量库: 2只
+评分完成: 2只股票, 有效候选: 2只
+✅ 选股结果已保存: C:\Users\WIN10\AppData\Local\Temp\pytest-of-WIN10\pytest-605\test_factor_layer_off_means_te0\data\picks_latest.json
+
+TOP 10最优个股:
+  1. sh600001: 69.34分 (技术99.0+因子0.15) - 买入
+  2. sh600002: 69.25分 (技术99.0+因子-0.15) - 买入
+_________________ TestFactorLayerSwitch.test_resolve_sources __________________
+
+self = <tests.test_factor_layer_sign.TestFactorLayerSwitch object at 0x0000020BFB0D5790>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000020BFB0B0210>
+
+    def test_resolve_sources(self, monkeypatch):
+>       from auto_live_pipeline import resolve_factor_layer_enabled
+E       ImportError: cannot import name 'resolve_factor_layer_enabled' from 'auto_live_pipeline' (D:\open code\zhuanqian\scripts\auto_live_pipeline.py)
+
+tests\test_factor_layer_sign.py:139: ImportError
+________________ TestFactorLayerSwitch.test_apply_ic_sign_unit ________________
+
+self = <tests.test_factor_layer_sign.TestFactorLayerSwitch object at 0x0000020BFB0D5DD0>
+
+    def test_apply_ic_sign_unit(self):
+        """符号算术单测: 负 IC 权重取负, 正 IC 不变, 符号未知置 0 并登记。"""
+>       from auto_live_pipeline import apply_ic_sign
+E       ImportError: cannot import name 'apply_ic_sign' from 'auto_live_pipeline' (D:\open code\zhuanqian\scripts\auto_live_pipeline.py)
+
+tests\test_factor_layer_sign.py:158: ImportError
+_____ TestNWCaliberRegression.test_authority_source_factors_have_icir_nw ______
+
+self = <tests.test_factor_layer_sign.TestNWCaliberRegression object at 0x0000020BFB0D6910>
+
+    def test_authority_source_factors_have_icir_nw(self):
+        """权威源 data/factor_ic/factor_ic_latest.json 每因子必须带 icir_nw (非 None)。
+    
+        已知红 (2026-10-19): 当前权威源是 2026-10-18 03:06 旧版 (pure_python_v10_exact_132d),
+        factors 只有 name/ic/status 三键, icir_nw 键 0 个 —— "NW 口径从未落盘"正是
+        本断言要暴露的状态; 待 Task#3「B+C 同一次重跑权威源」用新 summarize 刷新后转绿。
+        """
+        p = BASE / "data" / "factor_ic" / "factor_ic_latest.json"
+        data = json.loads(p.read_text(encoding="utf-8"))
+        factors = data.get("factors")
+        assert isinstance(factors, list) and factors, f"权威源 factors 应为非空 list, 实际 {type(factors)}"
+        missing = [f.get("name") for f in factors if f.get("icir_nw") is None]
+>       assert not missing, (
+            f"权威源 {len(missing)}/{len(factors)} 个因子缺 icir_nw(非None): {missing[:5]}... "
+            f"—— NW 口径未落盘/回退 naive (computed_at={data.get('computed_at')})")
+E       AssertionError: 权威源 28/28 个因子缺 icir_nw(非None): ['AMIHUD', 'ATR_RATIO', 'CONSECUTIVE_LOSS', 'LOWER_SHADOW', 'MDD60']... —— NW 口径未落盘/回退 naive (computed_at=2026-10-18 03:06:14)
+E       assert not ['AMIHUD', 'ATR_RATIO', 'CONSECUTIVE_LOSS', 'LOWER_SHADOW', 'MDD60', 'OBV_TREND', ...]
+
+tests\test_factor_layer_sign.py:200: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_factor_layer_sign.py::TestNegativeICSymbol::test_negative_ic_factor_not_scored_as_positive
+FAILED tests/test_factor_layer_sign.py::TestNegativeICSymbol::test_factor_layer_off_means_tech_only
+FAILED tests/test_factor_layer_sign.py::TestFactorLayerSwitch::test_resolve_sources
+FAILED tests/test_factor_layer_sign.py::TestFactorLayerSwitch::test_apply_ic_sign_unit
+FAILED tests/test_factor_layer_sign.py::TestNWCaliberRegression::test_authority_source_factors_have_icir_nw
+5 failed, 2 passed in 4.60s

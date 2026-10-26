@@ -1,0 +1,105 @@
+{
+  "_说明": "交易分析团队流程状态清单。expert_layer 键由 team/agency_research.py 维护; 本文件只记录研究流程状态, 不碰 trade_log/holdings。",
+  "code": "sh603727",
+  "name": "",
+  "mode": "研究层(expert)",
+  "started_at": "2026-10-09 06:13",
+  "updated_at": "2026-10-09 06:13",
+  "status": "running",
+  "phases": {
+    "phase1": {
+      "market": {
+        "done": false,
+        "file": "phase1-market.md"
+      },
+      "fundamentals": {
+        "done": false,
+        "file": "phase1-fundamentals.md"
+      },
+      "news": {
+        "done": false,
+        "file": "phase1-news.md"
+      },
+      "sentiment": {
+        "done": false,
+        "file": "phase1-sentiment.md",
+        "note": "快速模式下标记 skipped"
+      }
+    },
+    "phase2": {
+      "bull": {
+        "done": false,
+        "file": "phase2-bull.md"
+      },
+      "bear": {
+        "done": false,
+        "file": "phase2-bear.md"
+      },
+      "plan": {
+        "done": false,
+        "file": "phase2-plan.md"
+      }
+    },
+    "phase3": {
+      "trader": {
+        "done": false,
+        "file": "phase3-trader.md"
+      }
+    },
+    "phase4": {
+      "risk_aggressive": {
+        "done": false,
+        "file": "phase4-risk-aggressive.md"
+      },
+      "risk_conservative": {
+        "done": false,
+        "file": "phase4-risk-conservative.md"
+      },
+      "risk_neutral": {
+        "done": false,
+        "file": "phase4-risk-neutral.md"
+      },
+      "final": {
+        "done": false,
+        "file": "phase4-final.md"
+      }
+    },
+    "review": {
+      "workbuddy": {
+        "done": false,
+        "file": "review-workbuddy.md",
+        "verdict": "PASS|REJECT:理由"
+      }
+    }
+  },
+  "gates": {
+    "gate_p2_symmetry": "pending",
+    "gate_p3_pessimism": "pending",
+    "gate_p4_falsifiable": "pending"
+  },
+  "channel_registered": {
+    "to_laowu": false,
+    "task_id": null
+  },
+  "conflicts_escalated": [],
+  "limitations": [],
+  "expert_layer": {
+    "experts": [
+      "finance-investment-researcher",
+      "finance-financial-analyst"
+    ],
+    "outputs": [
+      {
+        "expert": "finance-investment-researcher",
+        "file": "finance-investment-researcher.md"
+      },
+      {
+        "expert": "finance-financial-analyst",
+        "file": "finance-financial-analyst.md"
+      }
+    ],
+    "disclaimer": "研究输入, 不作决策依据, 须过老五评审+132日门禁",
+    "generated_at": "2026-10-09T06:13:09",
+    "inputs": "公开K线30日统计量 (数据不出本机)"
+  }
+}

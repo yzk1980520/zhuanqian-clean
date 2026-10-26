@@ -1,0 +1,706 @@
+{
+  "meta": {
+    "seed": 20261018,
+    "window": [
+      "2026-03-23",
+      "2026-09-24"
+    ],
+    "forward_days": 5,
+    "align": 0,
+    "adv_window": 20,
+    "min_section": 50,
+    "ic_threshold": 0.03,
+    "ir_threshold": 0.3,
+    "turn5_definition": "_turnover(v)=v[-1] (factor_ic_132d_refresh.py:220-223)",
+    "ic_source": "factor_gate_v2.spearman_ic / newey_west_t / nw_icir"
+  },
+  "selfcheck_amount": {
+    "real_stocks_sample20": {
+      "median": 1.0,
+      "n_bars": 600,
+      "bad_gt50pct": 0
+    },
+    "sampled_codes": [
+      "sh603963",
+      "sz000776",
+      "sh600641",
+      "sz002785",
+      "sz300099",
+      "sz300477",
+      "sh601599",
+      "sh688026",
+      "sh600570",
+      "sz301103",
+      "sh688576",
+      "sh688361",
+      "sz300740",
+      "sh603718",
+      "sz300434",
+      "sz300150",
+      "sh600505",
+      "sh688202",
+      "sh601969",
+      "sz301327"
+    ],
+    "non_stock_by_cat": {
+      "板块指数": {
+        "n_files": 1122,
+        "median": 1.2094,
+        "n_bars": 240,
+        "bad_gt50pct": 117
+      },
+      "沪B": {
+        "n_files": 44,
+        "median": 0.1,
+        "n_bars": 240,
+        "bad_gt50pct": 236
+      },
+      "沪债": {
+        "n_files": 200,
+        "median": 0.1001,
+        "n_bars": 240,
+        "bad_gt50pct": 240
+      },
+      "沪基金ETF": {
+        "n_files": 1120,
+        "median": 0.1,
+        "n_bars": 240,
+        "bad_gt50pct": 240
+      },
+      "沪指数": {
+        "n_files": 66,
+        "median": 0.3744,
+        "n_bars": 240,
+        "bad_gt50pct": 233
+      },
+      "深基金债": {
+        "n_files": 1340,
+        "median": 0.0999,
+        "n_bars": 186,
+        "bad_gt50pct": 186
+      },
+      "深指数": {
+        "n_files": 104,
+        "median": 0.4614,
+        "n_bars": 240,
+        "bad_gt50pct": 158
+      },
+      "逆回购": {
+        "n_files": 9,
+        "median": 7.1685,
+        "n_bars": 240,
+        "bad_gt50pct": 240
+      }
+    },
+    "n_real_stock_files": 5436,
+    "n_non_stock_files": 4005
+  },
+  "prod_pool_composition": {
+    "沪主板": 1539,
+    "沪债": 200,
+    "沪基金ETF": 252,
+    "逆回购": 9
+  },
+  "raw_pool_composition": {
+    "沪主板": 605,
+    "沪债": 200,
+    "沪基金ETF": 1120,
+    "沪指数": 66,
+    "逆回购": 9
+  },
+  "clean_pool_universe": 3367,
+  "clean_pool_sampled": 2000,
+  "pools": {
+    "生产池": {
+      "n_files": 2000,
+      "n_loaded": 1897,
+      "n_dates": 129,
+      "window": [
+        "2026-03-23",
+        "2026-09-24"
+      ],
+      "n_rows": 218791,
+      "amount_quality": {
+        "n_rows": 218791,
+        "bad_rows": 39411,
+        "bad_pct": 18.0131
+      },
+      "adv20_distribution_万元": {
+        "全截面_p5": 148.7,
+        "全截面_p25": 5014.6,
+        "全截面_p50": 12744.8,
+        "全截面_p75": 37180.0,
+        "全截面_p95": 192781.2,
+        "TURN5最低10%_p50": 3798.2
+      },
+      "survivor_cats_at_3000w": {
+        "沪主板": 169950,
+        "沪债": 13856,
+        "沪基金ETF": 1800,
+        "逆回购": 1108
+      },
+      "caliber": {
+        "A-amount": {
+          "0": {
+            "ic": -0.0685,
+            "icir_nw": -0.3732,
+            "abs_icir_nw": 0.3732,
+            "t_nw": -4.2382,
+            "n_dates": 129,
+            "n_samples": 218791,
+            "n_stocks": 1812,
+            "pass_gate": true
+          },
+          "1000万": {
+            "ic": -0.0654,
+            "icir_nw": -0.3675,
+            "abs_icir_nw": 0.3675,
+            "t_nw": -4.1741,
+            "n_dates": 129,
+            "n_samples": 199736,
+            "n_stocks": 1665,
+            "pass_gate": true
+          },
+          "2000万": {
+            "ic": -0.0639,
+            "icir_nw": -0.3555,
+            "abs_icir_nw": 0.3555,
+            "t_nw": -4.0376,
+            "n_dates": 129,
+            "n_samples": 195500,
+            "n_stocks": 1641,
+            "pass_gate": true
+          },
+          "3000万": {
+            "ic": -0.0615,
+            "icir_nw": -0.3529,
+            "abs_icir_nw": 0.3529,
+            "t_nw": -4.0083,
+            "n_dates": 129,
+            "n_samples": 186714,
+            "n_stocks": 1626,
+            "pass_gate": true
+          },
+          "5000万": {
+            "ic": -0.0538,
+            "icir_nw": -0.3227,
+            "abs_icir_nw": 0.3227,
+            "t_nw": -3.6657,
+            "n_dates": 129,
+            "n_samples": 164242,
+            "n_stocks": 1581,
+            "pass_gate": true
+          },
+          "1亿": {
+            "ic": -0.0428,
+            "icir_nw": -0.2489,
+            "abs_icir_nw": 0.2489,
+            "t_nw": -2.8265,
+            "n_dates": 129,
+            "n_samples": 123046,
+            "n_stocks": 1394,
+            "pass_gate": false
+          }
+        },
+        "B-close×volume": {
+          "0": {
+            "ic": -0.0685,
+            "icir_nw": -0.3732,
+            "abs_icir_nw": 0.3732,
+            "t_nw": -4.2382,
+            "n_dates": 129,
+            "n_samples": 218791,
+            "n_stocks": 1812,
+            "pass_gate": true
+          },
+          "1000万": {
+            "ic": -0.0634,
+            "icir_nw": -0.3433,
+            "abs_icir_nw": 0.3433,
+            "t_nw": -3.8988,
+            "n_dates": 129,
+            "n_samples": 208481,
+            "n_stocks": 1748,
+            "pass_gate": true
+          },
+          "2000万": {
+            "ic": -0.0618,
+            "icir_nw": -0.3348,
+            "abs_icir_nw": 0.3348,
+            "t_nw": -3.8023,
+            "n_dates": 129,
+            "n_samples": 204791,
+            "n_stocks": 1728,
+            "pass_gate": true
+          },
+          "3000万": {
+            "ic": -0.0602,
+            "icir_nw": -0.3379,
+            "abs_icir_nw": 0.3379,
+            "t_nw": -3.8373,
+            "n_dates": 129,
+            "n_samples": 196418,
+            "n_stocks": 1714,
+            "pass_gate": true
+          },
+          "5000万": {
+            "ic": -0.0557,
+            "icir_nw": -0.3263,
+            "abs_icir_nw": 0.3263,
+            "t_nw": -3.7055,
+            "n_dates": 129,
+            "n_samples": 174227,
+            "n_stocks": 1671,
+            "pass_gate": true
+          },
+          "1亿": {
+            "ic": -0.0516,
+            "icir_nw": -0.2905,
+            "abs_icir_nw": 0.2905,
+            "t_nw": -3.2992,
+            "n_dates": 129,
+            "n_samples": 134724,
+            "n_stocks": 1477,
+            "pass_gate": false
+          }
+        }
+      },
+      "turn5_select_blocked_at_3000w": {
+        "每日最低1只（实盘会买的那只）": {
+          "selected": 129,
+          "blocked": 129,
+          "block_rate": 1.0,
+          "sel_adv20_median_万元": 1.9,
+          "选票买入日单日成交额中位数_万元": 0.1,
+          "全截面单日成交额中位数_万元": 11128.4,
+          "选票标的类型构成": {
+            "沪基金ETF": 129
+          }
+        },
+        "最低1%": {
+          "selected": 2192,
+          "blocked": 2119,
+          "block_rate": 0.9667,
+          "sel_adv20_median_万元": 5.8
+        },
+        "最低10%": {
+          "selected": 21884,
+          "blocked": 9830,
+          "block_rate": 0.4492,
+          "sel_adv20_median_万元": 3797.5
+        }
+      },
+      "pick_analysis_at_3000w": {
+        "ungated": {
+          "方式": "无门槛",
+          "n_dates": 129,
+          "选票前瞻收益均值%": -0.004,
+          "相对截面均值超额%": 0.147,
+          "超额t_nw": 0.516
+        },
+        "gated": {
+          "方式": "装门槛后",
+          "n_dates": 129,
+          "选票前瞻收益均值%": -0.055,
+          "相对截面均值超额%": 0.097,
+          "超额t_nw": 0.342
+        },
+        "gated_no_candidate_days": 0
+      }
+    },
+    "干净池": {
+      "n_files": 2000,
+      "n_loaded": 1908,
+      "n_dates": 129,
+      "window": [
+        "2026-03-23",
+        "2026-09-24"
+      ],
+      "n_rows": 235321,
+      "amount_quality": {
+        "n_rows": 235321,
+        "bad_rows": 10,
+        "bad_pct": 0.0042
+      },
+      "adv20_distribution_万元": {
+        "全截面_p5": 3064.9,
+        "全截面_p25": 6899.5,
+        "全截面_p50": 15436.5,
+        "全截面_p75": 41580.6,
+        "全截面_p95": 201549.3,
+        "TURN5最低10%_p50": 4511.2
+      },
+      "survivor_cats_at_3000w": {
+        "沪主板": 117143,
+        "深主板": 107174
+      },
+      "caliber": {
+        "A-amount": {
+          "0": {
+            "ic": -0.0745,
+            "icir_nw": -0.3187,
+            "abs_icir_nw": 0.3187,
+            "t_nw": -3.6202,
+            "n_dates": 129,
+            "n_samples": 235321,
+            "n_stocks": 1891,
+            "pass_gate": true
+          },
+          "1000万": {
+            "ic": -0.0746,
+            "icir_nw": -0.3193,
+            "abs_icir_nw": 0.3193,
+            "t_nw": -3.6267,
+            "n_dates": 129,
+            "n_samples": 235166,
+            "n_stocks": 1891,
+            "pass_gate": true
+          },
+          "2000万": {
+            "ic": -0.0727,
+            "icir_nw": -0.3153,
+            "abs_icir_nw": 0.3153,
+            "t_nw": -3.5808,
+            "n_dates": 129,
+            "n_samples": 232793,
+            "n_stocks": 1891,
+            "pass_gate": true
+          },
+          "3000万": {
+            "ic": -0.0696,
+            "icir_nw": -0.3172,
+            "abs_icir_nw": 0.3172,
+            "t_nw": -3.6024,
+            "n_dates": 129,
+            "n_samples": 224317,
+            "n_stocks": 1881,
+            "pass_gate": true
+          },
+          "5000万": {
+            "ic": -0.0608,
+            "icir_nw": -0.3149,
+            "abs_icir_nw": 0.3149,
+            "t_nw": -3.577,
+            "n_dates": 129,
+            "n_samples": 199122,
+            "n_stocks": 1853,
+            "pass_gate": true
+          },
+          "1亿": {
+            "ic": -0.0445,
+            "icir_nw": -0.2437,
+            "abs_icir_nw": 0.2437,
+            "t_nw": -2.7677,
+            "n_dates": 129,
+            "n_samples": 148812,
+            "n_stocks": 1649,
+            "pass_gate": false
+          }
+        },
+        "B-close×volume": {
+          "0": {
+            "ic": -0.0745,
+            "icir_nw": -0.3187,
+            "abs_icir_nw": 0.3187,
+            "t_nw": -3.6202,
+            "n_dates": 129,
+            "n_samples": 235321,
+            "n_stocks": 1891,
+            "pass_gate": true
+          },
+          "1000万": {
+            "ic": -0.0745,
+            "icir_nw": -0.3192,
+            "abs_icir_nw": 0.3192,
+            "t_nw": -3.6257,
+            "n_dates": 129,
+            "n_samples": 235169,
+            "n_stocks": 1891,
+            "pass_gate": true
+          },
+          "2000万": {
+            "ic": -0.0727,
+            "icir_nw": -0.3151,
+            "abs_icir_nw": 0.3151,
+            "t_nw": -3.5786,
+            "n_dates": 129,
+            "n_samples": 232797,
+            "n_stocks": 1891,
+            "pass_gate": true
+          },
+          "3000万": {
+            "ic": -0.0693,
+            "icir_nw": -0.316,
+            "abs_icir_nw": 0.316,
+            "t_nw": -3.5893,
+            "n_dates": 129,
+            "n_samples": 224331,
+            "n_stocks": 1881,
+            "pass_gate": true
+          },
+          "5000万": {
+            "ic": -0.0608,
+            "icir_nw": -0.3143,
+            "abs_icir_nw": 0.3143,
+            "t_nw": -3.5693,
+            "n_dates": 129,
+            "n_samples": 199106,
+            "n_stocks": 1853,
+            "pass_gate": true
+          },
+          "1亿": {
+            "ic": -0.0444,
+            "icir_nw": -0.2431,
+            "abs_icir_nw": 0.2431,
+            "t_nw": -2.7616,
+            "n_dates": 129,
+            "n_samples": 148800,
+            "n_stocks": 1651,
+            "pass_gate": false
+          }
+        }
+      },
+      "turn5_select_blocked_at_3000w": {
+        "每日最低1只（实盘会买的那只）": {
+          "selected": 129,
+          "blocked": 72,
+          "block_rate": 0.5581,
+          "sel_adv20_median_万元": 2695.4,
+          "选票买入日单日成交额中位数_万元": 1464.8,
+          "全截面单日成交额中位数_万元": 13593.0,
+          "选票标的类型构成": {
+            "沪主板": 115,
+            "深主板": 14
+          }
+        },
+        "最低1%": {
+          "selected": 2342,
+          "blocked": 1078,
+          "block_rate": 0.4603,
+          "sel_adv20_median_万元": 3186.0
+        },
+        "最低10%": {
+          "selected": 23529,
+          "blocked": 6014,
+          "block_rate": 0.2556,
+          "sel_adv20_median_万元": 4511.2
+        }
+      },
+      "pick_analysis_at_3000w": {
+        "ungated": {
+          "方式": "无门槛",
+          "n_dates": 129,
+          "选票前瞻收益均值%": 0.391,
+          "相对截面均值超额%": 0.577,
+          "超额t_nw": 0.667
+        },
+        "gated": {
+          "方式": "装门槛后",
+          "n_dates": 129,
+          "选票前瞻收益均值%": -0.352,
+          "相对截面均值超额%": -0.165,
+          "超额t_nw": -0.346
+        },
+        "gated_no_candidate_days": 0
+      }
+    },
+    "生产池-无过滤（复核口径）": {
+      "n_files": 2000,
+      "n_loaded": 1872,
+      "n_dates": 129,
+      "window": [
+        "2026-03-23",
+        "2026-09-24"
+      ],
+      "n_rows": 199230,
+      "amount_quality": {
+        "n_rows": 199230,
+        "bad_rows": 128460,
+        "bad_pct": 64.4782
+      },
+      "adv20_distribution_万元": {
+        "全截面_p5": 48.4,
+        "全截面_p25": 1076.6,
+        "全截面_p50": 7132.6,
+        "全截面_p75": 30224.0,
+        "全截面_p95": 978107.2,
+        "TURN5最低10%_p50": 2844.5
+      },
+      "survivor_cats_at_3000w": {
+        "沪主板": 65151,
+        "沪基金ETF": 40530,
+        "沪债": 13856,
+        "沪指数": 8512,
+        "逆回购": 1108
+      },
+      "caliber": {
+        "A-amount": {
+          "0": {
+            "ic": -0.0303,
+            "icir_nw": -0.1926,
+            "abs_icir_nw": 0.1926,
+            "t_nw": -2.1872,
+            "n_dates": 129,
+            "n_samples": 199230,
+            "n_stocks": 1692,
+            "pass_gate": false
+          },
+          "1000万": {
+            "ic": -0.0178,
+            "icir_nw": -0.0784,
+            "abs_icir_nw": 0.0784,
+            "t_nw": -0.8899,
+            "n_dates": 129,
+            "n_samples": 150963,
+            "n_stocks": 1357,
+            "pass_gate": false
+          },
+          "2000万": {
+            "ic": -0.0125,
+            "icir_nw": -0.0455,
+            "abs_icir_nw": 0.0455,
+            "t_nw": -0.5168,
+            "n_dates": 129,
+            "n_samples": 137894,
+            "n_stocks": 1235,
+            "pass_gate": false
+          },
+          "3000万": {
+            "ic": -0.0093,
+            "icir_nw": -0.0327,
+            "abs_icir_nw": 0.0327,
+            "t_nw": -0.372,
+            "n_dates": 129,
+            "n_samples": 129157,
+            "n_stocks": 1178,
+            "pass_gate": false
+          },
+          "5000万": {
+            "ic": -0.0031,
+            "icir_nw": -0.011,
+            "abs_icir_nw": 0.011,
+            "t_nw": -0.1251,
+            "n_dates": 129,
+            "n_samples": 112822,
+            "n_stocks": 1096,
+            "pass_gate": false
+          },
+          "1亿": {
+            "ic": 0.0064,
+            "icir_nw": 0.0255,
+            "abs_icir_nw": 0.0255,
+            "t_nw": 0.2893,
+            "n_dates": 129,
+            "n_samples": 86645,
+            "n_stocks": 943,
+            "pass_gate": false
+          }
+        },
+        "B-close×volume": {
+          "0": {
+            "ic": -0.0303,
+            "icir_nw": -0.1926,
+            "abs_icir_nw": 0.1926,
+            "t_nw": -2.1872,
+            "n_dates": 129,
+            "n_samples": 199230,
+            "n_stocks": 1692,
+            "pass_gate": false
+          },
+          "1000万": {
+            "ic": -0.0242,
+            "icir_nw": -0.1446,
+            "abs_icir_nw": 0.1446,
+            "t_nw": -1.6422,
+            "n_dates": 129,
+            "n_samples": 184199,
+            "n_stocks": 1616,
+            "pass_gate": false
+          },
+          "2000万": {
+            "ic": -0.0222,
+            "icir_nw": -0.1256,
+            "abs_icir_nw": 0.1256,
+            "t_nw": -1.4264,
+            "n_dates": 129,
+            "n_samples": 176973,
+            "n_stocks": 1569,
+            "pass_gate": false
+          },
+          "3000万": {
+            "ic": -0.0214,
+            "icir_nw": -0.1185,
+            "abs_icir_nw": 0.1185,
+            "t_nw": -1.3462,
+            "n_dates": 129,
+            "n_samples": 169769,
+            "n_stocks": 1536,
+            "pass_gate": false
+          },
+          "5000万": {
+            "ic": -0.0192,
+            "icir_nw": -0.1045,
+            "abs_icir_nw": 0.1045,
+            "t_nw": -1.1873,
+            "n_dates": 129,
+            "n_samples": 154356,
+            "n_stocks": 1467,
+            "pass_gate": false
+          },
+          "1亿": {
+            "ic": -0.0139,
+            "icir_nw": -0.073,
+            "abs_icir_nw": 0.073,
+            "t_nw": -0.8288,
+            "n_dates": 129,
+            "n_samples": 127567,
+            "n_stocks": 1283,
+            "pass_gate": false
+          }
+        }
+      },
+      "turn5_select_blocked_at_3000w": {
+        "每日最低1只（实盘会买的那只）": {
+          "selected": 129,
+          "blocked": 129,
+          "block_rate": 1.0,
+          "sel_adv20_median_万元": 3.8,
+          "选票买入日单日成交额中位数_万元": 0.1,
+          "全截面单日成交额中位数_万元": 6308.3,
+          "选票标的类型构成": {
+            "沪基金ETF": 129
+          }
+        },
+        "最低1%": {
+          "selected": 1986,
+          "blocked": 1979,
+          "block_rate": 0.9965,
+          "sel_adv20_median_万元": 8.4
+        },
+        "最低10%": {
+          "selected": 19925,
+          "blocked": 10202,
+          "block_rate": 0.512,
+          "sel_adv20_median_万元": 2844.5
+        }
+      },
+      "pick_analysis_at_3000w": {
+        "ungated": {
+          "方式": "无门槛",
+          "n_dates": 129,
+          "选票前瞻收益均值%": 0.001,
+          "相对截面均值超额%": 0.105,
+          "超额t_nw": 0.402
+        },
+        "gated": {
+          "方式": "装门槛后",
+          "n_dates": 129,
+          "选票前瞻收益均值%": -0.055,
+          "相对截面均值超额%": 0.049,
+          "超额t_nw": 0.164
+        },
+        "gated_no_candidate_days": 0
+      }
+    }
+  }
+}

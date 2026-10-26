@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-16"?>
+<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Date>2026-10-17T06:33:19</Date>
+    <Author>DESKTOP-THU5BUJ\WIN10</Author>
+    <Description>132d factor IC refresh (candidate mode): scripts/Zhuanqian_FactorIC132d.bat runs scripts/factor_ic_132d_refresh.py --max-stocks 1000 --quiet --staleness-days 14. It emits a timestamped CANDIDATE plus a per-factor diff against data/factor_ic/factor_ic_latest.json and prints [STALE] when that authority is 14+ days old. It does NOT use --apply on purpose: the v10_exact_132d engine that produced the authority was never committed, so auto-overwriting would silently corrupt the gate evidence. Switch to --apply only after the engine is blessed. Ledger: cron_config.json events.factor_ic_132d_refresh.</Description>
+    <URI>\Zhuanqian_FactorIC132d</URI>
+  </RegistrationInfo>
+  <Principals>
+    <Principal id="Author">
+      <UserId>S-1-5-21-1594319831-3187001615-754757647-1001</UserId>
+      <LogonType>InteractiveToken</LogonType>
+    </Principal>
+  </Principals>
+  <Settings>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
+    <ExecutionTimeLimit>PT2H</ExecutionTimeLimit>
+    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+    <StartWhenAvailable>true</StartWhenAvailable>
+    <WakeToRun>true</WakeToRun>
+    <IdleSettings>
+      <Duration>PT10M</Duration>
+      <WaitTimeout>PT1H</WaitTimeout>
+      <StopOnIdleEnd>false</StopOnIdleEnd>
+      <RestartOnIdle>false</RestartOnIdle>
+    </IdleSettings>
+  </Settings>
+  <Triggers>
+    <CalendarTrigger>
+      <StartBoundary>2026-10-24T05:00:00</StartBoundary>
+      <ScheduleByWeek>
+        <WeeksInterval>1</WeeksInterval>
+        <DaysOfWeek>
+          <Saturday />
+        </DaysOfWeek>
+      </ScheduleByWeek>
+    </CalendarTrigger>
+  </Triggers>
+  <Actions Context="Author">
+    <Exec>
+      <Command>D:\open code\zhuanqian\scripts\Zhuanqian_FactorIC132d.bat</Command>
+      <WorkingDirectory>D:\open code\zhuanqian</WorkingDirectory>
+    </Exec>
+  </Actions>
+</Task>

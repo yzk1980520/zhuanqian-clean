@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "owner": "Zongguan",
+    "updated": "2026-10-15",
+    "policy": "config_gc.py S1 checks registry items daily: path exists and status!=done -> P2 alert (uncleaned); set status=done+done_date upon clearing; auto_recoverable items are moved to docs/.trash (30-day recovery window)"
+  },
+  "entries": [
+    {
+      "item": "HH/kanban/kanban.db 0-byte zombie",
+      "path": "D:/Hermes agent/Hermes Agent CN Desktop/data/hermes-home/kanban/kanban.db",
+      "kind": "file",
+      "deprecated_at": "2026-10-15",
+      "reason": "board subdirectory zombie artifact; main db is HH/kanban.db (2.3MB, 168 tasks), dispatcher actually uses the main db",
+      "owner": "Zongguan",
+      "status": "pending",
+      "auto_recoverable": true
+    },
+    {
+      "item": "HH/kanban/boards/zhuanqian legacy small board",
+      "path": "D:/Hermes agent/Hermes Agent CN Desktop/data/hermes-home/kanban/boards/zhuanqian/kanban.db",
+      "kind": "dir",
+      "deprecated_at": "2026-10-15",
+      "reason": "6 tasks (3 old zombies, already closed); on 10-15 Zongguan misread this as the main board (the '9 blocked' incident)",
+      "owner": "Zongguan",
+      "status": "pending",
+      "hold_until": "2026-10-22",
+      "note": "Retain until Laoliu supervision end date 10-22 to confirm no tasks in flight, then decide on moving to trash"
+    },
+    {
+      "item": "T5 config .bak_20261015 rollback point series",
+      "path": "D:/open code/zhuanqian/.*bak_20261015",
+      "kind": "glob",
+      "deprecated_at": "2026-10-15",
+      "reason": "T5 profile_routes cleanup rollback point; TTL 30 days, auto-moved by config_gc S2",
+      "owner": "Zongguan",
+      "status": "pending",
+      "ttl_days": 30
+    },
+    {
+      "item": "weixin fatal state residue",
+      "path": "D:/Hermes agent/Hermes Agent CN Desktop/data/hermes-home/gateway_state.json",
+      "kind": "state",
+      "deprecated_at": "2026-10-15",
+      "reason": "weixin.enabled=false effective as of 06:21, but state file retains fatal history section; auto-cleared on next gateway restart",
+      "owner": "Zongguan",
+      "status": "pending"
+    },
+    {
+      "item": "HH index.lock zombie",
+      "path": "D:/Hermes agent/Hermes Agent CN Desktop/data/hermes-home/.git/index.lock",
+      "kind": "file",
+      "deprecated_at": "2026-10-12",
+      "reason": "stale git index lock, 0-byte but gateway continuously holds it; deletion requires a stop window, see docs/runbook-Manual-Single-Point.md",
+      "owner": "Zongguan",
+      "status": "pending"
+    },
+    {
+      "item": "omt_*_channel fake thread placeholder",
+      "path": "D:/Hermes agent/Hermes Agent CN Desktop/data/hermes-home/profiles/*/config.yaml",
+      "kind": "config",
+      "deprecated_at": "2026-10-08",
+      "reason": "Fake thread placeholder (actual threads are managed by the gateway runtime); cleared via T5 decision",
+      "owner": "Zongguan",
+      "status": "done",
+      "done_date": "2026-10-15",
+      "evidence": "Commit 84c8236a all 9 items cleared; sys_watchdog C10 drift check prevents recurrence"
+    },
+    {
+      "item": "scripts .gitignore !data whitelist",
+      "path": "D:/open code/zhuanqian/.gitignore",
+      "kind": "config",
+      "deprecated_at": "2026-09-xx",
+      "reason": "data/* was gitignored by default, 7 live-trading data files were pushed to the cloud by whitelist leakage (K45/09-28); already cleared via whitelist removal",
+      "owner": "Laoliu/Laoda",
+      "status": "done",
+      "done_date": "2026-10-15",
+      "evidence": "commit 69ed4299 .gitignore audit: !data/ whitelist only retains non-sensitive scripts/data subdirectories, sensitive data files are no longer registered"
+    }
+  ]
+}

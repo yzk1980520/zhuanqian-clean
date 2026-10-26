@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<title>御龙决 · 持仓看板</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://unpkg.com/@visactor/vchart@2.1.6/dist/vchart.css">
+<script src="https://unpkg.com/@visactor/vchart@2.1.6/dist/vchart.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Microsoft YaHei','PingFang SC',sans-serif;background:#0f1117;color:#e6e8ee;min-height:100vh}
+.app{max-width:960px;margin:0 auto;padding:24px 16px 48px}
+.header{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;margin-bottom:20px;border-bottom:1px solid #232636}
+.header h1{font-size:22px;letter-spacing:1px}
+.header .meta{font-size:12px;color:#8a93a3}
+.card{background:#1a1e2a;border:1px solid #2a3040;border-radius:12px;padding:18px 20px;margin-bottom:16px;box-shadow:0 2px 12px rgba(0,0,0,0.35)}
+.card-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #2a3040}
+.card-head h2{font-size:18px;font-weight:600}
+.card-head .code{font-size:12px;color:#6ea8fe;background:#162033;padding:2px 8px;border-radius:4px}
+.card-head .pnl{margin-left:auto;font-size:16px;font-weight:700}
+.card-head .pnl.pos{color:#4caf7d}
+.card-head .pnl.neg{color:#e06c6c}
+.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:16px}
+.stat{background:#131620;border-radius:8px;padding:10px 6px;text-align:center}
+.stat span{display:block;font-size:10px;color:#8a93a3;margin-bottom:4px}
+.stat b{font-size:15px;font-weight:600}
+.stat b.red{color:#f5222d}
+.chart-title{font-size:11px;color:#8a93a3;margin:6px 0 2px;padding-left:4px}
+.vchart{background:#131620;border-radius:8px;height:280px}
+.vchart.vol{height:130px}
+.err{border-color:#b3403a;padding:20px;text-align:center;color:#e06c6c}
+.footer{text-align:center;font-size:11px;color:#555;margin-top:24px;padding-top:12px;border-top:1px solid #232636}
+.patterns-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px}
+.pattern-card{background:#1a1e2a;border:1px solid #2a3040;border-radius:12px;padding:14px 16px;box-shadow:0 2px 8px rgba(0,0,0,0.3)}
+.pattern-card.bullish{border-left:3px solid #4caf7d}
+.pattern-card.bearish{border-left:3px solid #e06c6c}
+.pattern-card.neutral{border-left:3px solid #6ea8fe}
+.pattern-card .pc-head{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.pattern-card .pc-name{font-size:14px;font-weight:600}
+.pattern-card .pc-tag{font-size:10px;padding:2px 6px;border-radius:4px;background:#162033;color:#6ea8fe}
+.pattern-card .pc-badge{margin-left:auto;font-size:10px;padding:2px 6px;border-radius:4px;background:#1a3a2a;color:#4caf7d}
+.pattern-card .pc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pattern-card .pc-stat{background:#131620;border-radius:6px;padding:8px;text-align:center}
+.pattern-card .pc-stat span{display:block;font-size:9px;color:#8a93a3;margin-bottom:4px}
+.pattern-card .pc-stat b{font-size:14px;font-weight:600}
+.pattern-card .pc-stat b.green{color:#4caf7d}
+.pattern-card .pc-stat b.red{color:#e06c6c}
+.pattern-card .pc-stat b.yellow{color:#f0a500}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="header">
+  <h1>📊 御龙决 · 持仓看板</h1>
+  <span class="meta" id="meta"></span>
+</div>
+<div class='card' id='card-0'><div class='card-head'><h2>中牧股份</h2><span class='code'>sh600195</span><span class='pnl pos'>浮盈 +0.6%</span></div><div class='stats'><div class='stat'><span>成本</span><b>6.81</b></div><div class='stat'><span>现价</span><b>6.85</b></div><div class='stat'><span>止损</span><b class='red'>6.26</b></div><div class='stat'><span>30日高</span><b>6.96</b></div><div class='stat'><span>30日低</span><b>6.22</b></div><div class='stat'><span>持仓市值</span><b>23,975</b></div></div><div class='chart-title'>近30日收盘价 + 成本线/止损线</div><div id='chart-0' class='vchart'></div><div class='chart-title'>近30日成交量</div><div id='vol-0' class='vchart vol'></div></div>
+<div class="card">
+  <div class="card-head"><h2>🎯 形态概率库</h2><span class="pc-tag">通过门禁的4种形态</span></div>
+  <div class="patterns-grid" id="patterns-grid"></div>
+</div>
+<div class="footer">数据来源: TDX本地日线 + holdings.json | 成本线6.81 止损6.26 | 止损红线不可触碰 | 生成时间见上方</div>
+</div>
+<script>
+// ── 元信息 ──
+document.getElementById('meta').textContent = {"generated_at": "2026-09-02 03:53:02", "holdings_count": 1};
+
+// ── VChart 渲染 ──
+function initChart(domId, d, chartType) {
+  if (!window.VChart) { document.getElementById(domId).textContent = 'VChart CDN 加载失败'; return; }
+  const vchart = window.VChart;
+
+  let spec;
+  if (chartType === 'line') {
+    const closeData = d.dates.map((date, i) => ({
+      date, open: d.opens[i], high: d.highs[i], low: d.lows[i],
+      close: d.closes[i], volume: d.vols[i]
+    }));
+    spec = {
+      type: 'line',
+      data: [{ id: 'close', values: closeData }],
+      xField: 'date',
+      yField: 'close',
+      axis: {
+        xAxis: { label: { rotate: 90, fontSize: 9 } },
+        yAxis: { label: { formatter: (v) => v.toFixed(2) } },
+      },
+      markLine: {
+        data: [
+          { y: d.cost, name: '成本' + d.cost,
+             line: { color: '#1890ff', type: 'dashed', width: 1.5 },
+             label: { text: '成本' + d.cost, color: '#1890ff', fontSize: 10 } },
+          { y: d.stop_loss, name: '止损' + d.stop_loss,
+             line: { color: '#f5222d', type: 'dashed', width: 1.5 },
+             label: { text: '止损' + d.stop_loss, color: '#f5222d', fontSize: 10 } },
+        ]
+      },
+      style: { fontFamily: 'sans-serif' },
+      theme: 'dark',
+      title: { text: '', subtext: '蓝线=成本 红线=止损 最高点=' + d.peak },
+    };
+  } else {
+    spec = {
+      type: 'bar',
+      data: [{ id: 'volume', values: d.dates.map((date, i) => ({ date, volume: d.vols[i] })) }],
+      xField: 'date',
+      yField: 'volume',
+      axis: {
+        xAxis: { label: { rotate: 90, fontSize: 9 } },
+        yAxis: { label: { formatter: (v) => (v/10000).toFixed(0) + '万' } },
+      },
+      style: { fontFamily: 'sans-serif' },
+      theme: 'dark',
+    };
+  }
+
+  const chart = new vchart.Chart(document.getElementById(domId), spec);
+  chart.renderSync();
+}
+
+initChart('chart-0', {"dates": ["2026-07-22", "2026-07-23", "2026-07-24", "2026-07-27", "2026-07-28", "2026-07-29", "2026-07-30", "2026-07-31", "2026-08-03", "2026-08-04", "2026-08-05", "2026-08-06", "2026-08-07", "2026-08-10", "2026-08-11", "2026-08-12", "2026-08-13", "2026-08-14", "2026-08-17", "2026-08-18", "2026-08-19", "2026-08-20", "2026-08-21", "2026-08-24", "2026-08-25", "2026-08-26", "2026-08-27", "2026-08-28", "2026-08-31", "2026-09-01"], "opens": [6.44, 6.34, 6.42, 6.27, 6.34, 6.4, 6.42, 6.44, 6.53, 6.64, 6.52, 6.5, 6.52, 6.55, 6.68, 6.59, 6.66, 6.61, 6.58, 6.65, 6.78, 6.64, 6.81, 6.71, 6.67, 6.78, 6.89, 6.78, 6.84, 6.81], "highs": [6.52, 6.5, 6.53, 6.37, 6.42, 6.5, 6.55, 6.54, 6.73, 6.66, 6.57, 6.55, 6.58, 6.68, 6.7, 6.67, 6.72, 6.68, 6.65, 6.82, 6.81, 6.87, 6.82, 6.75, 6.83, 6.96, 6.91, 6.9, 6.93, 6.92], "lows": [6.31, 6.34, 6.27, 6.22, 6.31, 6.38, 6.38, 6.4, 6.5, 6.53, 6.47, 6.44, 6.42, 6.52, 6.59, 6.54, 6.55, 6.55, 6.48, 6.62, 6.64, 6.64, 6.66, 6.64, 6.67, 6.78, 6.73, 6.69, 6.82, 6.81], "closes": [6.42, 6.47, 6.27, 6.34, 6.4, 6.42, 6.46, 6.54, 6.64, 6.55, 6.52, 6.54, 6.56, 6.67, 6.61, 6.66, 6.64, 6.58, 6.6, 6.81, 6.68, 6.85, 6.71, 6.73, 6.83, 6.91, 6.78, 6.89, 6.83, 6.85], "vols": [7286669, 6969748, 6749872, 4149817, 4727370, 6815478, 6534794, 6352235, 11520895, 6723120, 5503848, 4313850, 6207203, 5982470, 4843693, 4742867, 5557991, 3844710, 5390749, 13052500, 8649900, 9453875, 8141347, 5198899, 6149341, 5934329, 11022700, 10610849, 6924001, 9695905], "cost": 6.81, "stop_loss": 6.265, "peak": 6.96, "low30": 6.22}, 'line');
+initChart('vol-0', {"dates": ["2026-07-22", "2026-07-23", "2026-07-24", "2026-07-27", "2026-07-28", "2026-07-29", "2026-07-30", "2026-07-31", "2026-08-03", "2026-08-04", "2026-08-05", "2026-08-06", "2026-08-07", "2026-08-10", "2026-08-11", "2026-08-12", "2026-08-13", "2026-08-14", "2026-08-17", "2026-08-18", "2026-08-19", "2026-08-20", "2026-08-21", "2026-08-24", "2026-08-25", "2026-08-26", "2026-08-27", "2026-08-28", "2026-08-31", "2026-09-01"], "opens": [6.44, 6.34, 6.42, 6.27, 6.34, 6.4, 6.42, 6.44, 6.53, 6.64, 6.52, 6.5, 6.52, 6.55, 6.68, 6.59, 6.66, 6.61, 6.58, 6.65, 6.78, 6.64, 6.81, 6.71, 6.67, 6.78, 6.89, 6.78, 6.84, 6.81], "highs": [6.52, 6.5, 6.53, 6.37, 6.42, 6.5, 6.55, 6.54, 6.73, 6.66, 6.57, 6.55, 6.58, 6.68, 6.7, 6.67, 6.72, 6.68, 6.65, 6.82, 6.81, 6.87, 6.82, 6.75, 6.83, 6.96, 6.91, 6.9, 6.93, 6.92], "lows": [6.31, 6.34, 6.27, 6.22, 6.31, 6.38, 6.38, 6.4, 6.5, 6.53, 6.47, 6.44, 6.42, 6.52, 6.59, 6.54, 6.55, 6.55, 6.48, 6.62, 6.64, 6.64, 6.66, 6.64, 6.67, 6.78, 6.73, 6.69, 6.82, 6.81], "closes": [6.42, 6.47, 6.27, 6.34, 6.4, 6.42, 6.46, 6.54, 6.64, 6.55, 6.52, 6.54, 6.56, 6.67, 6.61, 6.66, 6.64, 6.58, 6.6, 6.81, 6.68, 6.85, 6.71, 6.73, 6.83, 6.91, 6.78, 6.89, 6.83, 6.85], "vols": [7286669, 6969748, 6749872, 4149817, 4727370, 6815478, 6534794, 6352235, 11520895, 6723120, 5503848, 4313850, 6207203, 5982470, 4843693, 4742867, 5557991, 3844710, 5390749, 13052500, 8649900, 9453875, 8141347, 5198899, 6149341, 5934329, 11022700, 10610849, 6924001, 9695905], "cost": 6.81, "stop_loss": 6.265, "peak": 6.96, "low30": 6.22}, 'bar');
+
+// ── 形态概率卡片 ──
+const patternData = [
+  {name: "看涨Harami", en: "Bullish Harami", dir: "bullish", win5d: 58.15, ret5d: 1.27, win20d: 55.23, ret20d: 1.45, samples: 64412},
+  {name: "刺穿线", en: "Piercing Line", dir: "bullish", win5d: 51.41, ret5d: 0.43, win20d: 50.8, ret20d: 0.52, samples: 12834},
+  {name: "V底", en: "V-Bottom", dir: "bullish", win5d: 50.55, ret5d: 0.41, win20d: 49.8, ret20d: 0.48, samples: 28456},
+  {name: "看跌吞没", en: "Bearish Engulfing", dir: "bearish", win5d: 51.23, ret5d: 0.42, win20d: 50.1, ret20d: 0.38, samples: 24823}
+];
+
+const grid = document.getElementById('patterns-grid');
+patternData.forEach(p => {
+  const dirClass = p.dir === 'bullish' ? 'bullish' : 'bearish';
+  const dirLabel = p.dir === 'bullish' ? '看多' : '看空';
+  const winColor = p.win5d >= 50 ? 'green' : 'red';
+  const retColor = p.ret5d >= 0 ? 'green' : 'red';
+  grid.innerHTML += `
+    <div class="pattern-card ${dirClass}">
+      <div class="pc-head">
+        <span class="pc-name">${p.name}</span>
+        <span class="pc-tag">${p.en}</span>
+        <span class="pc-badge">${dirLabel}</span>
+      </div>
+      <div class="pc-stats">
+        <div class="pc-stat"><span>5日胜率</span><b class="${winColor}">${p.win5d.toFixed(1)}%</b></div>
+        <div class="pc-stat"><span>5日均收益</span><b class="${retColor}">+${p.ret5d.toFixed(2)}%</b></div>
+        <div class="pc-stat"><span>样本数</span><b>${(p.samples/1000).toFixed(1)}K</b></div>
+      </div>
+    </div>`;
+});
+</script>
+</body></html>

@@ -1,0 +1,16 @@
+
+== 执行选股 (TOP 10, 扫描 10只) ==
+因子权重真源: config.json -> factor_weights (1个因子)
+  [注] 仓库根 factor_weights.json 非本链路真源，实盘不读取
+因子层开关: factor_layer_enabled=True (来源: config.json)
+加载历史数据: 2只 (分层: {'sh60': 2}), 全量库: 2只
+评分完成: 2只股票, 有效候选: 2只
+✅ 选股结果已保存: C:\Users\WIN10\AppData\Local\Temp\l4_demo_hen51jjm\data\picks_latest.json
+
+TOP 10最优个股:
+  1. sh600002: 69.34分 (技术99.0+因子0.15) - 买入
+  2. sh600001: 69.25分 (技术99.0+因子-0.15) - 买入
+=== 修复后行为 (TURN5 IC=-0.0658 负, 权重 +0.15) ===
+  sh600002: score=69.34 tech=99.0 factor=0.15
+  sh600001: score=69.25 tech=99.0 factor=-0.15
+期望: TURN5 因子值最高的 sh600001 factor_score 为负 (高值降分), 排名降到 sh600002 之后

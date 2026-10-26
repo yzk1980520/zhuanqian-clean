@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-16"?>
+<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Date>2026-10-17T05:35:19</Date>
+    <Author>DESKTOP-THU5BUJ\WIN10</Author>
+    <Description>rotation_132d_full + rotation_132d_verify chained in one task: scripts/Zhuanqian_Rotation132d.bat runs (0) audit_delisted_coverage.py [read-only, ~1min, refreshes the gitignored data/delisted_audit.json; on rc!=0 the stale file is renamed to .stale_TIMESTAMP (kept) + [AUDIT-FAILED] logged, so the gate fails loudly instead of passing on expired evidence], (1) stamp the run-start time, (2) "auto_pipeline.py --wait" [blocks until the backtest really finishes], (3) freshness gate check_backtest_result_fresh.py [result file mtime must be newer than the stamp, blocks fake-green], (4) "check_backtest_sanity.py data/rotation_backtest_result.json". Ledger: cron_config.json events.rotation_132d_full / events.rotation_132d_verify.</Description>
+    <URI>\Zhuanqian_Rotation132d</URI>
+  </RegistrationInfo>
+  <Principals>
+    <Principal id="Author">
+      <UserId>S-1-5-21-1594319831-3187001615-754757647-1001</UserId>
+      <LogonType>InteractiveToken</LogonType>
+    </Principal>
+  </Principals>
+  <Settings>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
+    <ExecutionTimeLimit>PT2H</ExecutionTimeLimit>
+    <Hidden>true</Hidden>
+    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+    <StartWhenAvailable>true</StartWhenAvailable>
+    <WakeToRun>true</WakeToRun>
+    <IdleSettings>
+      <Duration>PT10M</Duration>
+      <WaitTimeout>PT1H</WaitTimeout>
+      <StopOnIdleEnd>false</StopOnIdleEnd>
+      <RestartOnIdle>false</RestartOnIdle>
+    </IdleSettings>
+  </Settings>
+  <Triggers>
+    <CalendarTrigger>
+      <StartBoundary>2026-11-01T04:00:00</StartBoundary>
+      <ScheduleByMonth>
+        <Months>
+          <January />
+          <February />
+          <March />
+          <April />
+          <May />
+          <June />
+          <July />
+          <August />
+          <September />
+          <October />
+          <November />
+          <December />
+        </Months>
+        <DaysOfMonth>
+          <Day>1</Day>
+        </DaysOfMonth>
+      </ScheduleByMonth>
+    </CalendarTrigger>
+  </Triggers>
+  <Actions Context="Author">
+    <Exec>
+      <Command>wscript.exe</Command>
+      <Arguments>"D:\open code\zhuanqian\scripts\run_path_hidden.vbs" "D:\open code\zhuanqian\scripts\Zhuanqian_Rotation132d.bat"</Arguments>
+      <WorkingDirectory>D:\open code\zhuanqian</WorkingDirectory>
+    </Exec>
+  </Actions>
+</Task>

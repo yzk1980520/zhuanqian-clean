@@ -1,0 +1,20 @@
+{
+  "meeting_id": "20260924_022207",
+  "topic": "系统集成验证",
+  "context": "",
+  "timestamp": "2026-09-24T02:22:07.438537",
+  "participants": [
+    "老三",
+    "老五",
+    "牛马"
+  ],
+  "opinions": {
+    "opencode": "[模拟] 技术分析完成，无代码问题",
+    "atomcode": "[模拟] 风控评审通过，建议观望",
+    "niuma": "[模拟] 执行支持就绪"
+  },
+  "consensus": [],
+  "dissent": [],
+  "recommendations": [],
+  "decision": "PENDING"
+}

@@ -1,0 +1,3 @@
+pass = False
+detail = gate_check.py exit=1, factor_gate.json 缺失(产出方 scripts/gate_check.py 未成功运行, 显式判红)
+文件已恢复: True

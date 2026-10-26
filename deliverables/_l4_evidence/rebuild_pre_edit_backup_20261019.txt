@@ -1,0 +1,96 @@
+快照 768 行 -> 重建 666 行
+操作明细:
+  - P0-A import: 还原
+  - P0-A name_cache 块: -5 行
+  - P0-A call site: 还原
+  - A1 签名: 还原
+  - A2 docstring: -3 行
+  - A3 ic_signs 块: -6 行
+  - B helpers 块: -59 行 (banner+3 函数+原签名还原)
+  - C1 docstring items5/6+空行+参数行: -6 行
+  - C2 开关打印块: -7 行
+  - D 融合块 Task#4: -12 行
+  - E CLI 参数: -4 行
+  - F 调用处: 还原
+
+与老六 10-18 备份的差异 (78 行 diff), 应恰为老六改后修复集:
+--- bak_20261018_laoliu(老六改前)
++++ 重建结果(本人改前)
+@@ -264,7 +264,12 @@
+ 
+     # T2a: 从单一真源读取因子权重
+     factor_weights = get_factor_weights()
+-    print(f"因子权重真源: factor_weights.json ({len(factor_weights)}个因子)")
++    # P0 修复(2026-10-18 老六): 原标签谎报为 factor_weights.json，实际 get_factor_weights()
++    # 读的是 config.json 的 factor_weights 段（config_loader.py:122-125）。
++    # 仓库根的 factor_weights.json（20 因子）实盘链路从不读取，仅被
++    # apply_factor_weight_proposal.py(写)/factor_weight_proposal.py(读) 使用。
++    print(f"因子权重真源: config.json -> factor_weights ({len(factor_weights)}个因子)")
++    print(f"  [注] 仓库根 factor_weights.json 非本链路真源，实盘不读取")
+ 
+     # 加载历史数据
+     history_dir = root / "data" / "history_daily"
+@@ -358,23 +363,44 @@
+             print(f"    [{s['kind']}] {s['code']}: {s['error']}")
+ 
+     # T2a: Pass 2 — 因子分 z-score 截面标准化 + 融合排序
++    # 隐患1 修复(2026-10-18 老六): _dead_factors 需在分支外可见，供产物落盘
++    _dead_factors = []
+     if factor_weights and candidates:
+-        # 收集各因子原始值
+         fw_keys = [k for k, v in factor_weights.items() if v != 0]
+         if fw_keys:
+             all_raw = {k: [] for k in fw_keys}
++            _missing_cnt = {k: 0 for k in fw_keys}
+             for c in candidates:
+                 for k in fw_keys:
+                     v = c['inds'].get(k)
+                     if v is None:
+                         all_raw[k].append(None)
++                        _missing_cnt[k] += 1
+                     else:
+                         try:
+                             all_raw[k].append(float(v))
+                         except (TypeError, ValueError):
+                             all_raw[k].append(None)
++                            _missing_cnt[k] += 1
+                             factor_exceptions.append({'code': c['code'], 'kind': 'factor_missing',
+                                                       'factor': k, 'detail': '非数值'})
++
++            # 隐患1 修复(2026-10-18 老六): 权重非零但 compute_indicators 根本不产出该键时,
++            # 原实现会静默把 z 置 0 -> factor_score 恒 0 -> score 退化成 tech*0.7, 不报错不告警。
++            # 现改为: 逐键登记 + 显式告警, 让"因子层没在工作"这件事必须可见。
++            _dead_factors = []
++            for k in fw_keys:
++                if _missing_cnt[k] == len(candidates) and candidates:
++                    _dead_factors.append(k)
++                    factor_exceptions.append({
++                        'code': '*', 'kind': 'factor_dead_all_universe', 'factor': k,
++                        'detail': f'{len(candidates)}/{len(candidates)} 只候选均无此键，'
++                                  f'该因子权重 {factor_weights.get(k)} 实际未生效（z 全置 0）'})
++            if _dead_factors:
++                print(f"[告警] 以下 {len(_dead_factors)} 个因子在 config.json 中权重非 0，"
++                      f"但 compute_indicators 未产出对应键 —— 因子分实际未参与打分：{_dead_factors}")
++                print(f"[告警] 当前 score 实际退化为 tech_score*0.7（factor_score 恒 0）。"
++                      f"请核对 config.json 的 factor_weights 与 tdx_indicators.compute_indicators 的返回键。")
+ 
+             # z-score 标准化 — 用索引列表而非字典查找, 避免浮点精度 KeyError
+             factor_zscores = {}  # {factor_key: [z1, z2, ...] 与 candidates 同序}
+@@ -468,10 +494,13 @@
+         'picks': pick_output,
+         # T2a: 追高剔除记录
+         'excluded_chase': excluded_chase,
+-        # T2a: 因子权重来源
+-        'factor_weights_source': 'factor_weights.json',
++        # T2a: 因子权重来源（P0 修复 2026-10-18: 原值 'factor_weights.json' 为谎报，真源是 config.json）
++        'factor_weights_source': 'config.json:factor_weights',
++        'factor_weights_source_note': '仓库根 factor_weights.json 实盘链路不读取，非真源',
+         'factor_weights_count': len(factor_weights),
+         'phase1_weights_used': len(config.get('factor_weights', {})),
++        # 隐患1 修复: 权重非 0 但 compute_indicators 未产出的因子（因子分实际未生效）
++        'factor_dead_universe': _dead_factors,
+         # SOUL#9: 异常登记随产物落盘
+         'scan_errors': {
+             'logic_errors': logic_errors,
+
+✅ 已写入 D:\open code\zhuanqian\scripts\auto_live_pipeline.py.bak_20261019_laoliu (666 行)

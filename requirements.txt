@@ -1,0 +1,29 @@
+# zhuanqian 选股系统核心依赖 (2026-08-13 老四入职清单)
+# 环境: Python 3.11.x 系统级 (C:\Users\WIN10\AppData\Local\Programs\Python\Python311)
+# 安装: pip install -r requirements.txt (国内用清华镜像 --index-url https://pypi.tuna.tsinghua.edu.cn/simple)
+# 注意: 跑任何 python 前先 set PYTHONPATH= (Hermes桌面注入会冲突)
+
+# --- 核心运行依赖 (2026-08-13 已装, 老四自查用) ---
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+akshare>=1.12
+pytdx>=1.72
+curl_cffi>=0.7
+requests>=2.31
+lxml>=4.9
+openpyxl>=3.1
+statsmodels>=0.14
+scikit-learn>=1.3
+evidently>=0.4
+numba>=0.60,<0.69  # backtest_fast_inds JIT 加速依赖，缺省导致 get_call_template AttributeError
+psutil>=5.9
+
+# --- 测试/可选依赖 ---
+Pillow>=10.0       # run_pca_ic_analysis 依赖（test_load_universe_newest_first）
+pyarrow>=14.0      # parquet 数据层（test_parquet_data）
+
+# --- 可选工具库 (缺了不影响核心链路, 需要时装) ---
+# beautifulsoup4>=4.12   # 网页解析(爬虫)
+# pyecharts>=2.0         # 图表生成
+# matplotlib>=3.7        # 回测绘图

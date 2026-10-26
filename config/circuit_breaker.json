@@ -1,0 +1,75 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "created": "2026-10-07",
+    "author": "P2风险优化",
+    "note": "回撤熔断机制配置 —— 由 risk_monitor.py 和 circuit_breaker.py 联合读取"
+  },
+  "累计回撤阈值": {
+    "desc": "账户净值较历史最高点回撤超过此比例时触发熔断",
+    "value_pct": 15,
+    "trigger_action": "pause_all_trading",
+    "escalation": "alert_risk_officer"
+  },
+  "单日亏损阈值": {
+    "desc": "单日账户盈亏亏损超过此比例时触发熔断",
+    "value_pct": 5,
+    "trigger_action": "pause_new_positions",
+    "escalation": "alert_risk_officer"
+  },
+  "因子失效比例阈值": {
+    "desc": "当失效因子数占总因子数的比例超过此阈值时触发熔断",
+    "value_pct": 50,
+    "trigger_action": "pause_new_positions",
+    "escalation": "require_manual_review"
+  },
+  "熔断级别定义": {
+    "level_1_warning": {
+      "condition": "累计回撤>10% 或 单日亏损>3%",
+      "action": "send_alert",
+      "description": "黄色预警，发送飞书通知，不自动干预交易"
+    },
+    "level_2_pause": {
+      "condition": "累计回撤>15% 或 单日亏损>5%",
+      "action": "pause_new_positions",
+      "description": "红色熔断，停止新开仓，已持仓继续运行止损逻辑"
+    },
+    "level_3_emergency": {
+      "condition": "累计回撤>20% 或 因子失效>50%",
+      "action": "liquidate_all",
+      "description": "紧急清仓，所有持仓强制平仓，等待人工复核后重启"
+    }
+  },
+  "触发后动作详情": {
+    "pause_all_trading": {
+      "set_flag": "circuit_breaker_active",
+      "notify_channels": ["feishu", "log"],
+      "require_approval_to_resume": true,
+      "auto_resume_after_days": null
+    },
+    "pause_new_positions": {
+      "set_flag": "no_new_positions",
+      "existing_positions": "继续执行止损止盈逻辑",
+      "notify_channels": ["feishu"],
+      "require_approval_to_resume": false
+    },
+    "liquidate_all": {
+      "set_flag": "emergency_stop",
+      "execute_action": "sell_all_at_market",
+      "notify_channels": ["feishu", "phone"],
+      "require_approval_to_resume": true,
+      "cooldown_hours": 24
+    },
+    "manual_review_required": {
+      "set_flag": "pending_review",
+      "notify_channels": ["feishu_group"],
+      "approvers": ["老大", "总管"],
+      "max_review_time_hours": 4
+    }
+  },
+  "监控指标源": {
+    "cumulative_drawdown": "从 trade_log.json 的 trades 列表计算净值曲线",
+    "daily_loss": "从 trade_log.json 的 last_updated 和当日盈亏计算",
+    "factor_failure_ratio": "从 data/factor_ic/ic_history.json 的最新一轮结果统计"
+  }
+}

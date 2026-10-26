@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-09-24T05:15:29.392100",
+  "date": "2026-09-24",
+  "aoci_check": {
+    "exit_code": 3,
+    "stdout": "",
+    "stderr": "Error: open D:\\open code\\zhuanqian\\scripts\\aoci.txt: The system cannot find the file specified.\n"
+  },
+  "new_files_count": 63,
+  "new_files": [
+    "D:\\open code\\zhuanqian\\scripts\\akshare_daily_pull.py",
+    "D:\\open code\\zhuanqian\\scripts\\alert_engine.py",
+    "D:\\open code\\zhuanqian\\scripts\\aoci_auto_maintain.py",
+    "D:\\open code\\zhuanqian\\scripts\\aoci_daily_check.py",
+    "D:\\open code\\zhuanqian\\scripts\\auto_backtest_pipeline.py",
+    "D:\\open code\\zhuanqian\\scripts\\benchmark_backtest.py",
+    "D:\\open code\\zhuanqian\\scripts\\benchmark_backtest_v2.py",
+    "D:\\open code\\zhuanqian\\scripts\\benchmark_backtest_v3.py",
+    "D:\\open code\\zhuanqian\\scripts\\benchmark_backtest_v4.py",
+    "D:\\open code\\zhuanqian\\scripts\\build_dashboard.py"
+  ],
+  "index_completeness": {
+    "status": "ok",
+    "total_entries": 0,
+    "complete_entries": 0,
+    "completeness_rate": "0%",
+    "issues_count": 0
+  },
+  "action_required": true
+}

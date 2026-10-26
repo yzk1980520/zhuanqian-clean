@@ -1,0 +1,151 @@
+
+== 执行选股 (TOP 10, 扫描 3000只) ==
+  ⚠️ DL预测降级: 缺少torch依赖(dl_stock_predictor_torch需import torch), 跳过DL预测→statistical fallback (根因: 当前解释器未装torch)
+因子权重真源: factor_weights.json (version=2.6, updated_at=2026-10-20, 22键 / 4个活跃因子)
+  [历史] 10-18 假报修复: 当时真源为 config.json 的 factor_weights 段; 10-20 T2a 重做切源至 factor_weights.json; config.json 的 factor_weights 段不再是生产评分真源
+因子层开关: factor_layer_enabled=True (来源: CLI)
+加载历史数据: 3000只 (分层: {'sh60': 993, 'sz00': 879, 'sz30': 784, 'sh68': 344}), 全量库: 9441只
+名称表: 3367 条 (stock_names.json, ST/退市判定依据)
+  已处理: 500/3000, 有效: 409
+  已处理: 1000/3000, 有效: 867
+  已处理: 1500/3000, 有效: 1344
+[告警] 以下 2 个因子在 factor_weights.json 中权重非 0，但 compute_indicators 未产出对应键 —— 因子分实际未参与打分：['overnight_sum20', 'momentum_20']
+[告警] 当前 score 实际退化为 tech_score*0.7（factor_score 恒 0）。请核对 factor_weights.json 的 weights 与 tdx_indicators.compute_indicators 的返回键。
+  ⚠️ 因子异常登记: 2 条 (SOUL#9)
+    [factor_dead_all_universe] * overnight_sum20: 1498/1498 只候选均无此键，该因子权重 1.6 实际未生效（z 全置 0）
+    [factor_dead_all_universe] * momentum_20: 1498/1498 只候选均无此键，该因子权重 -0.5 实际未生效（z 全置 0）
+评分完成: 1663只股票, 有效候选: 1498只
+  🚫 追高门剔除: 112 只 (涨幅>4.0%)
+    sh600097: 10.03%
+    sh601566: 4.7%
+    sh600252: 10.22%
+    sh601808: 6.56%
+    sh600715: 6.21%
+✅ 选股结果已保存: D:\open code\zhuanqian\data\picks_latest.json
+
+TOP 10最优个股:
+  1. sh600892: 57.75分 (技术84.0+因子-3.51) - 观察
+  2. sz000690: 56.90分 (技术83.0+因子-3.99) - 观察
+  3. sh600621: 54.80分 (技术80.0+因子-4.01) - 观察
+  4. sh600229: 54.16分 (技术78.0+因子-1.47) - 观察
+  5. sh600028: 53.74分 (技术78.0+因子-2.87) - 观察
+  6. sh601599: 53.26分 (技术77.0+因子-2.13) - 观察
+  7. sh600026: 52.65分 (技术77.0+因子-4.16) - 观察
+  8. sz002232: 52.64分 (技术77.0+因子-4.21) - 观察
+  9. sh600629: 52.15分 (技术76.0+因子-3.51) - 观察
+  10. sz000516: 51.77分 (技术75.0+因子-2.42) - 观察
+
+🚫 追高门剔除 (112只):
+  sh600097: 10.03% — 信号日涨幅10.03% > CHASE_BAN_PCT4.0%
+  sh601566: 4.7% — 信号日涨幅4.70% > CHASE_BAN_PCT4.0%
+  sh600252: 10.22% — 信号日涨幅10.22% > CHASE_BAN_PCT4.0%
+  sh601808: 6.56% — 信号日涨幅6.56% > CHASE_BAN_PCT4.0%
+  sh600715: 6.21% — 信号日涨幅6.21% > CHASE_BAN_PCT4.0%
+  sh600403: 5.39% — 信号日涨幅5.39% > CHASE_BAN_PCT4.0%
+  sh601116: 5.9% — 信号日涨幅5.90% > CHASE_BAN_PCT4.0%
+  sh600121: 9.94% — 信号日涨幅9.94% > CHASE_BAN_PCT4.0%
+  sz002105: 5.51% — 信号日涨幅5.51% > CHASE_BAN_PCT4.0%
+  sh600310: 6.4% — 信号日涨幅6.40% > CHASE_BAN_PCT4.0%
+  sh600938: 4.26% — 信号日涨幅4.26% > CHASE_BAN_PCT4.0%
+  sh600863: 4.71% — 信号日涨幅4.71% > CHASE_BAN_PCT4.0%
+  sh600025: 4.05% — 信号日涨幅4.05% > CHASE_BAN_PCT4.0%
+  sz002044: 8.41% — 信号日涨幅8.41% > CHASE_BAN_PCT4.0%
+  sz000546: 9.91% — 信号日涨幅9.91% > CHASE_BAN_PCT4.0%
+  sz002162: 4.26% — 信号日涨幅4.26% > CHASE_BAN_PCT4.0%
+  sz002043: 4.92% — 信号日涨幅4.92% > CHASE_BAN_PCT4.0%
+  sz002293: 4.42% — 信号日涨幅4.42% > CHASE_BAN_PCT4.0%
+  sz002004: 5.06% — 信号日涨幅5.06% > CHASE_BAN_PCT4.0%
+  sz000736: 9.92% — 信号日涨幅9.92% > CHASE_BAN_PCT4.0%
+  sz002268: 5.89% — 信号日涨幅5.89% > CHASE_BAN_PCT4.0%
+  sz001318: 4.68% — 信号日涨幅4.68% > CHASE_BAN_PCT4.0%
+  sh600012: 4.53% — 信号日涨幅4.53% > CHASE_BAN_PCT4.0%
+  sh600068: 6.2% — 信号日涨幅6.20% > CHASE_BAN_PCT4.0%
+  sz001330: 9.94% — 信号日涨幅9.94% > CHASE_BAN_PCT4.0%
+  sz002029: 7.94% — 信号日涨幅7.94% > CHASE_BAN_PCT4.0%
+  sz002212: 10.04% — 信号日涨幅10.04% > CHASE_BAN_PCT4.0%
+  sh600777: 5.29% — 信号日涨幅5.29% > CHASE_BAN_PCT4.0%
+  sz000665: 4.94% — 信号日涨幅4.94% > CHASE_BAN_PCT4.0%
+  sz001325: 8.02% — 信号日涨幅8.02% > CHASE_BAN_PCT4.0%
+  sz002172: 4.42% — 信号日涨幅4.42% > CHASE_BAN_PCT4.0%
+  sz000420: 10.12% — 信号日涨幅10.12% > CHASE_BAN_PCT4.0%
+  sz002270: 6.45% — 信号日涨幅6.45% > CHASE_BAN_PCT4.0%
+  sz002083: 4.84% — 信号日涨幅4.84% > CHASE_BAN_PCT4.0%
+  sh600593: 6.56% — 信号日涨幅6.56% > CHASE_BAN_PCT4.0%
+  sh601001: 5.57% — 信号日涨幅5.57% > CHASE_BAN_PCT4.0%
+  sz000719: 4.39% — 信号日涨幅4.39% > CHASE_BAN_PCT4.0%
+  sh600316: 5.64% — 信号日涨幅5.64% > CHASE_BAN_PCT4.0%
+  sz002182: 6.22% — 信号日涨幅6.22% > CHASE_BAN_PCT4.0%
+  sh600202: 10.02% — 信号日涨幅10.02% > CHASE_BAN_PCT4.0%
+  sh600847: 9.98% — 信号日涨幅9.98% > CHASE_BAN_PCT4.0%
+  sh600583: 4.19% — 信号日涨幅4.19% > CHASE_BAN_PCT4.0%
+  sh600633: 4.12% — 信号日涨幅4.12% > CHASE_BAN_PCT4.0%
+  sh600757: 4.42% — 信号日涨幅4.42% > CHASE_BAN_PCT4.0%
+  sz002238: 4.64% — 信号日涨幅4.64% > CHASE_BAN_PCT4.0%
+  sz002041: 6.42% — 信号日涨幅6.42% > CHASE_BAN_PCT4.0%
+  sz002166: 4.89% — 信号日涨幅4.89% > CHASE_BAN_PCT4.0%
+  sh601188: 9.97% — 信号日涨幅9.97% > CHASE_BAN_PCT4.0%
+  sh600573: 5.07% — 信号日涨幅5.07% > CHASE_BAN_PCT4.0%
+  sz002187: 4.22% — 信号日涨幅4.22% > CHASE_BAN_PCT4.0%
+  sz002164: 5.85% — 信号日涨幅5.85% > CHASE_BAN_PCT4.0%
+  sz001336: 10.02% — 信号日涨幅10.02% > CHASE_BAN_PCT4.0%
+  sz002183: 4.29% — 信号日涨幅4.29% > CHASE_BAN_PCT4.0%
+  sh601811: 9.98% — 信号日涨幅9.98% > CHASE_BAN_PCT4.0%
+  sh600408: 10.03% — 信号日涨幅10.03% > CHASE_BAN_PCT4.0%
+  sh600333: 4.48% — 信号日涨幅4.48% > CHASE_BAN_PCT4.0%
+  sz002242: 10.04% — 信号日涨幅10.04% > CHASE_BAN_PCT4.0%
+  sz000802: 6.58% — 信号日涨幅6.58% > CHASE_BAN_PCT4.0%
+  sz002291: 4.6% — 信号日涨幅4.60% > CHASE_BAN_PCT4.0%
+  sz000523: 4.29% — 信号日涨幅4.29% > CHASE_BAN_PCT4.0%
+  sh600391: 10.01% — 信号日涨幅10.01% > CHASE_BAN_PCT4.0%
+  sz002064: 4.4% — 信号日涨幅4.40% > CHASE_BAN_PCT4.0%
+  sh601595: 5.55% — 信号日涨幅5.55% > CHASE_BAN_PCT4.0%
+  sz000710: 10.03% — 信号日涨幅10.03% > CHASE_BAN_PCT4.0%
+  sz000759: 7.47% — 信号日涨幅7.47% > CHASE_BAN_PCT4.0%
+  sz000679: 6.68% — 信号日涨幅6.68% > CHASE_BAN_PCT4.0%
+  sh600011: 4.4% — 信号日涨幅4.40% > CHASE_BAN_PCT4.0%
+  sz000713: 5.76% — 信号日涨幅5.76% > CHASE_BAN_PCT4.0%
+  sz000156: 4.47% — 信号日涨幅4.47% > CHASE_BAN_PCT4.0%
+  sz002292: 7.62% — 信号日涨幅7.62% > CHASE_BAN_PCT4.0%
+  sz000756: 4.08% — 信号日涨幅4.08% > CHASE_BAN_PCT4.0%
+  sz000798: 5.23% — 信号日涨幅5.23% > CHASE_BAN_PCT4.0%
+  sz000505: 6.01% — 信号日涨幅6.01% > CHASE_BAN_PCT4.0%
+  sz002279: 4.95% — 信号日涨幅4.95% > CHASE_BAN_PCT4.0%
+  sz000892: 9.98% — 信号日涨幅9.98% > CHASE_BAN_PCT4.0%
+  sz000998: 4.74% — 信号日涨幅4.74% > CHASE_BAN_PCT4.0%
+  sz002127: 4.79% — 信号日涨幅4.79% > CHASE_BAN_PCT4.0%
+  sz001300: 9.99% — 信号日涨幅9.99% > CHASE_BAN_PCT4.0%
+  sz000716: 4.07% — 信号日涨幅4.07% > CHASE_BAN_PCT4.0%
+  sh601298: 4.09% — 信号日涨幅4.09% > CHASE_BAN_PCT4.0%
+  sh600400: 7.02% — 信号日涨幅7.02% > CHASE_BAN_PCT4.0%
+  sz002062: 4.57% — 信号日涨幅4.57% > CHASE_BAN_PCT4.0%
+  sz000949: 6.83% — 信号日涨幅6.83% > CHASE_BAN_PCT4.0%
+  sz000839: 5.09% — 信号日涨幅5.09% > CHASE_BAN_PCT4.0%
+  sz002177: 4.65% — 信号日涨幅4.65% > CHASE_BAN_PCT4.0%
+  sz000526: 5.56% — 信号日涨幅5.56% > CHASE_BAN_PCT4.0%
+  sz000930: 4.26% — 信号日涨幅4.26% > CHASE_BAN_PCT4.0%
+  sz000503: 6.84% — 信号日涨幅6.84% > CHASE_BAN_PCT4.0%
+  sz002058: 9.99% — 信号日涨幅9.99% > CHASE_BAN_PCT4.0%
+  sz001337: 6.98% — 信号日涨幅6.98% > CHASE_BAN_PCT4.0%
+  sz002251: 4.37% — 信号日涨幅4.37% > CHASE_BAN_PCT4.0%
+  sz000681: 5.15% — 信号日涨幅5.15% > CHASE_BAN_PCT4.0%
+  sz000558: 4.09% — 信号日涨幅4.09% > CHASE_BAN_PCT4.0%
+  sz000555: 5.29% — 信号日涨幅5.29% > CHASE_BAN_PCT4.0%
+  sz002246: 5.06% — 信号日涨幅5.06% > CHASE_BAN_PCT4.0%
+  sz000607: 4.83% — 信号日涨幅4.83% > CHASE_BAN_PCT4.0%
+  sz000668: 9.94% — 信号日涨幅9.94% > CHASE_BAN_PCT4.0%
+  sz002181: 9.95% — 信号日涨幅9.95% > CHASE_BAN_PCT4.0%
+  sz000975: 7.77% — 信号日涨幅7.77% > CHASE_BAN_PCT4.0%
+  sz000816: 4.35% — 信号日涨幅4.35% > CHASE_BAN_PCT4.0%
+  sz000850: 4.96% — 信号日涨幅4.96% > CHASE_BAN_PCT4.0%
+  sh600825: 9.98% — 信号日涨幅9.98% > CHASE_BAN_PCT4.0%
+  sz002045: 4.65% — 信号日涨幅4.65% > CHASE_BAN_PCT4.0%
+  sz002052: 5.63% — 信号日涨幅5.63% > CHASE_BAN_PCT4.0%
+  sz000766: 4.25% — 信号日涨幅4.25% > CHASE_BAN_PCT4.0%
+  sz000426: 4.1% — 信号日涨幅4.10% > CHASE_BAN_PCT4.0%
+  sz000917: 4.07% — 信号日涨幅4.07% > CHASE_BAN_PCT4.0%
+  sz002155: 5.27% — 信号日涨幅5.27% > CHASE_BAN_PCT4.0%
+  sz000676: 5.47% — 信号日涨幅5.47% > CHASE_BAN_PCT4.0%
+  sz002115: 4.49% — 信号日涨幅4.49% > CHASE_BAN_PCT4.0%
+  sz002131: 4.37% — 信号日涨幅4.37% > CHASE_BAN_PCT4.0%
+  sz001221: 5.01% — 信号日涨幅5.01% > CHASE_BAN_PCT4.0%
+LIVE_RUN_EXIT=0

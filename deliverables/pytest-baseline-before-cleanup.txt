@@ -1,0 +1,1259 @@
+........................................................................ [  5%]
+..............FF..............................FFFFFFF........FF....F.... [ 10%]
+........................................................................ [ 15%]
+.................................F...................................... [ 20%]
+.....................................................s.................. [ 25%]
+........................F........................................s...... [ 30%]
+...............................Fss......F.F............................. [ 35%]
+F....................................................................... [ 40%]
+...................................F.....FF............................. [ 45%]
+.....................................................sssssssssssssssssss [ 50%]
+ssssssssssssssssssssssssssssssssssssssssssssssss..ssssssssssssssssssssss [ 55%]
+sssssssssssssssssssssssssss..............F...........................F.. [ 60%]
+....F.....sss..............s............................................ [ 65%]
+........................................................................ [ 70%]
+........................................................................ [ 75%]
+........................................................................ [ 80%]
+.......................................................................F [ 85%]
+........................................................................ [ 90%]
+............................F........................................... [ 95%]
+......s...............................................................   [100%]
+================================== FAILURES ===================================
+_____________________ TestFastComputeAll.test_normal_data _____________________
+
+self = <tests.test_backtest_fast_inds.TestFastComputeAll object at 0x000002694DDAA110>
+
+    def test_normal_data(self):
+        """正常数据计算"""
+        records = [
+            {"date": date(2024, 1, i), "open": 10.0 + i, "close": 10.0 + i, "high": 11.0 + i, "low": 9.0 + i, "volume": 1000000}
+            for i in range(1, 29)  # 1月只有31天，使用28条记录
+        ]
+>       result = fast_compute_all(records)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_backtest_fast_inds.py:34: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+backtest_fast_inds.py:569: in fast_compute_all
+    inds = dict(inds)
+           ^^^^^^^^^^
+<frozen _collections_abc>:836: in __iter__
+    ???
+.venv\Lib\site-packages\numba\typed\typeddict.py:196: in __iter__
+    return iter(_iter(self))
+                ^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\dispatcher.py:441: in _compile_for_args
+    raise e
+.venv\Lib\site-packages\numba\core\dispatcher.py:374: in _compile_for_args
+    return_val = self.compile(tuple(argtypes))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\dispatcher.py:919: in compile
+    cres = self._compiler.compile(args, return_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\dispatcher.py:80: in compile
+    status, retval = self._compile_cached(args, return_type)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\dispatcher.py:94: in _compile_cached
+    retval = self._compile_core(args, return_type)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\dispatcher.py:107: in _compile_core
+    cres = compiler.compile_extra(self.targetdescr.typing_context,
+.venv\Lib\site-packages\numba\core\compiler.py:739: in compile_extra
+    return pipeline.compile_extra(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\compiler.py:439: in compile_extra
+    return self._compile_bytecode()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\compiler.py:505: in _compile_bytecode
+    return self._compile_core()
+           ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\compiler.py:481: in _compile_core
+    raise e
+.venv\Lib\site-packages\numba\core\compiler.py:473: in _compile_core
+    pm.run(self.state)
+.venv\Lib\site-packages\numba\core\compiler_machinery.py:363: in run
+    raise e
+.venv\Lib\site-packages\numba\core\compiler_machinery.py:356: in run
+    self._runPass(idx, pass_inst, state)
+.venv\Lib\site-packages\numba\core\compiler_lock.py:35: in _acquire_compile_lock
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\compiler_machinery.py:311: in _runPass
+    mutated |= check(pss.run_pass, internal_state)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\compiler_machinery.py:272: in check
+    mangled = func(compiler_state)
+              ^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\typed_passes.py:114: in run_pass
+    typemap, return_type, calltypes, errs = type_inference_stage(
+.venv\Lib\site-packages\numba\core\typed_passes.py:95: in type_inference_stage
+    errs = infer.propagate(raise_errors=raise_errors)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\typeinfer.py:1075: in propagate
+    errors = self.constraints.propagate(self)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\typeinfer.py:160: in propagate
+    constraint(typeinfer)
+.venv\Lib\site-packages\numba\core\typeinfer.py:572: in __call__
+    self.resolve(typeinfer, typevars, fnty)
+.venv\Lib\site-packages\numba\core\typeinfer.py:595: in resolve
+    sig = typeinfer.resolve_call(fnty, pos_args, kw_args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\typeinfer.py:1569: in resolve_call
+    return self.context.resolve_function_type(fnty, pos_args, kw_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\typing\context.py:279: in resolve_function_type
+    res = self._resolve_user_function_type(func, args, kws)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\typing\context.py:335: in _resolve_user_function_type
+    return func.get_call_type(self, args, kws)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\types\functions.py:405: in get_call_type
+    raise exc
+.venv\Lib\site-packages\numba\core\types\functions.py:402: in get_call_type
+    out = template.apply(args, kws)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\typing\templates.py:358: in apply
+    sig = generic(args, kws)
+          ^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\typing\templates.py:1140: in generic
+    sig = self._get_signature(self.context, fnty, args, kws)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\typing\templates.py:1085: in _get_signature
+    sig = fnty.get_call_type(typingctx, args, kws)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\types\functions.py:315: in get_call_type
+    raise e
+.venv\Lib\site-packages\numba\core\types\functions.py:312: in get_call_type
+    sig = temp.apply(nolitargs, nolitkws)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\typing\templates.py:358: in apply
+    sig = generic(args, kws)
+          ^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\typing\templates.py:621: in generic
+    disp, new_args = self._get_impl(args, kws)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\typing\templates.py:720: in _get_impl
+    impl, args = self._build_impl(cache_key, args, kws)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\numba\core\typing\templates.py:824: in _build_impl
+    disp_type.get_call_type(self.context, args, kws)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = type(<function impl_keys.<locals>.impl at 0x00000269A285AE80>)
+context = <numba.core.typing.context.Context object at 0x000002694DC1BA90>
+args = (DictType(unicode_type, float64),), kws = {}
+
+    def get_call_type(self, context, args, kws):
+        """
+        Resolve a call to this dispatcher using the given argument types.
+        A signature returned and it is ensured that a compiled specialization
+        is available for it.
+        """
+        template, pysig, args, kws = \
+>           self.dispatcher.get_call_template(args, kws)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'function' object has no attribute 'get_call_template'
+
+.venv\Lib\site-packages\numba\core\types\functions.py:542: AttributeError
+____________________ TestFastComputeAll.test_return_format ____________________
+
+self = <tests.test_backtest_fast_inds.TestFastComputeAll object at 0x000002694DDAA790>
+
+    def test_return_format(self):
+        """返回格式验证"""
+        records = [
+            {"date": date(2024, 1, i), "open": 10.0 + i, "close": 10.0 + i, "high": 11.0 + i, "low": 9.0 + i, "volume": 1000000}
+            for i in range(1, 30)
+        ]
+        result = fast_compute_all(records)
+    
+        date_str, inds, weekly = result[0]
+        assert isinstance(date_str, str)
+>       assert "close" in inds
+E       AssertionError: assert 'close' in {'_v2': {'intraday_sum20': np.float64(0.0), 'gap_down_cnt': 0.0, 'red_ratio10': 0.0, 'overnight_sum20': np.float64(97.51097860430464)}}
+
+tests\test_backtest_fast_inds.py:48: AssertionError
+__________________ TestResolveLauncher.test_active_venv_wins __________________
+
+self = <tests.test_board_watchdog.TestResolveLauncher testMethod=test_active_venv_wins>
+
+    def setUp(self):
+>       self.bw = load_board_watchdog()
+                  ^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_board_watchdog.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_board_watchdog.py:20: in load_board_watchdog
+    spec.loader.exec_module(mod)
+<frozen importlib._bootstrap_external>:936: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <_frozen_importlib_external.SourceFileLoader object at 0x00000269A26FBA10>
+path = 'D:\\open code\\zhuanqian\\scripts\\board_watchdog.py'
+
+>   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'D:\\open code\\zhuanqian\\scripts\\board_watchdog.py'
+
+<frozen importlib._bootstrap_external>:1130: FileNotFoundError
+________ TestResolveLauncher.test_all_candidates_missing_returns_none _________
+
+self = <tests.test_board_watchdog.TestResolveLauncher testMethod=test_all_candidates_missing_returns_none>
+
+    def setUp(self):
+>       self.bw = load_board_watchdog()
+                  ^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_board_watchdog.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_board_watchdog.py:20: in load_board_watchdog
+    spec.loader.exec_module(mod)
+<frozen importlib._bootstrap_external>:936: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <_frozen_importlib_external.SourceFileLoader object at 0x00000269A33D6850>
+path = 'D:\\open code\\zhuanqian\\scripts\\board_watchdog.py'
+
+>   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'D:\\open code\\zhuanqian\\scripts\\board_watchdog.py'
+
+<frozen importlib._bootstrap_external>:1130: FileNotFoundError
+___________ TestResolveLauncher.test_broken_venv_exhausts_to_tools ____________
+
+self = <tests.test_board_watchdog.TestResolveLauncher testMethod=test_broken_venv_exhausts_to_tools>
+
+    def setUp(self):
+>       self.bw = load_board_watchdog()
+                  ^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_board_watchdog.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_board_watchdog.py:20: in load_board_watchdog
+    spec.loader.exec_module(mod)
+<frozen importlib._bootstrap_external>:936: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <_frozen_importlib_external.SourceFileLoader object at 0x00000269A26E79D0>
+path = 'D:\\open code\\zhuanqian\\scripts\\board_watchdog.py'
+
+>   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'D:\\open code\\zhuanqian\\scripts\\board_watchdog.py'
+
+<frozen importlib._bootstrap_external>:1130: FileNotFoundError
+________________ TestResolveLauncher.test_broken_venv_skipped _________________
+
+self = <tests.test_board_watchdog.TestResolveLauncher testMethod=test_broken_venv_skipped>
+
+    def setUp(self):
+>       self.bw = load_board_watchdog()
+                  ^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_board_watchdog.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_board_watchdog.py:20: in load_board_watchdog
+    spec.loader.exec_module(mod)
+<frozen importlib._bootstrap_external>:936: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <_frozen_importlib_external.SourceFileLoader object at 0x00000269A30141D0>
+path = 'D:\\open code\\zhuanqian\\scripts\\board_watchdog.py'
+
+>   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'D:\\open code\\zhuanqian\\scripts\\board_watchdog.py'
+
+<frozen importlib._bootstrap_external>:1130: FileNotFoundError
+________ TestResolveLauncher.test_start_board_raises_when_no_launcher _________
+
+self = <tests.test_board_watchdog.TestResolveLauncher testMethod=test_start_board_raises_when_no_launcher>
+
+    def setUp(self):
+>       self.bw = load_board_watchdog()
+                  ^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_board_watchdog.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_board_watchdog.py:20: in load_board_watchdog
+    spec.loader.exec_module(mod)
+<frozen importlib._bootstrap_external>:936: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <_frozen_importlib_external.SourceFileLoader object at 0x00000269A26EF810>
+path = 'D:\\open code\\zhuanqian\\scripts\\board_watchdog.py'
+
+>   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'D:\\open code\\zhuanqian\\scripts\\board_watchdog.py'
+
+<frozen importlib._bootstrap_external>:1130: FileNotFoundError
+________ TestResolveLauncher.test_tools_python_exe_gets_no_window_flag ________
+
+self = <tests.test_board_watchdog.TestResolveLauncher testMethod=test_tools_python_exe_gets_no_window_flag>
+
+    def setUp(self):
+>       self.bw = load_board_watchdog()
+                  ^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_board_watchdog.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_board_watchdog.py:20: in load_board_watchdog
+    spec.loader.exec_module(mod)
+<frozen importlib._bootstrap_external>:936: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <_frozen_importlib_external.SourceFileLoader object at 0x00000269A26DF590>
+path = 'D:\\open code\\zhuanqian\\scripts\\board_watchdog.py'
+
+>   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'D:\\open code\\zhuanqian\\scripts\\board_watchdog.py'
+
+<frozen importlib._bootstrap_external>:1130: FileNotFoundError
+________ TestStartBoardWiring.test_argv_single_element_and_returns_pid ________
+
+self = <tests.test_board_watchdog.TestStartBoardWiring testMethod=test_argv_single_element_and_returns_pid>
+
+    def setUp(self):
+>       self.bw = load_board_watchdog()
+                  ^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_board_watchdog.py:128: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_board_watchdog.py:20: in load_board_watchdog
+    spec.loader.exec_module(mod)
+<frozen importlib._bootstrap_external>:936: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <_frozen_importlib_external.SourceFileLoader object at 0x00000269A26D96D0>
+path = 'D:\\open code\\zhuanqian\\scripts\\board_watchdog.py'
+
+>   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'D:\\open code\\zhuanqian\\scripts\\board_watchdog.py'
+
+<frozen importlib._bootstrap_external>:1130: FileNotFoundError
+___________ TestCustomProviders.test_all_custom_profiles_have_field ___________
+
+self = <tests.test_bot_config.TestCustomProviders object at 0x000002694EE08BD0>
+
+    def test_all_custom_profiles_have_field(self):
+        """所有使用 custom provider 的 profile 必须有 custom_providers 字段"""
+        for profile_dir in PROFILES_DIR.iterdir():
+            if not profile_dir.is_dir():
+                continue
+            config_path = profile_dir / "config.yaml"
+            if not config_path.exists():
+                continue
+    
+            with open(config_path, 'r', encoding='utf-8') as f:
+                config = yaml.safe_load(f)
+    
+            model = config.get('model', {})
+            if model.get('provider') == 'custom':
+>               assert 'custom_providers' in model, \
+                    f"{profile_dir.name}: missing model.custom_providers"
+E               AssertionError: laosan: missing model.custom_providers
+E               assert 'custom_providers' in {'provider': 'custom', 'default': 'agnes-3.0-flash', 'base_url': 'https://apihub.agnes-ai.com/v1', 'key_env': 'AGNES_API_KEY'}
+
+tests\test_bot_config.py:32: AssertionError
+___________ TestCustomProviders.test_custom_providers_is_empty_list ___________
+
+self = <tests.test_bot_config.TestCustomProviders object at 0x000002694EE08F50>
+
+    def test_custom_providers_is_empty_list(self):
+        """custom_providers 可以为空或非空(已配置的profile), 仅验证字段存在性"""
+        for profile_dir in PROFILES_DIR.iterdir():
+            if not profile_dir.is_dir():
+                continue
+            config_path = profile_dir / "config.yaml"
+            if not config_path.exists():
+                continue
+    
+            with open(config_path, 'r', encoding='utf-8') as f:
+                config = yaml.safe_load(f)
+    
+            model = config.get('model', {})
+            if model.get('provider') == 'custom':
+                cp = model.get('custom_providers')
+                # 2026-10-05 老三修订: laosan已配置agnes providers, 不再要求空列表
+>               assert cp is not None, \
+                    f"{profile_dir.name}: custom_providers should not be None when provider=custom"
+E               AssertionError: laosan: custom_providers should not be None when provider=custom
+E               assert None is not None
+
+tests\test_bot_config.py:51: AssertionError
+_____________ TestGatewayRoutes.test_routes_have_correct_profile ______________
+
+self = <tests.test_bot_config.TestGatewayRoutes object at 0x000002694EE0AFD0>
+
+    def test_routes_have_correct_profile(self):
+        """Gateway 路由的 profile 字段必须匹配配置文件名或由该 profile 托管的 thread 路由
+    
+        飞书群聊线程模式: zongguan 托管 laosan/laowu/niuma 的 thread 路由,
+        这些 thread 路由的 profile 字段指向子 profile 名字(laosan 等), 而配置文件在 zongguan 下。
+        这是设计意图, 不是配置错误。
+        """
+        for profile_dir in PROFILES_DIR.iterdir():
+            if not profile_dir.is_dir():
+                continue
+            config_path = profile_dir / "config.yaml"
+            if not config_path.exists():
+                continue
+    
+            with open(config_path, 'r', encoding='utf-8') as f:
+                config = yaml.safe_load(f)
+    
+            gateway = config.get('gateway', {})
+            for route in gateway.get('profile_routes', []):
+                route_profile = route.get('profile')
+                # 设计意图: 路由的 profile 可以是本 profile 名, 或该 profile 托管的 thread 子 profile
+                # 判断依据: 该 profile 托管 = 有 thread_id 字段
+                is_thread_route = 'thread_id' in route
+                if is_thread_route:
+                    # thread 路由: profile 字段指向子 profile 是设计意图, 不做文件名匹配
+                    continue
+                # 主路由: 必须匹配 profile 文件名
+>               assert route_profile == profile_dir.name, \
+                    f"{profile_dir.name}: route profile mismatch, " \
+                    f"expected '{profile_dir.name}', got '{route_profile}'"
+E               AssertionError: laosan: route profile mismatch, expected 'laosan', got 'None'
+E               assert None == 'laosan'
+E                +  where 'laosan' = WindowsPath('D:/Hermes agent/Hermes Agent CN Desktop/data/hermes-home/profiles/laosan').name
+
+tests\test_bot_config.py:186: AssertionError
+________________ test_no_stale_contract_values_in_active_docs _________________
+
+    def test_no_stale_contract_values_in_active_docs():
+        """活跃文档里不得再出现已废弃的契约口径 —— 旧文档发号施令是本次诊断的头号病灶。"""
+        hits = _scan()
+>       assert not hits, (
+            "活跃文档中出现已废弃契约口径(真源 risk_rules.py: 止损 %.0f%% / S3五档):\n" % (STOP_LOSS_TRUE * 100)
+            + "\n".join("  %s:%d  [%s]\n      %s" % h for h in hits)
+            + "\n\n处理: 改成真源值; 若为历史台账必须保留旧值, "
+            "在 tests/test_contract_docs_consistency.py 的 WHITELIST 写明理由, 不允许裸放行。"
+        )
+E       AssertionError: 活跃文档中出现已废弃契约口径(真源 risk_rules.py: 止损 10% / S3五档):
+E           deliverables\W6-ST空壳补数与基线重跑-20261017.md:220  [止损8%(09-30会签前旧口径)]
+E               | 契约版-止损8%-旧阶梯-追高4% | 54 | 29.6% | 65.02% | −17.94% | 57 | 22.8% | 72.71% | −61.33% | −6.8 | +7.69 | −43.4 |
+E           deliverables\W6-ST空壳补数与基线重跑-20261017.md:224  [止损8%(09-30会签前旧口径)]
+E               | S2备选-回撤敏感-止损8% | 59 | 45.8% | 32.94% | +226.55% | 59 | 45.8% | 42.02% | +102.30% | 0.0 | +9.08 | −124.2 |
+E           deliverables\单票轮动方案重构-20261018.md:587  [止损8%(09-30会签前旧口径)]
+E               - `scripts/single_stock_rotation.py:19`：`STOP_LOSS_PCT = 0.08` —— **契约的第三份副本且已过期**（应为 0.10），且全仓 grep 无任何外部调用点（仅 `.worktr
+E           deliverables\臃肿板块盘点与清理清单-20261018.md:659  [止损8%(09-30会签前旧口径)]
+E               - **止损漂移**：`scripts/single_stock_rotation.py:20` `STOP_LOSS_PCT = 0.08` vs 真源 `risk_rules.py:50-51` `STRATEGY_STOP_LOSS_
+E         
+E         处理: 改成真源值; 若为历史台账必须保留旧值, 在 tests/test_contract_docs_consistency.py 的 WHITELIST 写明理由, 不允许裸放行。
+E       assert not [('deliverables\\W6-ST空壳补数与基线重跑-20261017.md', 220, '止损8%(09-30会签前旧口径)', '| 契约版-止损8%-旧阶梯-追高4% | 54 | 29.6% | 65.02% | −...止损漂移**：`scripts/single_stock_rotation.py:20` `STOP_LOSS_PCT = 0.08` vs 真源 `risk_rules.py:50-51` `STRATEGY_STOP_LOSS_')]
+
+tests\test_contract_docs_consistency.py:207: AssertionError
+______________________ test_true_source_stamp_registered ______________________
+
+    def test_true_source_stamp_registered():
+        """H4-2：真源当前版本必须已登记。真源变了却没登记 = 改了契约没走留痕/广播流程。"""
+        assert os.path.exists(STAMP_PATH), (
+            "缺少 .agent/true-source-stamp.json —— 跑 `python scripts/sync_true_source_stamp.py` 登记"
+        )
+        stamp = json.load(open(STAMP_PATH, encoding="utf-8"))
+        cur = sha256_of(TRUE_SOURCE)
+>       assert stamp.get("risk_rules_sha256") == cur, (
+            "真源 risk_rules.py 已变更，但 .agent/true-source-stamp.json 未刷新 →\n"
+            "  当前真源 SHA: %s\n  已登记    SHA: %s\n"
+            "处理顺序（**别跳步**）：\n"
+            "  ① 在 docs/CONTRACT-CHANGELOG-20261017.md 登记本次变更\n"
+            "  ② 跑 python scripts/broadcast_contract_change.py 广播\n"
+            "  ③ 同步各契约文档头部的 TSS 戳\n"
+            "  ④ 跑 python scripts/sync_true_source_stamp.py 刷新戳"
+            % (cur, stamp.get("risk_rules_sha256"))
+        )
+E       AssertionError: 真源 risk_rules.py 已变更，但 .agent/true-source-stamp.json 未刷新 →
+E           当前真源 SHA: e239dc1f623b2c45a126f074c98a8b436d3d0abb914dc718ab33f610d4e05d6d
+E           已登记    SHA: f39cdae2961cb7c1e41fcd7cc746004a5c78fe23c5eddc6a3786b004eb4b750a
+E         处理顺序（**别跳步**）：
+E           ① 在 docs/CONTRACT-CHANGELOG-20261017.md 登记本次变更
+E           ② 跑 python scripts/broadcast_contract_change.py 广播
+E           ③ 同步各契约文档头部的 TSS 戳
+E           ④ 跑 python scripts/sync_true_source_stamp.py 刷新戳
+E       assert 'f39cdae2961c...6b004eb4b750a' == 'e239dc1f623b...3f610d4e05d6d'
+E         
+E         - e239dc1f623b2c45a126f074c98a8b436d3d0abb914dc718ab33f610d4e05d6d
+E         + f39cdae2961cb7c1e41fcd7cc746004a5c78fe23c5eddc6a3786b004eb4b750a
+
+tests\test_doc_freshness.py:86: AssertionError
+___________ TestNarrowedExceptionCoverage.test_valueerror_is_caught ___________
+
+self = <tests.test_except_narrowing.TestNarrowedExceptionCoverage object at 0x000002699017EC50>
+
+    def test_valueerror_is_caught(self):
+        """验证 ValueError 被正确捕获"""
+        from risk_rules import evaluate_exit
+    
+        entry = {
+            "entry_price": 100.0,
+            "entry_date": "not-a-date",
+        }
+    
+        # 应返回默认日期，不抛出异常
+>       should_exit, reason, exit_type = evaluate_exit(entry, 105.0, "强")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       ValueError: too many values to unpack (expected 3)
+
+tests\test_except_narrowing.py:112: ValueError
+---------------------------- Captured stdout call -----------------------------
+[LOUD] time_stop_unknown 告警已存在，跳过重复写入 id=time_stop_unknown_1792336387_unknown
+_____ TestQueueIntegrationLoadQueue.test_missing_queue_returns_empty_list _____
+
+self = <tests.test_exception_swallowing_fix.TestQueueIntegrationLoadQueue testMethod=test_missing_queue_returns_empty_list>
+
+    def test_missing_queue_returns_empty_list(self):
+        """队列文件不存在 → 返回 []（正常路径）"""
+        import importlib.util
+        spec = importlib.util.spec_from_file_location(
+            "qi", ROOT / "scripts" / "queue_integration.py")
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+>       self.assertEqual(mod.load_queue(), [])
+E       AssertionError: Lists differ: [{'id': 'time_stop_unknown_1792336387_unkn[134 chars]703}] != []
+E       
+E       First list contains 1 additional elements.
+E       First extra element 0:
+E       {'id': 'time_stop_unknown_1792336387_unknown', 'content': '🔔 时间止损日期解析失败 [entry_date_invalid] 股票代码=unknown entry_date=invalid-date', 'platform': 'feishu', 'ts': 1792336387.0405703}
+E       
+E       + []
+E       - [{'content': '🔔 时间止损日期解析失败 [entry_date_invalid] 股票代码=unknown '
+E       -              'entry_date=invalid-date',
+E       -   'id': 'time_stop_unknown_1792336387_unknown',
+E       -   'platform': 'feishu',
+E       -   'ts': 1792336387.0405703}]
+
+tests\test_exception_swallowing_fix.py:133: AssertionError
+____ TestNotificationSenderLoadQueue.test_missing_queue_returns_empty_list ____
+
+self = <tests.test_exception_swallowing_fix.TestNotificationSenderLoadQueue testMethod=test_missing_queue_returns_empty_list>
+
+    def test_missing_queue_returns_empty_list(self):
+        """队列文件不存在 → 返回 []"""
+        import importlib.util
+        spec = importlib.util.spec_from_file_location(
+            "ns", ROOT / "scripts" / "notification_sender.py")
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+>       self.assertEqual(mod.load_queue(), [])
+E       AssertionError: Lists differ: [{'id': 'time_stop_unknown_1792336387_unkn[134 chars]703}] != []
+E       
+E       First list contains 1 additional elements.
+E       First extra element 0:
+E       {'id': 'time_stop_unknown_1792336387_unknown', 'content': '🔔 时间止损日期解析失败 [entry_date_invalid] 股票代码=unknown entry_date=invalid-date', 'platform': 'feishu', 'ts': 1792336387.0405703}
+E       
+E       + []
+E       - [{'content': '🔔 时间止损日期解析失败 [entry_date_invalid] 股票代码=unknown '
+E       -              'entry_date=invalid-date',
+E       -   'id': 'time_stop_unknown_1792336387_unknown',
+E       -   'platform': 'feishu',
+E       -   'ts': 1792336387.0405703}]
+
+tests\test_exception_swallowing_fix.py:166: AssertionError
+__________________ test_s2_double_path_import_resolves_root ___________________
+
+    def test_s2_double_path_import_resolves_root():
+        """S2: 双 path(scripts 在前, root 在后 — 日监控 L35-36 真实执行序) 必解析根版
+    
+        证据锚点: r0_probe.py 实跑输出 resolved=D:\\open code\\zhuanqian\\factor_registry.py
+        """
+        code = (
+            "import sys; _base = [p for p in sys.path if 'zhuanqian' not in p];"
+            "sys.path[:] = ["
+            f"{SCRIPTS!r}, {ROOT!r}]"
+            " + _base;"
+            "import factor_registry as fr; print(fr.__file__)"
+        )
+        r = _run(code)
+>       assert r.returncode == 0, f"双 path import 失败: {r.stderr[-400:]}"
+E       AssertionError: 双 path import 失败: Traceback (most recent call last):
+E           File "<string>", line 1, in <module>
+E           File "D:\open code\zhuanqian\factor_registry.py", line 19, in <module>
+E             import numpy as np
+E         ModuleNotFoundError: No module named 'numpy'
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['D:\\open code\\zhuanqian\\.venv\\Scripts\\python.exe', '-c', "import sys; _base = [p for p in ...\\factor_registry.py", line 19, in <module>\n    import numpy as np\nModuleNotFoundError: No module named \'numpy\'\n').returncode
+
+tests\test_factor_registry_single_source.py:50: AssertionError
+__________________________ test_api_key_consistency ___________________________
+
+    def test_api_key_consistency():
+        """测试API key配置一致性（model 和 fallback 应不同）"""
+        import yaml
+        with open(CONFIG_PATH, 'r', encoding='utf-8') as f:
+            c = yaml.safe_load(f)
+    
+        model_key = c.get('model', {}).get('api_key', '')
+        fb_key = c.get('fallback_model', {}).get('api_key', '')
+    
+        # fb_key 可能是 list
+        if isinstance(fb_key, list):
+            fb_key = fb_key[0] if fb_key else ''
+    
+        model_prefix = str(model_key)[:20] if model_key else ''
+        fb_prefix = str(fb_key)[:20] if fb_key else ''
+    
+        if model_prefix and fb_prefix and model_prefix != fb_prefix:
+            print(f"✅ API key一致性: model和fallback使用不同key（设计正确）")
+        elif model_prefix == fb_prefix:
+            print(f"⚠️ API key一致: model和fallback使用相同key（fallback可能无效）")
+        else:
+            print(f"❌ API key配置缺失")
+    
+>       assert model_prefix or fb_prefix, "API key不应全为空"
+E       AssertionError: API key不应全为空
+E       assert ('' or '')
+
+tests\test_hermes_config.py:41: AssertionError
+---------------------------- Captured stdout call -----------------------------
+⚠️ API key一致: model和fallback使用相同key（fallback可能无效）
+____________________________ test_config_structure ____________________________
+
+    def test_config_structure():
+        """测试 config.yaml 结构完整性"""
+        import yaml
+        with open(CONFIG_PATH) as f:
+            cfg = yaml.safe_load(f)
+    
+        required_keys = ['model', 'fallback_model', 'gateway', 'platforms', 'plugins']
+        for k in required_keys:
+            assert k in cfg, f"缺少 {k} 节"
+    
+        assert cfg['model'].get('provider'), "model.provider 为空"
+>       assert cfg['model'].get('api_key'), "model.api_key 为空"
+E       AssertionError: model.api_key 为空
+E       assert None
+E        +  where None = <built-in method get of dict object at 0x00000269A30EA140>('api_key')
+E        +    where <built-in method get of dict object at 0x00000269A30EA140> = {'api_mode': 'chat_completions', 'base_url': 'https://inference-api.nousresearch.com/v1', 'default': 'poolside/laguna-s-2.1:free', 'provider': 'nous', ...}.get
+
+tests\test_hermes_config.py:152: AssertionError
+____________________________ test_cron_jobs_clean _____________________________
+
+    def test_cron_jobs_clean():
+        """测试 Cron Jobs 无致命错误"""
+        JOBS_PATH = HERMES_HOME / 'cron/jobs.json'
+        with open(JOBS_PATH) as f:
+            data = json.load(f)
+    
+        jobs = data.get('jobs', [])
+        # 致命错误：非 feishu delivery 相关的错误
+        fatal_errors = []
+        for j in jobs:
+            err = j.get('last_error', '')
+            if err and 'feishu' not in err:
+                fatal_errors.append(j)
+    
+        if fatal_errors:
+            print(f"❌ Cron Jobs: {len(fatal_errors)} 个致命错误")
+            for j in fatal_errors:
+                print(f"   - {j.get('name', '')}: {j['last_error'][:60]}")
+        else:
+            # 检查 feishu 阻塞任务数
+            feishu_blocked = sum(1 for j in jobs if j.get('last_error') and 'feishu' in j.get('last_error', ''))
+            print(f"✅ Cron Jobs: {len(jobs)} 任务, {len(fatal_errors)} 致命错误, {feishu_blocked} feishu阻塞(非致命)")
+    
+>       assert len(fatal_errors) == 0, f"Cron Jobs 存在 {len(fatal_errors)} 个致命错误"
+E       AssertionError: Cron Jobs 存在 4 个致命错误
+E       assert 4 == 0
+E        +  where 4 = len([{'id': 'f97800f5', 'name': 'S3因子门禁日检', 'prompt': '', 'skills': [], ...}, {'id': '3e473d54e07e', 'name': 'worktree_lea..._refresh.py', 'no_agent': True, ...}, {'id': 'c7e3f9a2b104', 'name': 'LHB每日拉取器(收盘后)', 'prompt': '', 'skills': [], ...}])
+
+tests\test_hermes_config.py:182: AssertionError
+---------------------------- Captured stdout call -----------------------------
+❌ Cron Jobs: 4 个致命错误
+   - S3因子门禁日检: Script exited with code 1
+stdout:
+==========================
+   - worktree_leak_check: Script exited with code 1
+stdout:
+[worktree_health] ts=2026-
+   - TDX数据每日刷新(核心+新鲜度): Script exited with code 1
+stderr:
+2026-10-16 15:45:52,960 - 
+   - LHB每日拉取器(收盘后): Script not found: D:\Hermes agent\Hermes Agent CN Desktop\da
+_______________ TestL1HoldingsContract.test_risk_control_schema _______________
+
+self = <tests.test_layers_contract.TestL1HoldingsContract object at 0x000002699072FB10>
+
+    def test_risk_control_schema(self):
+        with open(DATA_DIR / "holdings.json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+    
+        holdings = data.get("holdings", [])
+        if not holdings:
+            pytest.skip("holdings 为空")
+    
+        rc = holdings[0].get("risk_control", {})
+        missing = L1_RISK_CONTROL_REQUIRED - set(rc.keys())
+>       assert not missing, f"risk_control 缺字段: {missing}"
+E       AssertionError: risk_control 缺字段: {'tp_ladder'}
+E       assert not {'tp_ladder'}
+
+tests\test_layers_contract.py:191: AssertionError
+________________ test_lhb_real_data_zero_pointintime_coverage _________________
+
+    def test_lhb_real_data_zero_pointintime_coverage():
+        """真实数据(4个文件) point-in-time 有效覆盖=0 → 门禁结论的数据侧证据
+    
+        文件: 0925(拉)/1003/1004/1005(拉), 上榜日行 ∈ {09-18,09-21..24,09-28,29,30}
+        有效扫描日 S 需满足: 存在 pull_date <= S 的文件含 上榜日==S 的行。
+        所有上榜日的行都只出现在更晚的拉取文件里 → 无任何有效 S。
+        且标准回测窗口末端 2026-09-18 < 首个拉取日 2026-09-25。
+        """
+        base = os.path.join(os.path.dirname(os.path.abspath(tdx_indicators.__file__)), "data", "akshare")
+        files = {}
+        for fn in os.listdir(base):
+            m = re.match(r"get_lhb_detail_(\d{8})\.json$", fn)
+            if m:
+                files[m.group(1)] = os.path.join(base, fn)
+        pulls = sorted(files)
+        row_dates, valid_days = set(), set()
+        for pull, path in files.items():
+            parsed = tdx_indicators._lhb_parse_file(path)
+            for rd, codes in parsed.items():
+                row_dates.add(rd)
+                # rd 的行在 pull 文件里 → 有效扫描日只能是 rd 且需 pull <= rd
+                if pull <= rd and any(abs(c) > 0.05 for c in codes.values()):
+                    valid_days.add(rd)
+>       assert pulls == ["20260925", "20261003", "20261004", "20261005"], f"文件集变化: {pulls}"
+E       AssertionError: 文件集变化: ['20260506', '20260507', '20260508', '20260511', '20260512', '20260513', '20260514', '20260515', '20260518', '20260519', '20260520', '20260521', '20260522', '20260525', '20260526', '20260527', '20260528', '20260529', '20260601', '20260602', '20260603', '20260604', '20260605', '20260608', '20260609', '20260610', '20260611', '20260612', '20260615', '20260616', '20260617', '20260618', '20260622', '20260623', '20260624', '20260625', '20260626', '20260629', '20260630', '20260701', '20260702', '20260703', '20260706', '20260707', '20260708', '20260709', '20260710', '20260713', '20260714', '20260715', '20260716', '20260717', '20260720', '20260721', '20260722', '20260723', '20260724', '20260727', '20260728', '20260729', '20260730', '20260731', '20260803', '20260804', '20260805', '20260806', '20260807', '20260810', '20260811', '20260812', '20260813', '20260814', '20260817', '20260818', '20260819', '20260820', '20260821', '20260824', '20260825', '20260826', '20260827', '20260828', '20260831', '20260901', '20260902', '20260903', '20260904', '20260907', '20260908', '20260909', '20260910', '20260911', '20260914', '20260915', '20260916', '20260917', '20260918', '20260921', '20260922', '20260923', '20260924', '20260925', '20260928', '20260929', '20260930', '20261003', '20261004', '20261005', '20261008', '20261009', '20261012', '20261013', '20261014']
+E       assert ['20260506', ...0260513', ...] == ['20260925', ...', '20261005']
+E         
+E         At index 0 diff: '20260506' != '20260925'
+E         Left contains 109 more items, first extra item: '20260512'
+E         Use -v to get more diff
+
+tests\test_lhb_revival.py:95: AssertionError
+____________________ test_run_stock_selection_excludes_gem ____________________
+
+tmp_path = WindowsPath('C:/Users/WIN10/AppData/Local/Temp/pytest-of-WIN10/pytest-590/test_run_stock_selection_exclu0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000269A3798650>
+
+    def test_run_stock_selection_excludes_gem(tmp_path, monkeypatch):
+        """创业板即使恒打最高分, 也进不了 picks (剔除已接进评分链路)"""
+        import auto_live_pipeline as ALP
+    
+        # 临时 PROJECT_ROOT: config + history_daily(创业板 1 只 + 主板 2 只)
+        (tmp_path / "data" / "history_daily").mkdir(parents=True)
+        (tmp_path / "config.json").write_text(json.dumps({"strategy": "基本面+", "factor_weights": {}}),
+                                               encoding="utf-8")
+        (tmp_path / "data" / "history_daily" / "sz300001.json").write_text(
+            json.dumps(_make_bars()), encoding="utf-8")   # 创业板
+        (tmp_path / "data" / "history_daily" / "sh600519.json").write_text(
+            json.dumps(_make_bars()), encoding="utf-8")   # 沪主板
+        (tmp_path / "data" / "history_daily" / "sz000001.json").write_text(
+            json.dumps(_make_bars()), encoding="utf-8")   # 深主板
+    
+        monkeypatch.setattr(ALP, "PROJECT_ROOT", tmp_path)
+    
+        # mock 评分: 每只都打最高分(若没剔除, 创业板 300001 会凭分数进 top)
+        import tdx_core, tdx_score
+        monkeypatch.setattr(tdx_core, "compute_indicators", lambda data: {"close": 10.0})
+        monkeypatch.setattr(tdx_score, "score_stock", lambda inds, strategy=None: (99.0, ["mock"]))
+    
+        picks = ALP.run_stock_selection(top_n=10, scan_range=10)
+>       codes = [p["code"] for p in picks]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_live_board_filter_integration.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+.0 = <tuple_iterator object at 0x00000269A2F7E6B0>
+
+>   codes = [p["code"] for p in picks]
+             ^^^^^^^^^
+E   TypeError: list indices must be integers or slices, not str
+
+tests\test_live_board_filter_integration.py:50: TypeError
+---------------------------- Captured stdout call -----------------------------
+
+== 执行选股 (TOP 10, 扫描 10只) ==
+因子权重真源: config.json -> factor_weights (4个因子)
+  [注] 仓库根 factor_weights.json 非本链路真源，实盘不读取
+加载历史数据: 3只 (分层: {'sh60': 1, 'sz00': 1, 'sz30': 1}), 全量库: 3只
+[告警] 以下 1 个因子在 config.json 中权重非 0，但 compute_indicators 未产出对应键 —— 因子分实际未参与打分：['LOWER_SHADOW']
+[告警] 当前 score 实际退化为 tech_score*0.7（factor_score 恒 0）。请核对 config.json 的 factor_weights 与 tdx_indicators.compute_indicators 的返回键。
+  ⚠️ 因子异常登记: 1 条 (SOUL#9)
+    [factor_dead_all_universe] * LOWER_SHADOW: 2/2 只候选均无此键，该因子权重 0.15 实际未生效（z 全置 0）
+评分完成: 2只股票, 有效候选: 2只
+✅ 选股结果已保存: C:\Users\WIN10\AppData\Local\Temp\pytest-of-WIN10\pytest-590\test_run_stock_selection_exclu0\data\picks_latest.json
+
+TOP 10最优个股:
+  1. sh600519: 69.30分 (技术99.0+因子0.00) - 买入
+  2. sz000001: 69.30分 (技术99.0+因子0.00) - 买入
+___________________ TestDataIntegrity.test_indicator_values ___________________
+
+self = <tests.test_scan_performance.TestDataIntegrity object at 0x0000026990B63F10>
+inds_cache = {'sh600000': [('2021-01-04', {'_v2': {'intraday_sum20': np.float64(95.00000000000009), 'gap_down_cnt': 19.0, 'red_rati...692324), 'gap_down_cnt': 19.0, 'red_ratio10': 1.0, 'overnight_sum20': np.float64(-70.37037037037047)}}, {}), ...], ...}
+
+    def test_indicator_values(self, inds_cache):
+        """指标值合理性验证"""
+        sorted_codes, all_dates = build_sorted_index(inds_cache)
+        result = get_scan_inds_bisect("2024-01-01", sorted_codes, all_dates)
+    
+        if result:
+            inds = result[0]["inds"]
+            # 价格应>0
+>           assert inds["close"] > 0
+                   ^^^^^^^^^^^^^
+E           KeyError: 'close'
+
+tests\test_scan_performance.py:110: KeyError
+_________________ TestDataFreshness.test_trade_log_freshness __________________
+
+self = <tests.test_system.TestDataFreshness object at 0x0000026990C19350>
+project_root = WindowsPath('D:/open code/zhuanqian')
+
+    def test_trade_log_freshness(self, project_root):
+        """测试交易记录新鲜度"""
+        trade_log_file = project_root / "data" / "trade_log.json"
+        if not trade_log_file.exists():
+            pytest.skip("trade_log.json不存在")
+    
+        with open(trade_log_file, 'r', encoding='utf-8') as f:
+            trade_log = json.load(f)
+    
+        last_update = trade_log.get('last_updated', '')
+        if last_update:
+            last_time = datetime.strptime(last_update, '%Y-%m-%d %H:%M:%S')
+            hours_old = (datetime.now() - last_time).total_seconds() / 3600
+    
+>           assert hours_old <= 24, f"trade_log过旧: {hours_old:.1f}小时前"
+E           AssertionError: trade_log过旧: 110.8小时前
+E           assert 110.79869798861111 <= 24
+
+tests\test_system.py:225: AssertionError
+============================== warnings summary ===============================
+tests\test_aoci_config.py:21
+  D:\open code\zhuanqian\tests\test_aoci_config.py:21: PytestCollectionWarning: cannot collect test class 'TestResult' because it has a __init__ constructor (from: tests/test_aoci_config.py)
+    class TestResult:
+
+tests/test_5_transitions.py::TestLargeNumberIterationLoop::test_all_loss
+tests/test_5_transitions.py::TestLargeNumberIterationLoop::test_small_sample
+  D:\open code\zhuanqian\.venv\Lib\site-packages\scipy\stats\_axis_nan_policy.py:592: RuntimeWarning: Precision loss occurred in moment calculation due to catastrophic cancellation. This occurs when the data are nearly identical. Results may be unreliable.
+    res = hypotest_fun_out(*samples, **kwds)
+
+tests/test_aoci_config.py::test_gitignore_consistency
+  D:\open code\zhuanqian\.venv\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_aoci_config.py::test_gitignore_consistency returned <class 'tests.test_aoci_config.TestResult'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_aoci_config.py::test_config_structure
+  D:\open code\zhuanqian\.venv\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_aoci_config.py::test_config_structure returned <class 'tests.test_aoci_config.TestResult'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_aoci_config.py::test_security_no_leaks
+  D:\open code\zhuanqian\.venv\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_aoci_config.py::test_security_no_leaks returned <class 'tests.test_aoci_config.TestResult'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_aoci_config.py::test_index_files_exist
+  D:\open code\zhuanqian\.venv\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_aoci_config.py::test_index_files_exist returned <class 'tests.test_aoci_config.TestResult'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_aoci_config.py::test_aoci_binary
+  D:\open code\zhuanqian\.venv\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_aoci_config.py::test_aoci_binary returned <class 'tests.test_aoci_config.TestResult'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_aoci_config.py::test_baseline_integrity
+  D:\open code\zhuanqian\.venv\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_aoci_config.py::test_baseline_integrity returned <class 'tests.test_aoci_config.TestResult'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_b3_bare_except_fix.py::test_bare_except_fn_detects_bare_only
+tests/test_b3_bare_except_fix.py::test_bare_except_fn_ignores_except_with_name
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:54: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_b3_bare_except_fix.py::test_system_audit_checker_compilable
+  D:\open code\zhuanqian\scripts\system_audit_checker.py:54: DeprecationWarning: invalid escape sequence '\s'
+    print(f"🔴 [scripts\system_audit_checker.py] CR-01: except Exception:", file=sys.stderr)
+
+tests/test_dl_completeness.py: 8 warnings
+tests/test_dl_modules.py: 1 warning
+tests/test_dl_predictor.py: 2 warnings
+  D:\open code\zhuanqian\dl_stock_predictor.py:33: DeprecationWarning: numpy.core.numeric is deprecated and has been renamed to numpy._core.numeric. The numpy._core namespace contains private NumPy internals and its use is discouraged, as NumPy internals can change without warning in any release. In practice, most real-world usage of numpy.core is to access functionality in the public NumPy API. If that is the case, use the public NumPy API. If not, you are using NumPy internals. If you would still like to access an internal attribute, use numpy._core.numeric._frombuffer.
+    return super().find_class(module, name)
+
+tests/test_market_observation_regression.py::test_missing_tests
+  D:\open code\zhuanqian\.venv\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_market_observation_regression.py::test_missing_tests returned <class 'tuple'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_market_state_engine.py: 106 warnings
+  D:\open code\zhuanqian\.venv\Lib\site-packages\akshare\datasets.py:18: DeprecationWarning: path is deprecated. Use files() instead. Refer to https://importlib-resources.readthedocs.io/en/latest/using.html#migrating-from-legacy for migration advice.
+    with resources.path("akshare.data", file) as f:
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:163: DeprecationWarning: invalid escape sequence '\c'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:95: DeprecationWarning: invalid escape sequence '\c'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:115: DeprecationWarning: invalid escape sequence '\c'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:122: DeprecationWarning: invalid escape sequence '\c'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:64: DeprecationWarning: invalid escape sequence '\c'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:125: DeprecationWarning: invalid escape sequence '\c'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:26: DeprecationWarning: invalid escape sequence '\c'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:78: DeprecationWarning: invalid escape sequence '\c'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:22: DeprecationWarning: invalid escape sequence '\c'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:24: DeprecationWarning: invalid escape sequence '\c'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:137: DeprecationWarning: invalid escape sequence '\c'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:394: DeprecationWarning: invalid escape sequence '\c'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:596: DeprecationWarning: invalid escape sequence '\c'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:177: DeprecationWarning: invalid escape sequence '\c'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:110: DeprecationWarning: invalid escape sequence '\c'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:39: DeprecationWarning: invalid escape sequence '\c'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:48: DeprecationWarning: invalid escape sequence '\c'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:90: DeprecationWarning: invalid escape sequence '\c'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:253: DeprecationWarning: invalid escape sequence '\c'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:63: DeprecationWarning: invalid escape sequence '\c'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:82: DeprecationWarning: invalid escape sequence '\c'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:45: DeprecationWarning: invalid escape sequence '\c'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:111: DeprecationWarning: invalid escape sequence '\d'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:16: DeprecationWarning: invalid escape sequence '\d'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:41: DeprecationWarning: invalid escape sequence '\d'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:141: DeprecationWarning: invalid escape sequence '\d'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:42: DeprecationWarning: invalid escape sequence '\d'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:103: DeprecationWarning: invalid escape sequence '\d'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:44: DeprecationWarning: invalid escape sequence '\d'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:98: DeprecationWarning: invalid escape sequence '\d'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:100: DeprecationWarning: invalid escape sequence '\d'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:136: DeprecationWarning: invalid escape sequence '\d'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:138: DeprecationWarning: invalid escape sequence '\d'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:92: DeprecationWarning: invalid escape sequence '\d'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:56: DeprecationWarning: invalid escape sequence '\d'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+tests/test_tp_ladder_contract.py::TestLadderSingleSource::test_no_per_position_tp_ladder_write[scripts/execute_s3_buy.py]
+  <unknown>:15: DeprecationWarning: invalid escape sequence '\e'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:58: DeprecationWarning: invalid escape sequence '\e'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:42: DeprecationWarning: invalid escape sequence '\g'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:108: DeprecationWarning: invalid escape sequence '\g'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:118: DeprecationWarning: invalid escape sequence '\g'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:51: DeprecationWarning: invalid escape sequence '\h'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:59: DeprecationWarning: invalid escape sequence '\i'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:166: DeprecationWarning: invalid escape sequence '\i'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:201: DeprecationWarning: invalid escape sequence '\i'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:230: DeprecationWarning: invalid escape sequence '\i'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:84: DeprecationWarning: invalid escape sequence '\i'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:35: DeprecationWarning: invalid escape sequence '\i'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:61: DeprecationWarning: invalid escape sequence '\i'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:180: DeprecationWarning: invalid escape sequence '\i'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:261: DeprecationWarning: invalid escape sequence '\i'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:102: DeprecationWarning: invalid escape sequence '\i'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:91: DeprecationWarning: invalid escape sequence '\j'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:137: DeprecationWarning: invalid escape sequence '\k'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:80: DeprecationWarning: invalid escape sequence '\l'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:126: DeprecationWarning: invalid escape sequence '\l'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:59: DeprecationWarning: invalid escape sequence '\l'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:57: DeprecationWarning: invalid escape sequence '\m'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:128: DeprecationWarning: invalid escape sequence '\m'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:89: DeprecationWarning: invalid escape sequence '\m'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:144: DeprecationWarning: invalid escape sequence '\m'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:16: DeprecationWarning: invalid escape sequence '\p'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:20: DeprecationWarning: invalid escape sequence '\p'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:292: DeprecationWarning: invalid escape sequence '\p'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:121: DeprecationWarning: invalid escape sequence '\p'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:260: DeprecationWarning: invalid escape sequence '\q'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:37: DeprecationWarning: invalid escape sequence '\q'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:35: DeprecationWarning: invalid escape sequence '\q'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:61: DeprecationWarning: invalid escape sequence '\q'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:96: DeprecationWarning: invalid escape sequence '\q'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:197: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:209: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:229: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:55: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:19: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:67: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:16: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:143: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:238: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:12: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:11: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:53: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:167: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:204: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:469: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:528: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:591: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:707: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:714: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:792: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:127: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:134: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:26: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:88: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:60: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:81: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:112: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:21: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:79: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:137: DeprecationWarning: invalid escape sequence '\s'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:77: DeprecationWarning: invalid escape sequence '\w'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:95: DeprecationWarning: invalid escape sequence '\w'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:107: DeprecationWarning: invalid escape sequence '\w'
+
+tests/test_no_duplicate_defs.py::test_no_duplicate_top_level_defs
+  <unknown>:348: DeprecationWarning: invalid escape sequence '\w'
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_backtest_fast_inds.py::TestFastComputeAll::test_normal_data
+FAILED tests/test_backtest_fast_inds.py::TestFastComputeAll::test_return_format
+FAILED tests/test_board_watchdog.py::TestResolveLauncher::test_active_venv_wins
+FAILED tests/test_board_watchdog.py::TestResolveLauncher::test_all_candidates_missing_returns_none
+FAILED tests/test_board_watchdog.py::TestResolveLauncher::test_broken_venv_exhausts_to_tools
+FAILED tests/test_board_watchdog.py::TestResolveLauncher::test_broken_venv_skipped
+FAILED tests/test_board_watchdog.py::TestResolveLauncher::test_start_board_raises_when_no_launcher
+FAILED tests/test_board_watchdog.py::TestResolveLauncher::test_tools_python_exe_gets_no_window_flag
+FAILED tests/test_board_watchdog.py::TestStartBoardWiring::test_argv_single_element_and_returns_pid
+FAILED tests/test_bot_config.py::TestCustomProviders::test_all_custom_profiles_have_field
+FAILED tests/test_bot_config.py::TestCustomProviders::test_custom_providers_is_empty_list
+FAILED tests/test_bot_config.py::TestGatewayRoutes::test_routes_have_correct_profile
+FAILED tests/test_contract_docs_consistency.py::test_no_stale_contract_values_in_active_docs
+FAILED tests/test_doc_freshness.py::test_true_source_stamp_registered - Asser...
+FAILED tests/test_except_narrowing.py::TestNarrowedExceptionCoverage::test_valueerror_is_caught
+FAILED tests/test_exception_swallowing_fix.py::TestQueueIntegrationLoadQueue::test_missing_queue_returns_empty_list
+FAILED tests/test_exception_swallowing_fix.py::TestNotificationSenderLoadQueue::test_missing_queue_returns_empty_list
+FAILED tests/test_factor_registry_single_source.py::test_s2_double_path_import_resolves_root
+FAILED tests/test_hermes_config.py::test_api_key_consistency - AssertionError...
+FAILED tests/test_hermes_config.py::test_config_structure - AssertionError: m...
+FAILED tests/test_hermes_config.py::test_cron_jobs_clean - AssertionError: Cr...
+FAILED tests/test_layers_contract.py::TestL1HoldingsContract::test_risk_control_schema
+FAILED tests/test_lhb_revival.py::test_lhb_real_data_zero_pointintime_coverage
+FAILED tests/test_live_board_filter_integration.py::test_run_stock_selection_excludes_gem
+FAILED tests/test_scan_performance.py::TestDataIntegrity::test_indicator_values
+FAILED tests/test_system.py::TestDataFreshness::test_trade_log_freshness - As...
+26 failed, 1287 passed, 127 skipped, 240 warnings in 1305.64s (0:21:45)

@@ -1,0 +1,28 @@
+{
+  "meeting_id": "2026-10-25T21:00:10.435483",
+  "topic": "周度策略复盘",
+  "context": "",
+  "participants": [
+    {
+      "role": "laosang",
+      "name": "老三",
+      "status": "prompt_generated"
+    },
+    {
+      "role": "lawu",
+      "name": "老五",
+      "status": "prompt_generated"
+    },
+    {
+      "role": "niuma",
+      "name": "牛马",
+      "status": "prompt_generated"
+    },
+    {
+      "role": "workbuddy",
+      "name": "WorkBuddy",
+      "status": "prompt_generated"
+    }
+  ],
+  "report_generated": null
+}

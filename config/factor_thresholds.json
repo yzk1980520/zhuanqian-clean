@@ -1,0 +1,65 @@
+{
+  "_meta": {
+    "version": "1.1",
+    "created": "2026-10-07",
+    "updated": "2026-10-17",
+    "author": "P2风险优化",
+    "note": "因子失效阈值配置（监控/停用侧）—— 由 calc_risk_metrics.py 与 tests 读取",
+    "derived_from": "factor_gate_v2.GATE_CONFIG",
+    "derived_from_note": "G4 收敛(2026-10-17 W1): 因子准入门槛的唯一真源是 factor_gate_v2.GATE_CONFIG。本文件不再是独立真源，只保留【停用/监控】语义的阈值，并在 icir停用阈值/ic_absolute停用阈值 上通过 source_of_truth 字段回指真源。历史矛盾点: 本文件 ICIR -0.2 与真源 ir_threshold 0.3 语义不同(-0.2=建议停用下限, 0.3=准入门槛)，非同一量，不构成本次收敛的冲突项，但必须显式标注以免再次被误读为门禁口径。"
+  },
+  "icir准入阈值": {
+    "description": "【引用真源】因子进入有效集合(status='valid')所需的ICIR下限",
+    "value": 0.3,
+    "source_of_truth": "factor_gate_v2.GATE_CONFIG['ir_threshold']",
+    "action": "gate_admit",
+    "note": "真源值 0.3。实跑实证: 132d 权威引擎对 28 个因子的 status 可由 |IC|>=0.03 AND ICIR>=0.3 复现(28/28 MATCH)。本字段为只读引用，改值请改真源。"
+  },
+  "单调性门槛": {
+    "description": "【引用真源】分位收益单调差门槛",
+    "value": 0.02,
+    "source_of_truth": "factor_gate_v2.GATE_CONFIG['monotonicity_threshold']",
+    "action": "gate_admit",
+    "note": "真源值 0.02。历史误植: factor_registry.MIN_MONOTONICITY 曾为 0.7(全仓零引用的死常量, 量纲也不同)，已于 2026-10-17 收敛为真源引用。"
+  },
+  "icir停用阈值": {
+    "description": "ICIR（IC信息比率）低于此值时，系统建议停用该因子",
+    "value": -0.2,
+    "action": "recommend_disable",
+    "source_of_truth": "本文件(监控侧独立阈值, 非门禁准入)",
+    "note": "ICIR = mean(IC) / std(IC)，负值表示因子方向与收益反向；绝对值<0.2时统计显著性不足。注意: 这是【停用建议】阈值，与准入真源 ir_threshold=0.3 语义不同，勿混用为门禁判定。"
+  },
+  "ic_absolute停用阈值": {
+    "description": "近期IC绝对值低于此值时，标记为无效因子",
+    "value": 0.03,
+    "action": "flag_invalid",
+    "source_of_truth": "factor_gate_v2.GATE_CONFIG['ic_threshold']",
+    "note": "真源值 0.03；绝对值<0.03视为无预测能力。与 factor_ic_monitor.py IC_THRESHOLD 保持一致。"
+  },
+  "权重变化阈值": {
+    "description": "单次调权幅度超过此比例时，触发人工复核",
+    "change_pct": 20,
+    "action": "require_manual_review",
+    "window": "weekly",
+    "note": "周度权重变化超过20%即标记异常；防止因子权重剧烈跳变"
+  },
+  "连续冻结天数": {
+    "description": "因子连续被冻结/停用的天数阈值",
+    "freeze_days_threshold": 5,
+    "action_after_threshold": "escalate_to_human",
+    "note": "连续冻结5个交易日后，自动发送告警给风控负责人"
+  },
+  "因子状态枚举": {
+    "active": "正常，参与打分",
+    "invalid_ic": "IC绝对值<阈值，临时停用",
+    "negative_icir": "ICIR<-0.2，建议停用",
+    "frozen": "因权重异常变化被冻结",
+    "disabeld_explicit": "显式禁用（人工或历史原因）"
+  },
+  "阈值来源说明": {
+    "icir": "基于历史IC序列的统计显著性检验，-0.2对应p<0.05的双侧检验",
+    "ic_absolute": "经验阈值，A股因子IC通常0.03~0.08为有效区间",
+    "weight_change": "防止过拟合调权，参考phase2优化记录中权重稳定要求",
+    "freeze_days": "避免因子长期失效而未被人工关注"
+  }
+}

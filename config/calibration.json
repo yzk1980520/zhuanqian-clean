@@ -1,0 +1,5 @@
+{
+  "_note": "分型常数标定窗口外置 (P0-1, t_26bc26a5): 回测窗口滚动后, 重数W_TRADE_DAYS并更新CALIB_WINDOW须三方会签后改本文件; 门禁脚本 backtest/check_backtest_sanity.py 从这里读值, 不再硬编码。与引擎计算逻辑解耦。",
+  "w_trade_days": 1386,
+  "calib_window": ["2021-01-04", "2026-09-18"]
+}

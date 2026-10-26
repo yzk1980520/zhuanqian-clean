@@ -1,0 +1,26 @@
+{
+  "meeting_id": "2026-09-24T01:40:14.394066",
+  "topic": "永鼎卖出决策验证",
+  "context": "",
+  "participants": [
+    {
+      "role": "laosang",
+      "name": "老三",
+      "status": "failed",
+      "output": null
+    },
+    {
+      "role": "lawu",
+      "name": "老五",
+      "status": "failed",
+      "output": null
+    },
+    {
+      "role": "niuma",
+      "name": "牛马",
+      "status": "failed",
+      "output": null
+    }
+  ],
+  "report_generated": null
+}

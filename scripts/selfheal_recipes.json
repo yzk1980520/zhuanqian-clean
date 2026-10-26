@@ -1,0 +1,202 @@
+{
+  "_schema": "selfheal-recipes-v1",
+  "_note": "P-B4 幂等修复配方注册表 (20261024夜 @opencode 备好件, auto 开关关闭). 10/26 批次 @atomcode 按'见证≠修复人'总则独立验收三段式完整性后方可置 enabled=true. 非幂等件一律 dry_run_only. 10/24 02:4x @老六 P-T3 连接切片 +3 配方 (task_watchdog_enable/uv_store_repair/loop_restart_stale, 检测源=task_selfcheck T1/T3/C2, 实跑验证: ENABLE 幂等实证+uv 拷位实证+loop 重启 dry-run 预检, 详见 28f77bd0 后 commit).",
+  "gating": {
+    "auto_enable": false,
+    "enable_gate": "pending_atomcode_acceptance_20261026 (P-B4/P-C2/P-F1 三项合成故障对照实跑通过才放行)",
+    "witness_rule": "witness_must_differ_from_fixer",
+    "escalation": "failure -> feishu 5min SLA (台账 schema R5), 连续2次失败 -> P1 人工"
+  },
+  "recipes": [
+    {
+      "id": "refresh_extended_data",
+      "kind": "idempotent_auto",
+      "cmd": "D:\\open code\\zhuanqian\\.venv\\Scripts\\python.exe D:\\open code\\zhuanqian\\scripts\\refresh_extended_data.py",
+      "argv": [
+        "D:/open code/zhuanqian/.venv/Scripts/python.exe",
+        "D:/open code/zhuanqian/scripts/refresh_extended_data.py"
+      ],
+      "dry_run_flags": [
+        "--dry-run"
+      ],
+      "witness": "独立读盘: 目标文件 max_date 前进 + 复跑 dry-run updated=0 + stats.json appended_total 归零",
+      "fixes": "TDX .day -> data/history_daily 扩展库断写 (P1#5 型)",
+      "enabled": false,
+      "repair_class": "fixable",
+      "owner_slice": "data",
+      "exec_mode": "live_ok: 幂等, 0/0 时 0 写入; 写面=data/history_daily 扩展库, 实弹安全"
+    },
+    {
+      "id": "sync_holdings",
+      "kind": "idempotent_auto",
+      "cmd": "D:\\open code\\zhuanqian\\.venv\\Scripts\\python.exe D:\\open code\\zhuanqian\\scripts\\sync_holdings.py",
+      "argv": [
+        "D:/open code/zhuanqian/.venv/Scripts/python.exe",
+        "D:/open code/zhuanqian/scripts/sync_holdings.py"
+      ],
+      "dry_run_flags": [],
+      "witness": "独立读盘: C:/Users/WIN10/.quant-stock-picker/data/real_holdings.json mtime 前进 + 原子写验证字段 + updated_at 日期=当日",
+      "fixes": "QSP 真源陈价 (P1#3 型)",
+      "enabled": false,
+      "repair_class": "fixable",
+      "owner_slice": "data",
+      "exec_mode": "live_ok: 幂等原子写, QSP 真源 mtime 前进可验"
+    },
+    {
+      "id": "pr2_tencent_price",
+      "kind": "idempotent_auto",
+      "spec": "scripts/pr2_tencent_price_recipe.json",
+      "argv": [
+        "D:/open code/zhuanqian/.venv/Scripts/python.exe",
+        "D:/open code/zhuanqian/scripts/pr2_tencent_price_refresh.py"
+      ],
+      "digest": "@atomcode 46d941da (三段式: 幂等预检+原子写+独立见证, 10/23 06:45/16:13 两次实证)",
+      "fixes": "holdings 价刷新 cron 失败兜底",
+      "enabled": false,
+      "repair_class": "fixable",
+      "owner_slice": "risk",
+      "exec_mode": "live_ok: 幂等预检短路实锤 (WITNESS PASS 10/24), dry-run 先行"
+    },
+    {
+      "id": "daily_review",
+      "kind": "dry_run_only",
+      "cmd": "D:\\open code\\zhuanqian\\.venv\\Scripts\\python.exe D:\\open code\\zhuanqian\\scripts\\daily_review.py",
+      "argv": [
+        "D:/open code/zhuanqian/.venv/Scripts/python.exe",
+        "D:/open code/zhuanqian/scripts/daily_review.py"
+      ],
+      "witness": "输出'持仓:1只'+recommendation 非恒买入 (P0-1 修复后基线)",
+      "fixes": "无 (观察件, 复盘层读面一致性)",
+      "enabled": false,
+      "repair_class": "fixable",
+      "owner_slice": "code",
+      "exec_mode": "dry_run_only: 观察件, 读面不改盘"
+    },
+    {
+      "id": "task_watchdog_enable",
+      "kind": "idempotent_auto",
+      "cmd": "schtasks /Change /tn \"Hermes_GatewayHealthCheck\" /ENABLE",
+      "argv": [
+        "schtasks",
+        "/Change",
+        "/tn",
+        "Hermes_GatewayHealthCheck",
+        "/ENABLE"
+      ],
+      "dry_run_flags": [
+        "先查 State: 已 Ready = 幂等 no-op 成功 (10/23 21:08 非提权实证)"
+      ],
+      "detect_source": "task_selfcheck T1 (State=Disabled -> P0 触发本配方)",
+      "witness": "独立读回: Get-ScheduledTask State=Ready (异进程/异角色, 非修复方自检)",
+      "fixes": "看门狗任务 Disabled 自愈断供 (10/23 实案: 7.75h 静默断供, R5 防复发)",
+      "enabled": false,
+      "repair_class": "fixable",
+      "owner_slice": "connect",
+      "exec_mode": "live_ok: /ENABLE 非提权幂等实证"
+    },
+    {
+      "id": "uv_store_repair",
+      "kind": "idempotent_auto",
+      "cmd": "copy /Y \"D:\\Hermes agent\\Hermes Agent CN Desktop\\data\\hermes-home\\bin\\uv.exe\" \"D:\\Hermes agent\\Hermes Agent CN Desktop\\venv\\Scripts\\uv.exe\"",
+      "argv": [
+        "copy",
+        "/Y",
+        "D:/Hermes agent/Hermes Agent CN Desktop/data/hermes-home/bin/uv.exe",
+        "D:/Hermes agent/Hermes Agent CN Desktop/venv/Scripts/uv.exe"
+      ],
+      "dry_run_flags": [
+        "覆盖拷同字节=幂等; 拷后必跑见证命令"
+      ],
+      "detect_source": "C2 spawn 日志 'uv trampoline failed / entity not found' + venv/Scripts/uv.exe 缺失 (task_selfcheck 域外, spawn.log 扫荡)",
+      "witness": "独立读回: \"D:\\Hermes agent\\Hermes Agent CN Desktop\\venv\\Scripts\\uv.exe\" --version exit=0 (10/23 F1 实证 0.12.15)",
+      "fixes": "C2 uv trampoline 拉起失败 (10/20 立案, 10/23 F1 实修型)",
+      "enabled": false,
+      "repair_class": "fixable",
+      "owner_slice": "connect",
+      "exec_mode": "live_ok: 拷位幂等实证 (uv --version witness)"
+    },
+    {
+      "id": "loop_restart_stale",
+      "kind": "idempotent_auto",
+      "cmd": "taskkill /F /PID <loop_pid> && pythonw \"D:\\Hermes agent\\Hermes Agent CN Desktop\\data\\hermes-home\\scripts\\gateway_supervisor.py\" --ensure",
+      "argv": [
+        "taskkill",
+        "/F",
+        "/PID",
+        "<loop_pid>"
+      ],
+      "dry_run_flags": [
+        "预检 dry-run: 读 gateway_supervisor.loop 取 pid + 比 script_mtime vs scripts/gateway_supervisor.py mtime, code_stale=false 或 pid 死 = 跳过 (no-op); 仅 code_stale=true 才 kill+ensure"
+      ],
+      "detect_source": "task_selfcheck T3 (code_stale=true -> P1 触发本配方)",
+      "witness": "独立读回: loop 锁文件新 pid 存活 + 锁内 script_mtime >= 脚本当前 mtime + 首条 heartbeat=healthy (10/23 F2 实证: kill 20100 -> ensure 拉起 17468 全链)",
+      "fixes": "活 loop 代码过期 / 孤儿 loop 滞留 (10/23 20100/18944 实案型)",
+      "enabled": false,
+      "argv_stage2": [
+        "pythonw",
+        "D:/Hermes agent/Hermes Agent CN Desktop/data/hermes-home/scripts/gateway_supervisor.py",
+        "--ensure"
+      ],
+      "repair_class": "fixable",
+      "owner_slice": "connect",
+      "exec_mode": "RESTRICTED: 只走 dry-run 预检段 (code_stale=false→SKIP no-op) 或一次性牺牲进程; 禁止指向生产 loop (@laoliu 10/24 边界, 防误伤 T4 绿基线)"
+    },
+    {
+      "id": "ic_pollution_quarantine",
+      "kind": "dry_run_only",
+      "cmd": "D:\\open code\\zhuanqian\\.venv\\Scripts\\python.exe D:\\open code\\zhuanqian\\scripts\\ic_pollution_check.py",
+      "argv": [
+        "D:/open code/zhuanqian/.venv/Scripts/python.exe",
+        "D:/open code/zhuanqian/scripts/ic_pollution_check.py"
+      ],
+      "dry_run_flags": [],
+      "witness": "@laowu 独立重跑只读检测 read-back (见证人≠修复人; quarantine 件无自动修复动作, 见证=二次检测一致)",
+      "fixes": "P-F1 IC 权威源污染 (10/21 注入型): 命中=quarantine 隔离告警, 处置走人工会签重积累, 引擎不改 status (总则 R2)",
+      "enabled": false,
+      "repair_class": "quarantine",
+      "owner_slice": "factor",
+      "exec_mode": "dry_run_only: 隔离动作不自动修, witness=二次检测一致"
+    },
+    {
+      "id": "main_mirror_sync",
+      "kind": "idempotent_auto",
+      "cmd": "git push origin github-main:main && git branch -f main github-main (0/0 时 push=up-to-date 0 写入, branch -f 同 ref 幂等)",
+      "argv": [
+        "git",
+        "push",
+        "origin",
+        "github-main:main"
+      ],
+      "dry_run_flags": [],
+      "witness": "refdrift R1/R2 独立复读: main=github-main=origin/main 0/0 (P-C3 域输出即见证, @atomcode 10/26 验收口径)",
+      "fixes": "本地 main 镜像 ref 陈旧复发型 (10/24 凌晨手工对齐 4 次=重复工件, 收敛为 1 幂等配方)",
+      "enabled": false,
+      "repair_class": "fixable",
+      "owner_slice": "code",
+      "exec_mode": "argv段live_ok + stage2段RESTRICTED: 幂等 FF+push, 0/0 时 0 写入; 副作用=纯 push 无本地写面",
+      "stage2_argv": [
+        "git",
+        "branch",
+        "-f",
+        "main",
+        "github-main"
+      ],
+      "stage2_note": "R1 本地 main 镜像收口段。边界=RESTRICTED(机械面 -f 触发审批栅栏; 语义面 main 为 github-main 祖先时=纯 fast-forward 零历史重写, 与 loop_restart_stale 同构)。验收口径: 合成故障件跑完 live 后断言 = R2 0/0 + R1 至多1件 behind-P1(预期残留), 不得要求 refdrift 域 exit=0 (@laosan 10/24 口径)"
+    },
+    {
+      "id": "gov_metadata_wipe_drill",
+      "kind": "drill_fixture",
+      "cmd": "D:\\open code\\zhuanqian\\.venv\\Scripts\\python.exe D:\\open code\\zhuanqian\\scripts\\drill_gov_metadata_wipe.py",
+      "argv": [
+        "D:/open code/zhuanqian/.venv/Scripts/python.exe",
+        "D:/open code/zhuanqian/scripts/drill_gov_metadata_wipe.py"
+      ],
+      "witness": "零副作用实跑: 生产 factor_gate.json 未动 (mtime 不变) + RUL 独立源在场断言 pass",
+      "fixes": "无 (演练件): dev 通道再生冲掉溯源字段的合成故障, 验证 RUL 兜底网 (quarantine 语义: 冲掉只告警不修)",
+      "enabled": false,
+      "repair_class": "quarantine",
+      "owner_slice": "data",
+      "exec_mode": "live_ok: 纯读+tmp写面, 零生产副作用, 可实弹; @老五 10/24 建议件, @总管 治理口径裁定后转正 | C4-B 裁定(总管 10/24): owner_slice governance->data (单件不开类, 第2件同类时重开)"
+    }
+  ]
+}

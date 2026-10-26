@@ -1,0 +1,2 @@
+pass = False
+detail = gate_check.py exit=1, factor_gate.json gate_passed=False effective=1/8, factor_layer_enabled=False(config.json)

@@ -1,0 +1,39 @@
+{
+  "_说明": "交易分析团队流程状态清单。主理人每完成一个 phase 落盘后立即更新本文件（复制本模板到 <股票代码小写>/manifest.json）。中断恢复：主理人读本文件即可续跑，不重跑已完成阶段。本文件只记录研究流程状态，不碰 trade_log/holdings。",
+  "_写法": "用 atomic_json 语义整文件覆写；每落盘一个文件，把对应条目 done 改 true 并填 file/path 与 sha_短哈希可省略",
+  "code": "<股票代码>",
+  "name": "<股票名称>",
+  "mode": "完整模式|快速模式|辩论模式",
+  "started_at": "<YYYY-MM-DD HH:MM>",
+  "updated_at": "<YYYY-MM-DD HH:MM>",
+  "status": "running|paused|done|aborted",
+  "phases": {
+    "phase1": {
+      "market": {"done": false, "file": "phase1-market.md"},
+      "fundamentals": {"done": false, "file": "phase1-fundamentals.md"},
+      "news": {"done": false, "file": "phase1-news.md"},
+      "sentiment": {"done": false, "file": "phase1-sentiment.md", "note": "快速模式下标记 skipped"}
+    },
+    "phase2": {
+      "bull": {"done": false, "file": "phase2-bull.md"},
+      "bear": {"done": false, "file": "phase2-bear.md"},
+      "plan": {"done": false, "file": "phase2-plan.md"}
+    },
+    "phase3": {"trader": {"done": false, "file": "phase3-trader.md"}},
+    "phase4": {
+      "risk_aggressive": {"done": false, "file": "phase4-risk-aggressive.md"},
+      "risk_conservative": {"done": false, "file": "phase4-risk-conservative.md"},
+      "risk_neutral": {"done": false, "file": "phase4-risk-neutral.md"},
+      "final": {"done": false, "file": "phase4-final.md"}
+    },
+    "review": {"workbuddy": {"done": false, "file": "review-workbuddy.md", "verdict": "PASS|REJECT:理由"}}
+  },
+  "gates": {
+    "gate_p2_symmetry": "pending|PASS|REJECT:理由",
+    "gate_p3_pessimism": "pending|PASS|REJECT:理由",
+    "gate_p4_falsifiable": "pending|PASS|REJECT:理由"
+  },
+  "channel_registered": {"to_laowu": false, "task_id": null},
+  "conflicts_escalated": [],
+  "limitations": []
+}

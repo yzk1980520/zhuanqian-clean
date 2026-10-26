@@ -1,0 +1,28 @@
+{
+  "决策ID": "T-FAKEGREEN-20261008",
+  "时间戳": "2026-10-08T02:15:00+08:00",
+  "提案来源": "总管(基于 review-laowu-trial-gate-falsegreen-20261008.md)",
+  "数据窗口": "132扫描日, 历史全量历史数据, 共1233只股票, 317个日期",
+  "含退市股标记": true,
+  "engine_commit": "db9906b5",
+  "前后指标对照": {
+    "price_reversal_5d_IC": {
+      "before": 0.9742,
+      "after": -0.0201,
+      "description": "前视伪影消除，IC从虚假高值降至统计不显著水平"
+    },
+    "correlation_factor_target": {
+      "before": "~0.999 (机械相关)",
+      "after": -0.0551,
+      "description": "因子与未来收益无显著相关性，去前视验证通过"
+    },
+    "effective_factors": {
+      "before": 2,
+      "after": 1
+    }
+  },
+  "悲观场景损失": "price_reversal_5d 被冻结后，有效因子从2个降至1个，gate_check阈值要求8个，门禁维持false状态，实盘维持空仓不操作",
+  "失效触发条件": "重算后有效因子(1个) < 阈值(8个)，门禁持续false，禁止实盘开仓",
+  "评审人": "老五",
+  "验收结论": "老三完成执行，待老五+总管双签后合入"
+}
