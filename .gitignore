@@ -104,3 +104,56 @@ nul
 CON
 PRN
 AUX
+
+# Generated files
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+pip-wheel-metadata/
+setuptools-devel/
+
+# Test artifacts
+htmlcov/
+.coverage
+coverage.xml
+.pytest_cache/
+
+# Backup files
+*.bak
+*.bak_*
+*.backup.*
+backups/
+
+# Local data (runtime)
+data/
+!data/*.json
+data/factor_registry/
+
+# Logs
+logs/
+*.log
+
+# Large archives
+*.zip
+*.tar.gz
+*.7z
+__test_export.csv
+
+# Worktrees
+.worktrees/
+.cache/
+
+# AOCI
+.aoci/
+aoci.txt
+aoci.code.txt
+aoci.meta.txt
+
+# Workbuddy
+.workbuddy/

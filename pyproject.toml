@@ -1,0 +1,100 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "zhuanqian"
+version = "2.4.0"
+description = "A股单票轮动选股系统 - 全仓1只+移动止盈吃大波段"
+requires-python = ">=3.11"
+license = {text = "Private"}
+
+dependencies = [
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+    "scipy>=1.10.0",
+    "scikit-learn>=1.2.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "requests>=2.28.0",
+    "python-dateutil>=2.8.0",
+    "pyyaml>=6.0",
+    "json5>=0.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-xdist>=3.0.0",
+    "flake8>=6.0.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.0.0",
+]
+backtest = [
+    "numba>=0.57.0",
+    "ta-lib>=0.4.0",
+]
+ml = [
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["scripts*", "core*", "tests*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "scripts"]
+pythonpath = ["."]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "environment_dependent: requires local hermes binary or data files",
+    "integration: integration tests requiring external services",
+    "ic: factor IC calculation tests",
+    "backtest: backtest engine tests",
+    "risk: risk control module tests",
+    "selection: stock selection pipeline tests",
+]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::PendingDeprecationWarning",
+]
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.pytest_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | archive/deprecated
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+multi_line_output = 3
+skip = ["archive/deprecated"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+exclude = ["archive/deprecated", "tests"]
