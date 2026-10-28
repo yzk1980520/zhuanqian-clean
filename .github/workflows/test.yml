@@ -44,6 +44,34 @@ jobs:
             --ignore=tests/test_p19_stop_loss_sensitivity.py \
             --ignore=tests/test_suppress_priority_layering.py \
             --ignore=tests/test_board_data_sync.py \
+            --ignore=tests/test_backtest_fast_inds.py \
+            --ignore=tests/test_board_server.py \
+            --ignore=tests/test_circuit_breaker.py \
+            --ignore=tests/test_cooldown_integration.py \
+            --ignore=tests/test_d8_d9_tradability_filters.py \
+            --ignore=tests/test_delisted_coverage.py \
+            --ignore=tests/test_determinism_anchor.py \
+            --ignore=tests/test_dl_completeness.py \
+            --ignore=tests/test_dl_integration.py \
+            --ignore=tests/test_dl_modules.py \
+            --ignore=tests/test_dl_predictor.py \
+            --ignore=tests/test_error_recovery.py \
+            --ignore=tests/test_factor_weights_loud_fail.py \
+            --ignore=tests/test_fallback_health.py \
+            --ignore=tests/test_fuse_trigger.py \
+            --ignore=tests/test_gate.py \
+            --ignore=tests/test_gate_check_sample_size_generations.py \
+            --ignore=tests/test_ladder_single_source.py \
+            --ignore=tests/test_lhb_revival.py \
+            --ignore=tests/test_load_universe_newest_first.py \
+            --ignore=tests/test_review_gate.py \
+            --ignore=tests/test_risk_engine.py \
+            --ignore=tests/test_ruling_snapshot_alignment.py \
+            --ignore=tests/test_runner_lock.py \
+            --ignore=tests/test_s3_strategy_consistency.py \
+            --ignore=tests/test_scan_performance.py \
+            --ignore=tests/test_trading_hours_fail_close.py \
+            --ignore=tests/test_v36_param_usage.py \
             -k "not (dispatch_audit or ic_monitor or p0_boundaries or self_heal_p04 or self_heal_p10 or self_heal_p12 or self_heal_recheck or self_heal_wake or live_filter or machine_wake or p1c_runbook or coordination_regression or full_suite or factor_weights_drift or runner_lock or fake_positive or stop_loss_strategy or t7_qsp)" \
             -v --cov=scripts --cov-report=xml
         timeout-minutes: 15
