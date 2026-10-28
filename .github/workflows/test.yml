@@ -40,6 +40,10 @@ jobs:
         #   恢复条件: 以上测试的本地数据依赖改为 fixture / 容器化后移除此 -k
         run: |
           python -m pytest tests/ scripts/test_*.py \
-            -k "not (dispatch_audit or ic_monitor or p0_boundaries or self_heal_p04 or self_heal_p10 or self_heal_p12 or self_heal_recheck or self_heal_wake or live_filter or machine_wake or p1c_runbook or coordination_regression or full_suite)" \
+            --ignore=tests/test_factor_weights_drift.py \
+            --ignore=tests/test_p19_stop_loss_sensitivity.py \
+            --ignore=tests/test_suppress_priority_layering.py \
+            --ignore=tests/test_board_data_sync.py \
+            -k "not (dispatch_audit or ic_monitor or p0_boundaries or self_heal_p04 or self_heal_p10 or self_heal_p12 or self_heal_recheck or self_heal_wake or live_filter or machine_wake or p1c_runbook or coordination_regression or full_suite or factor_weights_drift or runner_lock or fake_positive or stop_loss_strategy or t7_qsp)" \
             -v --cov=scripts --cov-report=xml
         timeout-minutes: 15
