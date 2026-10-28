@@ -1,6 +1,10 @@
-# CI 专用最小依赖 (2026-10-15 老六修复)
-# 背景: scripts/test_*.py 的 AST 全量扫描显示测试第三方依赖仅 numpy + requests,
-# 原 requirements.txt 全量安装(akshare/pytdx/scipy/statsmodels 等)在 GitHub
-# runner 上耗时且高频失败, 是 checks 0/1 的成因之一
+# CI 专用最小依赖 (2026-10-28 扩展 tests/ 覆盖)
+# 背景: 原仅 scripts/test_*.py (numpy+requests), 现扩展 tests/ 目录
+# tests/ 实际导入: numpy/pandas/psutil/pyarrow/yaml + 内部模块 (core/backtest/scripts)
+# 不含: akshare/pytdx/scipy/statsmodels/evidently (需本地数据/网络, -k 已排除)
 numpy>=1.24
+pandas>=2.0
+psutil>=5.9
+pyarrow>=14.0
 requests>=2.31
+PyYAML>=6.0

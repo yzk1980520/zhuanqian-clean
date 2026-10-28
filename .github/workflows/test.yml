@@ -32,9 +32,14 @@ jobs:
           pip install pytest pytest-cov
         timeout-minutes: 10
 
-      - name: Run tests (exclude environment-dependent)
+      - name: Run tests (tests/ + scripts/, exclude environment-dependent)
+        # 排除原因 (2026-10-28 审查记录):
+        #   dispatch_audit / ic_monitor / p0_boundaries / self_heal_* /
+        #   live_filter / machine_wake / p1c_runbook / coordination_regression /
+        #   full_suite → 需 hermes 二进制 / 本地数据文件 / 网络数据源, CI runner 不可用
+        #   恢复条件: 以上测试的本地数据依赖改为 fixture / 容器化后移除此 -k
         run: |
-          python -m pytest scripts/test_*.py \
+          python -m pytest tests/ scripts/test_*.py \
             -k "not (dispatch_audit or ic_monitor or p0_boundaries or self_heal_p04 or self_heal_p10 or self_heal_p12 or self_heal_recheck or self_heal_wake or live_filter or machine_wake or p1c_runbook or coordination_regression or full_suite)" \
             -v --cov=scripts --cov-report=xml
-        timeout-minutes: 10
+        timeout-minutes: 15

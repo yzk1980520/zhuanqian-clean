@@ -20,8 +20,6 @@ if __name__ == "__main__":
     # 新入口为 apps/desktop/release/win-unpacked/Hermes.exe (取自桌面快捷方式解析, 09-23 构建)
     DESKTOP_EXE = 'D:/Hermes agent/Hermes Agent CN Desktop/apps/desktop/release/win-unpacked/Hermes.exe'
     # S6 基地化：原根目录 hardcoded 路径，现改为基于模块位置的相对路径
-_PROJECT_FILE = Path(__file__).resolve()
-PROJECT = str(_PROJECT_FILE.parents[2])  # core/ops/ -> core/ -> project root
     
     print("=" * 60)
     print("  Hermes CN Desktop 完全重启")
@@ -32,10 +30,10 @@ PROJECT = str(_PROJECT_FILE.parents[2])  # core/ops/ -> core/ -> project root
     killed = 0
     for p in psutil.process_iter(['pid', 'name']):
         try:
-            if 'hermes' in p.info['name'].lower():
+            if 'hermes' in p.info.get('name','').lower():
                 p.kill()
                 killed += 1
-                print(f"  ✝  PID {p.info['pid']} {p.info['name']}")
+                print(f"  ✝  PID {p.info['pid']} {p.info.get('name','')}")
         except Exception as e:
             # P0-2修复: 杀单个进程失败打debug(不影响继续遍历)
             logger.debug("终止单个进程失败 pid=%s: %s", getattr(p.info, 'get', lambda *_: '?')('pid'), e)
@@ -48,7 +46,7 @@ PROJECT = str(_PROJECT_FILE.parents[2])  # core/ops/ -> core/ -> project root
         survivors = []
         for p in psutil.process_iter(['pid', 'name']):
             try:
-                if 'hermes' in p.info['name'].lower():
+                if 'hermes' in p.info.get('name','').lower():
                     survivors.append(p.info['pid'])
             except Exception as e:
                 # P0-2修复: 不再空吞
@@ -64,14 +62,17 @@ PROJECT = str(_PROJECT_FILE.parents[2])  # core/ops/ -> core/ -> project root
     cleaned = 0
     
     # Gateway & PID files (容错: 单文件被占用/删除失败只警告跳过, 不中断重启流程)
-    for f in os.listdir(HERMES_HOME):
-        if f.startswith('gateway') and f.endswith(('.pid', '.lock', '.json', '.log')):
-            fp = os.path.join(HERMES_HOME, f)
-            try:
-                os.remove(fp)
-                cleaned += 1
-            except OSError as e:
-                print(f"  ⚠ 跳过 {f}: {e}")
+    if os.path.isdir(HERMES_HOME):
+        for f in os.listdir(HERMES_HOME):
+            if f.startswith('gateway') and f.endswith(('.pid', '.lock', '.json', '.log')):
+                fp = os.path.join(HERMES_HOME, f)
+                try:
+                    os.remove(fp)
+                    cleaned += 1
+                except OSError as e:
+                    print(f"  ⚠ 跳过 {f}: {e}")
+    else:
+        print(f"  ⚠ HERMES_HOME 不存在: {HERMES_HOME}")
 
     # Cron locks
     cron_dir = os.path.join(HERMES_HOME, 'cron')
