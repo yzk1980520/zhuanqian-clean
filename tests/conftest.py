@@ -1,6 +1,7 @@
-# CI 环境依赖排除 (2026-10-28)
-# 以下测试文件因缺失本地数据文件/模块/Windows路径，在 CI runner 上无法运行
-# 恢复条件: 模块迁入仓库或路径相对化后移除对应条目
+"""Pytest fixtures for laya tests + CI 环境依赖排除 (2026-10-28)"""
+import os
+import pytest
+
 collect_ignore = [
     "test_5_transitions.py",
     "test_a12_assertion_effectiveness.py",
@@ -106,3 +107,24 @@ collect_ignore = [
     "test_ic_monitor_guard.py",
     "test_weekly_report_fake_positive.py",
 ]
+
+@pytest.fixture(scope="session")
+def model_path():
+    """获取本地模型路径"""
+    return os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+        "models", "laya-typed-decisions"
+    )
+
+
+@pytest.fixture
+def agent(model_path):
+    """加载测试用的 Agent"""
+    import sys
+    os.environ['USE_TF'] = '0'
+    
+    if not os.path.exists(model_path):
+        pytest.skip("Local model not found")
+    
+    from laya.agent import Agent
+    return Agent(model_path)
