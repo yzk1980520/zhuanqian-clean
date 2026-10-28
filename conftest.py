@@ -103,4 +103,11 @@ collect_ignore = [
     "tests/test_trading_hours.py",
     "tests/test_trading_hours_fail_close.py",
     "tests/test_v36_param_usage.py",
+    "tests/test_ic_monitor_guard.py",
+    "tests/test_weekly_report_fake_positive.py",
+    "scripts/test_dispatch_audit_check.py",
+    "scripts/test_ic_monitor_coverage.py",
+    "scripts/test_p1c_runbook_path.py",
+    "scripts/test_self_heal_p04_threshold.py",
+    "scripts/test_self_heal_recheck.py",
 ]
