@@ -219,8 +219,7 @@ def main():
     # 4. 执行选股（交易时段防护：非交易时段只出候选池不动仓）
     print("【步骤4】执行选股...")
     # S6: 非交易时段 dry_run 告警，选股仍出候选池
-    _now = datetime.now()
-    _in_session = is_trading_hours(_now)
+    # 复用步骤3c 的 _in_session 判定 (L193), 避免中间延迟导致两次结果不一致
     if not _in_session:
         print(f"  ⚠️ 非交易时段，选股仅出候选池（dry_run 告警）")
     try:

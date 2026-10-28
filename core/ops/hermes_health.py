@@ -1,16 +1,15 @@
-import os
 import sys
 # 强制 stdout utf-8(errors=replace), 防 gbk 控制台打印 emoji/特殊字符崩 (同源修复 laowu_monitor)
 try:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 except Exception:
     pass
-import sys
+
 """hermes_health.py — Hermes CN Desktop 彻底重启工具
 功能：杀进程 → 清残留(锁/PID/Gateway日志/cron锁) → 重启桌面
 """
-import psutil, os, time, subprocess, glob, logging
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import os
+import psutil, time, subprocess, glob, logging
 
 if __name__ == "__main__":
     logger = logging.getLogger("hermes_health")
@@ -19,8 +18,7 @@ if __name__ == "__main__":
     # 2026-09-27 修: 旧路径 hermes-agent-cn-desktop.exe 因应用更新失败已消失,
     # 新入口为 apps/desktop/release/win-unpacked/Hermes.exe (取自桌面快捷方式解析, 09-23 构建)
     DESKTOP_EXE = 'D:/Hermes agent/Hermes Agent CN Desktop/apps/desktop/release/win-unpacked/Hermes.exe'
-    # S6 基地化：原根目录 hardcoded 路径，现改为基于模块位置的相对路径
-    
+    # NOTE: HERMES_HOME/DESKTOP_EXE 仍为 Windows 绝对路径 (仅本机可运行, 非移植场景)
     print("=" * 60)
     print("  Hermes CN Desktop 完全重启")
     print("=" * 60)
